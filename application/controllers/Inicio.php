@@ -11,29 +11,26 @@ class Inicio extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('teste');
-		// $this->load->view('login/index');
+		$dados['title'] = 'Inicio';
+		$this->template->load("template/main", "inicio/index", $dados);
 	}
 
 	public function acessar()
-	{	
+	{
 
-		$data['email'] = 'tales.oliveira@alunos.fho.edu.br';
-		$data['senha'] = 'abacate';
+		$data = $this->input->post();
 
 		$this->load->model('Usuario_Model');
 		$usuario = $this->Usuario_Model->where('email', $data['email'])->fields(array('senha','email', 'nome'))->get();
 
-		var_dump($usuario);
-
 		if (password_verify($data['senha'], $usuario['senha'])) {
-			$values = array('nome' => $usuario['nome']);
+			$values = array('nome' => $usuario['nome'], 'logado' => true);
 			$this->session->set_userdata($values);
+			redirect('inicio');
 		} else {
-			echo "senha errada";
+			redirect('sair');
 		}
 
-		//password_hash('abacate', PASSWORD_DEFAULT);
 	}
 
 	public function sair()
