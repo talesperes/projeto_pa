@@ -20,25 +20,10 @@ class Cadastro extends CI_Controller {
 
 		$data = $this->input->post();
 
-		$values = array('nome' => $data['nome'], 'sexo' => $data['sexo'], 'email' => $data['email'], 'celular' => $data['celular'], 'nascimento' => $data['data_nascimento'], 'senha' => password_hash($data['senha'], PASSWORD_DEFAULT));
+		$values = array('nome' => $data['nome'], 'sexo' => $data['sexo'], 'email' => $data['email'], 'nascimento' => $data['data_nascimento'], 'cidade' => $data['cidade'], 'telefone' => $data['telefone'], 'estado' => $data['estado'],'instagram' => $data['instagram'],'twitter' => $data['twitter'],'linkedin' => $data['linkedin'],'facebook' => $data['facebook'], 'github' => $data['github'], 'senha' => password_hash($data['senha'], PASSWORD_DEFAULT));
 
 		$this->load->model("Usuario_Model");
 		$usuario = $this->Usuario_Model->insert($values);
 
-		if ($usuario) {
-			
-			$this->load->model('RedesSociais_Model');
-
-			$valuesRedesSociais = array('instagram' => $data['instagram'], 'facebook' => $data['facebook'], 'twitter' => $data['twitter']);
-			$this->RedesSociais_Model->insert($valuesRedesSociais);
-
-			$response = '200';
-		}
-		else
-			$response = '400';
-
-		echo json_encode($response);
-
 	}
-
 }

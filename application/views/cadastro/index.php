@@ -20,24 +20,24 @@
                                     <h2 class="fs-title text-primary">Dados Pessoais</h2>
                                     <div class="form-group">
 										<label>Nome Completo</label>
-									    <input type="text" id="nome" name="nome" class="form-control">						    
+									    <input type="text" id="nome" name="nome" class="form-control validate-stepper">						    
 								    </div>
 								    <div class="form-group">
-										<label>Celular</label>
-									    <input type="text" id="celular" name="celular" class="form-control">						    
+										<label>Telefone</label>
+									    <input type="text" id="telefone" name="telefone" class="form-control validate-stepper">						    
 								    </div>
 	                                <div class="form-group">
 								    	<div class="form-row">
 								    		<div class="col-md-6 mb-2">
 			                                    <label>Sexo</label>
-			                                    <select id="sexo" name="sexo" class="form-control">
+			                                    <select id="sexo" name="sexo" class="form-control validate-stepper">
 			                                    	<option value="F">Feminino</option>
 			                                    	<option value="M">Masculino</option>
 			                                    </select>
 			                                </div>
 			                                <div class="col-md-6">
 			                                    <label>Data de Nascimento</label>
-			                                    <input type="date" id="data_nascimento" name="data_nascimento" class="form-control">
+			                                    <input type="date" id="data_nascimento" name="data_nascimento" class="form-control validate-stepper">
 			                                </div>
 			                            </div>
 	                                </div>
@@ -46,38 +46,41 @@
 								    	<div class="form-row pt-2">
 								    		<div class="col-md-8 mb-2">
 			                                    <label>Cidade</label>
-			                                    <input type="text" id="cidade" name="cidade" class="form-control">
+			                                    <select id="cidade" name="cidade" class="form-control validate-stepper">
+			                                    	<option value="">-</option>
+			                                    </select>
 			                                </div>
 			                                <div class="col-md-4">
 			                                    <label>Estado</label>
-			                                    <select id="estado" name="estado" class="form-control">
-			                                    	<option value="AC">AC</option>
-			                                    	<option value="AL">AL</option>
-			                                    	<option value="AP">AP</option>
-			                                    	<option value="AM">AM</option>
-			                                    	<option value="BA">BA</option>
-			                                    	<option value="CE">CE</option>
-			                                    	<option value="DF">DF</option>
-			                                    	<option value="ES">ES</option>
-			                                    	<option value="GO">GO</option>
-			                                    	<option value="MA">MA</option>
-			                                    	<option value="MT">MT</option>
-			                                    	<option value="MS">MS</option>
-			                                    	<option value="MG">MG</option>
-			                                    	<option value="PA">PA</option>
-			                                    	<option value="PB">PB</option>
-			                                    	<option value="PR">PR</option>
-			                                    	<option value="PE">PE</option>
-			                                    	<option value="PI">PI</option>
-			                                    	<option value="RJ">RJ</option>
-			                                    	<option value="RN">RN</option>
-			                                    	<option value="RS">RS</option>
-			                                    	<option value="RO">RO</option>
-			                                    	<option value="RR">RR</option>
-			                                    	<option value="SC">SC</option>
-			                                    	<option value="SP">SP</option>
-			                                    	<option value="SE">SE</option>
-			                                    	<option value="TO">TO</option>
+			                                    <select id="estado" name="estado" class="form-control validate-stepper">
+			                                    	<option value="">Selecione um Estado</option>
+			                                    	<option value="AC">Acre</option>
+																<option value="AL">Alagoas</option>
+																<option value="AP">Amapá</option>
+																<option value="AM">Amazonas</option>
+																<option value="BA">Bahia</option>
+																<option value="CE">Ceará</option>
+																<option value="DF">Distrito Federal</option>
+																<option value="ES">Espírito Santo</option>
+																<option value="GO">Goiás</option>
+																<option value="MA">Maranhão</option>
+																<option value="MT">Mato Grosso</option>
+																<option value="MS">Mato Grosso do Sul</option>
+																<option value="MG">Minas Gerais</option>
+																<option value="PA">Pará</option>
+																<option value="PB">Paraíba</option>
+																<option value="PR">Paraná</option>
+																<option value="PE">Pernambuco</option>
+																<option value="PI">Piauí</option>
+																<option value="RJ">Rio de Janeiro</option>
+																<option value="RN">Rio Grande do Norte</option>
+																<option value="RS">Rio Grande do Sul</option>
+																<option value="RO">Rondônia</option>
+																<option value="RR">Roraima</option>
+																<option value="SC">Santa Catarina</option>
+																<option value="SP">São Paulo</option>
+																<option value="SE">Sergipe</option>
+																<option value="TO">Tocantins</option>
 			                                    </select>
 			                                </div>
 			                            </div>
@@ -98,8 +101,8 @@
 			                                    <input type="text" id="facebook" name="facebook" class="form-control">
 			                                </div>
 			                                <div class="col-md-3">
-			                                    <label><i class="fab fa-youtube"></i> Youtube</label>
-			                                    <input type="text" id="youtube" name="youtube" class="form-control">
+			                                    <label><i class="fab fa-github"></i> GitHub</label>
+			                                    <input type="text" id="github" name="github" class="form-control">
 			                                </div>
 			                            </div>
 	                                </div>
@@ -107,65 +110,66 @@
                                 <input type="button" name="next" class="next action-button" value="Continuar">
                             </fieldset>
                             <fieldset>
-                                <div class="form-card">
+                            	<div id="div_escolaridade">
+                                <div class="form-card dados-escolaridade">
                                     <h2 class="fs-title text-primary">Escolaridade</h2>
                                     <div class="form-group">
-										<label>Nível de Escolaridade</label>
-									    <select id="nivel_escolaridade" name="nivel_escolaridade" class="form-control">
-									    	<option value="Ensino Médio Incompleto">Ensino Médio Incompleto</option>
-									    	<option value="Ensino Médio Completo">Ensino Médio Completo</option>
-									    	<option value="Superior Incompleto">Superior Incompleto</option>
-									    	<option value="Superior Completo">Superior Completo</option>
-									    	<option value="Cursando Técnico">Cursando Técnico</option>
-									    </select>						    
-								    </div>
+													<label>Nível de Escolaridade</label>
+									   			<select id="nivel_escolaridade" name="nivel_escolaridade" class="form-control">
+												    	<option value="Ensino Médio Incompleto">Ensino Médio Incompleto</option>
+												    	<option value="Ensino Médio Completo">Ensino Médio Completo</option>
+												    	<option value="Superior Incompleto">Superior Incompleto</option>
+												    	<option value="Superior Completo">Superior Completo</option>
+												    	<option value="Cursando Técnico">Cursando Técnico</option>
+												    </select>						    
+											    </div>
 
-								    <div class="form-group">
-										<label>Instituição</label>
-									    <input type="text" id="instituicao" name="instituicao" class="form-control">						    
-								    </div>
-								    <div class="form-group">
+											   <div class="form-group">
+													<label>Instituição</label>
+												   <input type="text" id="instituicao" name="instituicao" class="form-control">						    
+											   </div>
+								    			<div class="form-group">
 	                                    <label>Curso</label>
-								    	<input type="text" id="curso" name="curso" class="form-control">
-		                            </div>
-		                            <div class="form-group">
-		                            	<div class="form-row">
-			                            	<div class="col-md-6 mb-2">
-			                                    <label>Ano de Início</label>   
-												<select id="ano_inicio" name="ano_inicio" class="form-control">
-												    <option>Selecionar</option>
-											     </select>
-			                                </div>
-			                                <div class="col-md-6">
-			                                    <label>Ano de Conclusão</label>   
-												<select id="ano_conclusao" name="ano_conclusao" class="form-control">
-												    <option>Selecionar</option>
-											     </select>
-			                                </div>
-			                            </div>
-		                            </div>
+								    				<input type="text" id="" name="" class="curso form-control">
+		                           	</div>
+		                           	<div class="form-group">
+		                            		<div class="form-row">
+				                            	<div class="col-md-6 mb-2">
+				                                 <label>Ano de Início</label>   
+															<select id="ano_inicio" name="ano_inicio" class="form-control">
+													   		<option>Selecionar</option>
+												      	</select>
+				                              </div>
+				                              <div class="col-md-6">
+				                                 <label>Ano de Conclusão</label>   
+															<select id="ano_conclusao" name="ano_conclusao" class="form-control">
+												    			<option>Selecionar</option>
+											     			</select>
+				                              </div>
+			                            	</div>
+		                           	</div>
+												<div class="row">
+													<div class="col-md-12 text-right">
+														<div class="add_escolaridade btn btn-primary" style="border-radius: 30px;">+</div>
+													</div>
+												</div>
 
+											</div>
 
-									<div class="row">
-										<div class="col-md-12 text-right">
-											<button class="btn btn-primary" style="border-radius: 30px;">+</button>
-										</div>
-									</div>
-
-                                </div> 
+                                </div> <!-- aqui -->
                                 <input type="button" name="previous" class="previous action-button-previous" value="Voltar"> 
                                 <input type="button" name="next" class="next action-button" value="Continuar">
-                            </fieldset>
-                            <fieldset>
-                                <div class="form-card">
+                           </fieldset>
+                           <fieldset>
+                              <div class="form-card">
                                     <h2 class="fs-title text-primary">Dados de Login</h2>
                                     <div class="form-group">
 										<label>Email</label>
-									    <input type="email" id="email" name="email" class="form-control">						    
+									    <input type="email" id="email" name="email" class="form-control validate-stepper">						    
 								    </div>
 								    <div class="form-group">
 										<label>Senha</label>
-									    <input type="password" id="senha" name="senha" class="form-control">						    
+									    <input type="password" id="senha" name="senha" class="form-control validate-stepper">						    
 								    </div>
 								    <div class="form-group">
 										<label>Confirme sua senha</label>
@@ -187,17 +191,19 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="form-card" id="cadastro-erro" hidden>
-                                    <h2 class="fs-title text-center mb-0">Erro!</h2> <br><br>
+                                    <h2 class="fs-title text-center mb-0">Não foi possível concluir seu cadastro</h2> <br><br>
                                     <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="<?=site_url('assets/imagens/check.png')?>" class="fit-image"> </div>
+                                        <div class="col-3"> <img src="<?=base_url('assets/imagens/error.png')?>" class="fit-image"> </div>
                                     </div> <br><br>
                                     <div class="row justify-content-center">
                                         <div class="col-7 text-center">
-                                            <h5>Erro ao realizar o cadastro. Tente novamente mais tarde!</h5>
+                                            <h5>Tente novamente mais tarde.</h5>
                                         </div>
                                     </div>
                                 </div>
+
                             </fieldset>
                         </form>
                     </div>
@@ -208,25 +214,70 @@
 </div>
 <script type="text/javascript">
 
+	$(document).on('click','.add_escolaridade', function() {
+
+		var html =	'<div class="form-card dados-escolaridade">'+
+	         '<h2 class="fs-title text-primary">Escolaridade</h2>'+
+	         '<div class="form-group">'+
+					'<label>Nível de Escolaridade</label>'+
+	   			'<select id="nivel_escolaridade" name="nivel_escolaridade" class="form-control">'+
+				    	'<option value="Ensino Médio Incompleto">Ensino Médio Incompleto</option>'+
+				    	'<option value="Ensino Médio Completo">Ensino Médio Completo</option>'+
+				    	'<option value="Superior Incompleto">Superior Incompleto</option>'+
+				    	'<option value="Superior Completo">Superior Completo</option>'+
+				    	'<option value="Cursando Técnico">Cursando Técnico</option>'+
+				    '</select>'+
+			    '</div>'+
+			   '<div class="form-group">'+
+					'<label>Instituição</label>'+
+				   '<input type="text" id="instituicao" name="instituicao" class="form-control">'+				    
+			   '</div>'+
+	 			'<div class="form-group">'+
+	            '<label>Curso</label>'+
+	 				'<input type="text" id="" name="" class="curso form-control">'+
+	      	'</div>'+
+	      	'<div class="form-group">'+
+	       		'<div class="form-row">'+
+	             	'<div class="col-md-6 mb-2">'+
+	                  '<label>Ano de Início</label>'+
+							'<select id="ano_inicio" name="ano_inicio" class="form-control">'+
+					   		'<option>Selecionar</option>'+
+				      	'</select>'+
+	               '</div>'+
+	               '<div class="col-md-6">'+
+	                  '<label>Ano de Conclusão</label>'+
+							'<select id="ano_conclusao" name="ano_conclusao" class="form-control">'+
+				    			'<option>Selecionar</option>'+
+			     			'</select>'+
+	               '</div>'+
+	          	'</div>'+
+	      	'</div>'+
+				'<div class="row">'+
+					'<div class="col-md-12 text-right">'+
+						'<div class="add_escolaridade btn btn-primary" style="border-radius: 30px;">+</div>'+
+					'</div>'+
+				'</div>'+
+			'</div>';
+
+		$("#div_escolaridade").append(html);
+		$(this).remove();
+	});
+
 	$( "#btnCadastro" ).click(function() {
 		var sendData = {};
 
 		sendData.escolaridade = $("#escolaridade").val();
 		sendData.nome = $("#nome").val();
-		sendData.celular = $("#celular").val();
+		sendData.telefone = $("#telefone").val();
 		sendData.sexo = $("#sexo").val();
-		sendData.data_nascimento = $("#data_nascimento").val();
-		sendData.cidade = $("#cidade").val();
-		sendData.estado = $("#estado").val();
-		sendData.instagram = $("#instagram").val();
-		sendData.twitter = $("#twitter").val();
-		sendData.facebook = $("#facebook").val();
-		sendData.youtube = $("#youtube").val();
-		sendData.nivel_escolaridade = $("#nivel_escolaridade").val();
-		sendData.instituicao = $("#instituicao").val();
-		sendData.curso = $("#curso").val();
-		sendData.ano_inicio = $("#ano_inicio").val();
-		sendData.ano_conclusao = $("#ano_conclusao").val();
+		sendData.data_nascimento = $("#data_nascimento").val(); 
+		sendData.cidade = $("#cidade").val(); 
+		sendData.estado = $("#estado").val(); 
+		sendData.instagram = $("#instagram").val(); 
+		sendData.twitter = $("#twitter").val(); 
+		sendData.facebook = $("#facebook").val();  
+		sendData.linkedin = '';  
+		sendData.github = $("#github").val();  
 		sendData.email = $("#email").val();
 		sendData.senha = $("#senha").val();
 		sendData.senha_confirm = $("#senha_confirm").val();
@@ -236,22 +287,32 @@
 		$.ajax({
 	    	type:"POST",
 	        cache:false,
-	        url:"<?=base_url('Cadastro/cadastrar')?>",
+	        url:"<?=site_url('Cadastro/cadastrar')?>",
 	        data:sendData,
-	        success: function (response) {
-	        	console.log(response);
-	        	console.log('sucesso');
-	        	if(response == "200") {
-	        		console.log('aqui1');
-	        		$("#cadastro-ok").removeAttr('hidden');
-	        	} else if (response == "400") {
-	        		console.log('aqui2');
-	        		$("#cadastro-erro").removeAttr('hidden');
-	        	}
-	        }
-	    });
+	        success: function () {
+        		$("#cadastro-ok").removeAttr('hidden');
+	        },
+	        error: function () {
+        		$("#cadastro-erro").removeAttr('hidden');
+		    }
+	   });
 
 	});
-
 	
+</script>
+<script>
+	$(function() {
+		$('#estado').change(function() {
+			var estado = $(this).val(); 
+			$('#cidade').children().remove();
+	
+			if (estado != '') {
+				$.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados/' + estado + '/distritos', function(data) {
+					$.each(data, function(indice, valor) {
+						$('#cidade').append('<option value="' + valor.nome + '">' + valor.nome + '</option>');
+					});
+				})
+			}
+		})
+	}, (jQuery));
 </script>

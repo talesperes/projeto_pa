@@ -4,23 +4,23 @@
 	<meta charset="utf-8">
 	<title><?=(!empty($title) ? $title : 'Projeto PA')?></title>
 	<!-- BOOTSTRAP -->
-  <link href="<?=site_url('assets/css/bootstrap.css')?>" rel="stylesheet">
-	<link href="<?=site_url('assets/css/stepper.css')?>" rel="stylesheet">
+  <link href="<?=base_url('assets/css/bootstrap.css')?>" rel="stylesheet">
+	<link href="<?=base_url('assets/css/stepper.css')?>" rel="stylesheet">
 	<!-- FONT AWESOME -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   <!-- JAVASCRIPT -->
-  <script src="<?=site_url('assets/js/jquery-3.4.1.js')?>"></script>
-  <script src="<?=site_url('assets/js/bootstrap.js')?>"></script>
-  <script src="<?=site_url('assets/js/stepper.js')?>"></script>
+  <script src="<?=base_url('assets/js/jquery-3.4.1.js')?>"></script>
+  <script src="<?=base_url('assets/js/bootstrap.js')?>"></script>
+  <script src="<?=base_url('assets/js/stepper.js')?>"></script>
 </head>
 <body>
 	
 <!-- HEADER -->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning py-0">
 
-  <a class="navbar-brand" href="index.php">
-  	<img src="<?=site_url('assets/imagens/logo.png')?>">
+  <a class="navbar-brand" href="<?=site_url('inicio')?>">
+  	<img src="<?=base_url('assets/imagens/logo.png')?>">
   </a>
 
   <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,22 @@
   			</button>
         	</li>
       </ul>
+    <?php else:?>
+      <ul class="navbar-nav ml-auto mt-lg-0 mt-md-0 mr-lg-4">
+        <li class="nav-item text-center mb-2">
+          <a href="<?=site_url('perfil')?>" class="btn btn-primary text-white" role="button"><span style="letter-spacing: 1px; font-size: 12px;"><i class="fas fa-user-alt mr-1"></i> MEU PERFIL</span></a>
+        </li>
+        <li class="nav-item text-center mb-2">
+          <a href="<?=site_url('inicio/sair')?>">
+            <button type="button" class="btn btn-light">
+              <span style="letter-spacing: 1px; font-size: 12px;">SAIR <i class="fas fa-sign-out-alt"></i></span>
+            </button>
+          </a>
+        </li>
+      </ul>
     <?php endif;?>
+
+
   </div>
 </nav>
 
@@ -100,5 +115,16 @@
 </div>
 <!-- /HEADER -->
 <?=$contents?>
+<div class="container-fluid bg-primary py-3">
+  <div class="row">
+    <div class="col-md-6 py-5 pl-5">
+      <p class="mb-0 text-white">Desenvolvido pelos alunos do curso de Sistemas de Informação da FHO.</p>
+      <a href="#" class="text-warning">Saiba Mais.</a>
+    </div>
+    <div class="col-md-6 text-right">
+      <img src="<?=base_url('assets/imagens/logo_branco.png')?>">
+    </div>
+  </div>
+</div>
 </body>
 </html>

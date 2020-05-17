@@ -15,4 +15,18 @@ class Projeto_Model extends MY_Model
 		parent::__construct();
 	}
 
+	public function getMeusProjetos($id_usuario)
+	{
+		$this->_database->from("projeto p");
+		$this->_database->where("p.fk_p_usuario", $id_usuario);
+		
+		$query = $this->_database->get();
+
+		if($query->num_rows() > 0)
+			return $query->result_array();
+		else
+			return null;
+
+	}
+
 }
