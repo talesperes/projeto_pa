@@ -276,24 +276,26 @@
 		sendData.instagram = $("#instagram").val(); 
 		sendData.twitter = $("#twitter").val(); 
 		sendData.facebook = $("#facebook").val();  
-		sendData.linkedin = '';  
+		sendData.linkedin = '';
 		sendData.github = $("#github").val();  
 		sendData.email = $("#email").val();
 		sendData.senha = $("#senha").val();
 		sendData.senha_confirm = $("#senha_confirm").val();
 
-		$.ajax({
-	    	type:"POST",
-	        cache:false,
-	        url:"<?=site_url('Cadastro/cadastrar')?>",
-	        data:sendData,
-	        success: function () {
-        		$("#cadastro-ok").removeAttr('hidden');
-	        },
-	        error: function () {
-        		$("#cadastro-erro").removeAttr('hidden');
-		    }
-	   });
+		if(sendData.senha && sendData.senha_confirm && (sendData.senha == sendData.senha_confirm)) {
+			$.ajax({
+		    	type:"POST",
+		        cache:false,
+		        url:"<?=site_url('Cadastro/cadastrar')?>",
+		        data:sendData,
+		        success: function () {
+	        		$("#cadastro-ok").removeAttr('hidden');
+		        },
+		        error: function () {
+	        		$("#cadastro-erro").removeAttr('hidden');
+			    }
+		   	});
+		}
 
 	});
 	
