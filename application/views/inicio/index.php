@@ -96,10 +96,11 @@
 							<a href="ranking.php"><h5 class="font-weight-bold">Ranking</h5></a>
 							<h3 class="pt-2 text-warning">TOP 20 <i class="fas fa-trophy"></i></h3>
 							<ul class="list-group mt-4">
-
-								<?php foreach($usuariosRank as $ur):?>
-									<li class="list-group-item"><a href=""><?=$ur['nome']?></a></li>
-								<?php endforeach;?>
+								<?php if(isset($usuariosRank) && !empty($usuariosRank)):?>
+									<?php foreach($usuariosRank as $ur):?>
+										<li class="list-group-item"><a href=""><?=$ur['nome']?></a></li>
+									<?php endforeach;?>
+								<?php endif;?>
 							</ul>
 						</div>
 					</div>
