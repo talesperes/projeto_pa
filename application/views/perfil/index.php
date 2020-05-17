@@ -6,9 +6,9 @@
 			</div>
 			<ul class="list-group">
 			  <li class="list-group-item active"><a href="<?=site_url('perfil')?>" class="text-white">Ver Perfil</a></li>
-			  <li class="list-group-item"><a href="<?=site_url('perfil')?>">Alterar Perfil</a></li>
+			  <li class="list-group-item"><a href="<?=site_url('perfil/alterar_perfil/').$this->session->userdata('id')?>">Alterar Perfil</a></li>
 			  <li class="list-group-item"><a href="<?=site_url('perfil/projetos')?>">Meus Projetos</a></li>
-			  <li class="list-group-item"><a href="<?=site_url('perfil')?>">Criar Projeto</a></li>
+			  <li class="list-group-item"><a href="<?=site_url('projeto/criar_projeto')?>">Criar Projeto</a></li>
 			  <li class="list-group-item"><a href="<?=site_url('inicio/sair')?>">Sair</a></li>
 			</ul>
 		</div>
@@ -19,7 +19,7 @@
 						<h4 class="text-primary"><b><?=$usuario['nome']?></b>, <?=$usuario['idade']?></h4>
 					</div>
 					<div class="col-6 text-right">
-						<a href="" class="btn btn-primary btn-sm" role="button">Posição no Ranking: <b><?=$usuario['posicao_rank']?></b></a>
+						<a href="<?=site_url('ranking')?>" class="btn btn-primary btn-sm" role="button">Posição no Ranking: <b><?=$usuario['posicao_rank']?></b></a>
 					</div>
 				</div>
 				<hr>

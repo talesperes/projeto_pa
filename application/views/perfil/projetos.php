@@ -3,20 +3,20 @@
 		<div class="row pt-3">
 			<div class="col-md-3 mb-5">
 				<div class="mb-4">
-					<img src="<?=base_url('assets/imagens/foto_usuario.png')?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
+					<img src="<?=base_url('/assets/imagens/foto_usuario.png')?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
 				</div>
 				<ul class="list-group">
-				  <li class="list-group-item active"><a href="<?=site_url('perfil')?>" class="text-white">Ver Perfil</a></li>
-				  <li class="list-group-item"><a href="<?=site_url('perfil')?>">Alterar Perfil</a></li>
-				  <li class="list-group-item"><a href="<?=site_url('perfil/projetos')?>">Meus Projetos</a></li>
-				  <li class="list-group-item"><a href="<?=site_url('perfil')?>">Criar Projeto</a></li>
+				  <li class="list-group-item"><a href="<?=site_url('perfil')?>">Ver Perfil</a></li>
+				  <li class="list-group-item"><a href="<?=site_url('perfil/alterar_perfil/').$this->session->userdata('id')?>">Alterar Perfil</a></li>
+				  <li class="list-group-item active"><a href="<?=site_url('perfil/projetos')?>" class="text-white">Meus Projetos</a></li>
+				  <li class="list-group-item"><a href="<?=site_url('projeto/criar_projeto')?>">Criar Projeto</a></li>
 				  <li class="list-group-item"><a href="<?=site_url('inicio/sair')?>">Sair</a></li>
 				</ul>
 			</div>
 			<div class="col-md-9">
 				<div class="row mb-5 justify-content-end">
 					<div class="col-md-3">
-						<a href="criar_projeto.php" class="btn btn-success btn-block" role="button">Criar Projeto +</a>
+						<a href="<?=site_url('projeto/criar_projeto')?>" class="btn btn-success btn-block" role="button">Criar Projeto +</a>
 					</div>
 				</div>
 

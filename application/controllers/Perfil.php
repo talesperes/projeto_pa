@@ -34,5 +34,17 @@ class Perfil extends CI_Controller {
 
 	}
 
+	public function alterar_perfil($id)
+	{
+		if(!isset($id) || empty($id) || $id != $this->session->userdata('id'))
+			redirect('inicio');
+
+		$this->load->model('Usuario_Model');
+		$dados['usuario'] = $this->Usuario_Model->where('id_usuario', $id)->get();
+
+		$dados['title'] = 'Alterar Perfil';
+		$this->template->load("template/main", "perfil/alterar_perfil", $dados);
+	}
+
 
 }

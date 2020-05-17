@@ -28,26 +28,21 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto ml-auto mb-2 mb-lg-0">
+    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
       <a class="nav-link" href="<?=site_url('inicio')?>">
-      	<li class="nav-item active text-center">
-        	HOME
-      	</li>
+        <li class="nav-item active text-center">
+          HOME
+        </li>
       </a>
-      <a class="nav-link" href="#">
-      	<li class="nav-item text-center">
-        	PROJETOS
-      	</li>
+      <a class="nav-link" href="<?=site_url('projeto')?>">
+        <li class="nav-item text-center">
+          PROJETOS
+        </li>
       </a>
-      <a class="nav-link" href="#">
-      	<li class="nav-item text-center">
-        	PESQUISAS
-      	</li>
-      </a>
-      <a class="nav-link" href="#">
-      	<li class="nav-item text-center">
-        	SOBRE
-      	</li>
+      <a class="nav-link" href="<?=site_url('sobre')?>">
+        <li class="nav-item text-center">
+          SOBRE
+        </li>
       </a>
     </ul>
 

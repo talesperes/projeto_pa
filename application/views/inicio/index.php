@@ -93,7 +93,7 @@
 				<div class="col-md-3">
 					<div class="row">
 						<div class="col-12 text-center">
-							<a href="ranking.php"><h5 class="font-weight-bold">Ranking</h5></a>
+							<a href="<?=site_url('ranking')?>"><h5 class="font-weight-bold">Ranking</h5></a>
 							<h3 class="pt-2 text-warning">TOP 20 <i class="fas fa-trophy"></i></h3>
 							<ul class="list-group mt-4">
 								<?php if(isset($usuariosRank) && !empty($usuariosRank)):?>
