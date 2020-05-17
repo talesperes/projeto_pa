@@ -169,11 +169,11 @@
 								    </div>
 								    <div class="form-group">
 										<label>Senha</label>
-									    <input type="password" id="senha" name="senha" class="form-control validate-stepper">						    
+									    <input type="password" id="senha" name="senha" class="form-control validate-stepper validate-password">						    
 								    </div>
 								    <div class="form-group">
 										<label>Confirme sua senha</label>
-									    <input type="password" id="senha_confirm" name="senha_confirm" class="form-control">						    
+									    <input type="password" id="senha_confirm" name="senha_confirm" class="form-control validate-stepper validate-password">						    
 								    </div>
                                 </div> 
                                 <input type="button" name="previous" class="previous action-button-previous" value="Voltar"> 
@@ -281,8 +281,6 @@
 		sendData.email = $("#email").val();
 		sendData.senha = $("#senha").val();
 		sendData.senha_confirm = $("#senha_confirm").val();
-
-		console.log(sendData);
 
 		$.ajax({
 	    	type:"POST",

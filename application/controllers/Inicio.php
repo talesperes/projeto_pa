@@ -13,7 +13,7 @@ class Inicio extends CI_Controller {
 	{	
 
 		$this->load->model("Usuario_Model");
-		$dados['usuariosRank'] = $usuariosRank = $this->Usuario_Model->fields(array('nome', 'pontuacao'))->order_by('pontuacao', 'desc')->get_all();
+		$dados['usuariosRank'] = $usuariosRank = $this->Usuario_Model->fields(array('nome', 'pontuacao'))->order_by('pontuacao', 'desc')->limit(20)->get_all();
 
 		$dados['title'] = 'Inicio';
 		$this->template->load("template/main", "inicio/index", $dados);
