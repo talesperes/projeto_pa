@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8">
+  <link rel="shortcut icon" href="<?=base_url('assets/imagens/book.png')?>">
 	<title><?=(!empty($title) ? $title : 'Projeto PA')?></title>
 	<!-- BOOTSTRAP -->
   <link href="<?=base_url('assets/css/bootstrap.css')?>" rel="stylesheet">
