@@ -3,76 +3,41 @@
 		<div class="row pt-3">
 			<div class="col-md-9">
 				<div class="row mb-5">
-					<div class="col-md-3">
-						<a href="<?=site_url('projeto/criar_projeto')?>" class="btn btn-success btn-block" role="button">Criar Projeto +</a>
-					</div>
+
+					<?php if($this->session->userdata('logado')):?>
+						<div class="col-md-3">
+							<a href="<?=site_url('projeto/criar_projeto')?>" class="btn btn-success btn-block" role="button">Criar Projeto +</a>
+						</div>
+					<?php endif;?>
+
 					<div class="col-md-9">
-						<form class="form-inline" method="post" action="">
-						  <input class="form-control mr-3 w-75" type="text" placeholder="Pesquise por título, instituição ou área de conhecimento" aria-label="Procurar">
+						<form class="form-inline" method="get" action="<?=site_url('/projeto')?>">
+						  <input class="form-control mr-3 w-75" name="search" type="text" value="<?=(isset($filtros['search']) ? $filtros['search'] : '')?>" placeholder="Pesquise por título, instituição ou área de conhecimento" aria-label="Procurar">
 						   <button class="btn btn-primary no-hover" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
 						</form>
 					</div>
 				</div>
-				<div class="row mb-5">
-					<div class="col-md-4">
-						<img src="<?=base_url('assets/imagens/projeto_01.jpg')?>" class="img-thumbnail" width="100%">
-					</div>
-					<div class="col-md-8">
-						<a href="projeto.php"><h3>Nome Projeto</h3></a>
-						<p><i>Breve Descrição</i></p>
-						<p>Criado por <a href="">Nome</a></p>
-						<a href="categoria.php" class="btn btn-warning mr-1" role="button" style="border-radius: 0px;">Área de Atuação</a> <a href="categoria.php" class="btn btn-warning" role="button" style="border-radius: 0px;">Área de Atuação</a>
-					</div>
-				</div>
-				<div class="row mb-5">
-					<div class="col-md-4">
-						<img src="<?=base_url('assets/imagens/projeto_02.jpg')?>" class="img-thumbnail" width="100%">
-					</div>
-					<div class="col-md-8">
-						<a href="projeto.php"><h3>Nome Projeto</h3></a>
-						<p><i>Breve Descrição</i></p>
-						<p>Criado por <a href="">Nome</a></p>
-						<a href="categoria.php" class="btn btn-warning mr-1" role="button" style="border-radius: 0px;">Área de Atuação</a> <a href="categoria.php" class="btn btn-warning" role="button" style="border-radius: 0px;">Área de Atuação</a>
-					</div>
-				</div>
-				<div class="row mb-5">
-					<div class="col-md-4">
-						<img src="<?=base_url('assets/imagens/projeto_03.jpg')?>" class="img-thumbnail" width="100%">
-					</div>
-					<div class="col-md-8">
-						<a href="projeto.php"><h3>Nome Projeto</h3></a>
-						<p><i>Breve Descrição</i></p>
-						<p>Criado por <a href="">Nome</a></p>
-						<a href="categoria.php" class="btn btn-warning mr-1" role="button" style="border-radius: 0px;">Área de Atuação</a> <a href="categoria.php" class="btn btn-warning" role="button" style="border-radius: 0px;">Área de Atuação</a>
-					</div>
-				</div>
-				<div class="row mb-5">
-					<div class="col-md-4">
-						<img src="<?=base_url('assets/imagens/projeto_04.jpg')?>" class="img-thumbnail" width="100%">
-					</div>
-					<div class="col-md-8">
-						<a href="projeto.php"><h3>Nome Projeto</h3></a>
-						<p><i>Breve Descrição</i></p>
-						<p>Criado por <a href="">Nome</a></p>
-						<a href="categoria.php" class="btn btn-warning mr-1" role="button" style="border-radius: 0px;">Área de Atuação</a> <a href="categoria.php" class="btn btn-warning" role="button" style="border-radius: 0px;">Área de Atuação</a>
-					</div>
-				</div>
+				<?php if(!empty($projetos) && isset($projetos)):?>
+					<?php foreach($projetos as $p):?>
+						<div class="row mb-5">
+							<div class="col-md-4">
+								<img src="<?=base_url('assets/imagens/projeto_01.jpg')?>" class="img-thumbnail" width="100%">
+							</div>
+							<div class="col-md-8">
+								<a href="projeto.php"><h3><?=$p['titulo']?></h3></a>
+								<p><i><?=$p['descricao']?></i></p>
+								<p>Criado por <a href=""><?=$p['nome']?></a></p>
+								<a href="#" class="btn btn-warning mr-1" role="button" style="border-radius: 0px;"><?=(!empty($p['categoria']) ? $p['categoria'] : 'Outros')?></a>
+							</div>
+						</div>
+					<?php endforeach;?>
+				<?php else:?>
+					Não foi encontrado nenhum projeto.
+				<?php endif;?>
 				<div class="row">
 					<div class="col-12">
 						<nav>
-						  <ul class="pagination">
-						    <li class="page-item disabled">
-						      <a class="page-link" href="#" tabindex="-1">Voltar</a>
-						    </li>
-						    <li class="page-item"><a class="page-link" href="#">1</a></li>
-						    <li class="page-item active">
-						      <a class="page-link" href="#">2</a>
-						    </li>
-						    <li class="page-item"><a class="page-link" href="#">3</a></li>
-						    <li class="page-item">
-						      <a class="page-link" href="#">Próximo</a>
-						    </li>
-						  </ul>
+						  <?=$links?>
 						</nav>
 					</div>
 				</div>

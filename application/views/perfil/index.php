@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-3 mb-5">
 			<div class="mb-4">
-				<img src="<?=base_url('/assets/imagens/foto_usuario.png')?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
+				<img src="<?=base_url('/assets/imagens/usuarios/').$this->session->userdata('id').'/'.$usuario['imagem']?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
 			</div>
 			<ul class="list-group">
 			  <li class="list-group-item active"><a href="<?=site_url('perfil')?>" class="text-white">Ver Perfil</a></li>

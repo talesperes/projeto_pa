@@ -254,13 +254,21 @@
 	      	'</div>'+
 				'<div class="row">'+
 					'<div class="col-md-12 text-right">'+
+						'<div class="remove_escolaridade btn btn-danger" style="border-radius: 30px;">-</div>'+
 						'<div class="add_escolaridade btn btn-primary" style="border-radius: 30px;">+</div>'+
 					'</div>'+
 				'</div>'+
 			'</div>';
 
 		$("#div_escolaridade").append(html);
-		$(this).remove();
+		$(this).hide();
+	});
+
+	$(document).on('click','.remove_escolaridade', function() {
+		$(this).closest('.dados-escolaridade').remove();
+
+		if($('.dados-escolaridade').length == 1)
+			$(".add_escolaridade").show();
 	});
 
 	$( "#btnCadastro" ).click(function() {

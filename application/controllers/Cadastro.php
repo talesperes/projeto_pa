@@ -26,4 +26,11 @@ class Cadastro extends CI_Controller {
 		$usuario = $this->Usuario_Model->insert($values);
 
 	}
+
+	public function teste()
+	{
+		$dados['title'] = 'teste';
+		$this->template->load("template/main", "cadastro/teste", $dados);
+
+	}
 }

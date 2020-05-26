@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-md-3 mb-5">
 				<div class="mb-4">
-					<img src="<?=base_url('/assets/imagens/foto_usuario.png')?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
+					<img src="<?=base_url('/assets/imagens/usuarios/').$this->session->userdata('id').'/'.$usuario['imagem']?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
 				</div>
 				<ul class="list-group">
 				  <li class="list-group-item"><a href="<?=site_url('perfil')?>">Ver Perfil</a></li>
@@ -14,12 +14,17 @@
 				</ul>
 			</div>
 			<div class="col-md-9">
-				<form method="post" action="">
-					<form action="upload.php" method="post" enctype="multipart/form-data">
-					    <label>Alterar Foto de Perfil:</label>
-					    <input type="file" name="fileToUpload" id="fileToUpload" class="form-control btn btn-warning">
-					    <input type="submit" value="Enviar" name="submit" class="btn btn-primary mt-2">
-					</form>
+				<form method="post" action="<?=site_url('perfil/alterar_perfil/'.$usuario['id_usuario'])?>" enctype="multipart/form-data">
+					<?php if(has_alert()):  
+				      foreach(has_alert() as $type => $message): ?>  
+				   <div class="alert alert-dismissible <?php echo $type; ?>">  
+				      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+				      <?php echo $message; ?>  
+				   </div>
+				   <?php endforeach;  
+				      endif; ?>
+				    <label>Alterar Foto de Perfil:</label>
+				    <input type="file" name="img_perfil" id="img_perfil" class="form-control btn btn-warning">
 					<div class="form-group">
 	                    <h2 class="fs-title text-primary">Dados de Login</h2>
 	                    <div class="form-group">
@@ -148,8 +153,7 @@
 						</div>
 						<div class="col-md-6 mb-2">
 						    <div class="form-group">
-		                        <label>Curso</label>
-						    	<input type="text" name="curso" class="form-control">
+		                        <label>Curso</label> <input type="text" name="curso" class="form-control">
 		                    </div>
 		                </div>
 		            </div>
@@ -174,7 +178,7 @@
 							<button class="btn btn-primary" style="border-radius: 30px;">+</button>
 						</div>
 					</div>
-				    <input type="submit" name="botao" class="btn btn-primary btn-block" value="Alterar">
+				    <input type="submit" value="Alterar" name="submit" class="btn btn-primary btn-block">
 				</form>
 			</div>
 		</div>
@@ -244,4 +248,20 @@ $(document).ready(function() {
 	})
 
 });
+</script>
+<script>
+	$(function() {
+		$('#estado').change(function() {
+			var estado = $(this).val(); 
+			$('#cidade').children().remove();
+	
+			if (estado != '') {
+				$.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados/' + estado + '/distritos', function(data) {
+					$.each(data, function(indice, valor) {
+						$('#cidade').append('<option value="' + valor.nome + '">' + valor.nome + '</option>');
+					});
+				})
+			}
+		})
+	}, (jQuery));
 </script>

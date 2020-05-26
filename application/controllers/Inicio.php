@@ -12,6 +12,10 @@ class Inicio extends CI_Controller {
 	public function index()
 	{	
 
+		$this->load->model("Projeto_Model");
+		$filtros['limit'] = 4;
+		$dados['projetosDestaque'] = $this->Projeto_Model->getProjetos($filtros);
+
 		$this->load->model("Usuario_Model");
 		$dados['usuariosRank'] = $usuariosRank = $this->Usuario_Model->fields(array('nome', 'pontuacao'))->order_by('pontuacao', 'desc')->limit(20)->get_all();
 
@@ -26,7 +30,6 @@ class Inicio extends CI_Controller {
 
 		$this->load->model('Usuario_Model');
 		$usuario = $this->Usuario_Model->where('email', $data['email'])
-		// ->fields(array('senha','email', 'nome','nascimento'))
 		->get();
 
 		if (password_verify($data['senha'], $usuario['senha'])) {

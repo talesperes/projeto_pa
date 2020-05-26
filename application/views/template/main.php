@@ -6,8 +6,9 @@
 	<title><?=(!empty($title) ? $title : 'Projeto PA')?></title>
 	<!-- BOOTSTRAP -->
   <link href="<?=base_url('assets/css/bootstrap.css')?>" rel="stylesheet">
-	<link href="<?=base_url('assets/css/stepper.css')?>" rel="stylesheet">
+  <link href="<?=base_url('assets/css/stepper.css')?>" rel="stylesheet">
 	<!-- FONT AWESOME -->
+	<!-- <link href="<?=base_url('assets/css/fontawesome.css')?>" rel="stylesheet"> -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   <!-- JAVASCRIPT -->
@@ -99,7 +100,7 @@
 			    <input type="password" class="form-control" id="senha_login" name="senha" placeholder="Insira sua senha">
 			  </div>
 			  <center><input type="submit" name="botao_entrar" class="btn btn-primary btn-block btn-lg" value="Entrar" style="font-size: 16px;"></center>
-			  <a href="" class="text-center" style="text-decoration: none;"><small class="form-text text-muted font-weight-bold mt-2">Esqueceu sua senha?</small></a>
+			  <a href="<?=site_url('inicio/resetar_senha')?>" class="text-center" style="text-decoration: none;"><small class="form-text text-muted font-weight-bold mt-2">Esqueceu sua senha?</small></a>
 			</form>
 		</div>
 		<div class="mt-4">

@@ -17,8 +17,8 @@
 			</div>
 			<div class="row py-3 justify-content-center">
 				<div class="col-8">
-					<form class="form-inline d-flex justify-content-center md-form form-sm">
-					  <input class="form-control form-control-lg mr-3 w-75" type="text" placeholder="Pesquise por título, instituição ou área de conhecimento" aria-label="Procurar">
+					<form class="form-inline d-flex justify-content-center md-form form-sm" method="get" action="<?=site_url('/projeto')?>">
+					  <input class="form-control form-control-lg mr-3 w-75" name="search" type="text" placeholder="Pesquise por título, instituição ou área de conhecimento" aria-label="Procurar">
 					   <button class="btn btn-primary no-hover" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
 					</form>
 				</div>
@@ -62,27 +62,18 @@
 						</div>
 					</div>
 					<div class="row mt-4">
-			            <div class="col-md-3 col-6">
-			            	<img class="foto-projeto mb-2" src="<?=base_url('assets/imagens/projeto_01.jpg')?>" width="100%">
-			                <h5>Nome Projeto</h5>
-			                <span>Criado por <a href="">Nome</a></span>
-			                <a></a>
-			            </div>
-			            <div class="col-md-3 col-6">
-			            	<img class="foto-projeto mb-2" src="<?=base_url('assets/imagens/projeto_02.jpg')?>" width="100%">
-			                <h5>Nome Projeto</h5>
-			                <span>Criado por <a href="">Nome</a></span>
-			            </div>
-			            <div class="col-md-3 col-6">
-			            	<img class="foto-projeto mb-2" src="<?=base_url('assets/imagens/projeto_03.jpg')?>" width="100%">
-			                <h5>Nome Projeto</h5>
-			                <span>Criado por <a href="">Nome</a></span>
-			            </div>
-			            <div class="col-md-3 col-6">
-			            	<img class="foto-projeto mb-2" src="<?=base_url('assets/imagens/projeto_04.jpg')?>" width="100%">
-			                <h5>Nome Projeto</h5>
-			                <span>Criado por <a href="">Nome</a></span>
-			            </div>
+
+						<?php if(isset($projetosDestaque) && !empty($projetosDestaque)):?>
+					        <?php foreach($projetosDestaque as $pd):?>
+					            <div class="col-md-3 col-6">
+					            	<img class="foto-projeto mb-2" src="<?=base_url('assets/imagens/projeto_01.jpg')?>" width="100%">
+					                <h5><?=$pd['titulo']?></h5>
+					                <span>Criado por <a href=""><?=$pd['nome']?></a></span>
+					                <a></a>
+					            </div>
+					        <?php endforeach;?>
+					  	<?php endif;?>
+
 					</div>
 					<div class="row mt-4">
 						<div class="col-12 text-center">

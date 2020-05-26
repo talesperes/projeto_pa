@@ -3,7 +3,7 @@
 		<div class="row pt-3">
 			<div class="col-md-3 mb-5">
 				<div class="mb-4">
-					<img src="<?=base_url('/assets/imagens/foto_usuario.png')?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
+					<img src="<?=base_url('/assets/imagens/usuarios/').$this->session->userdata('id').'/'.$usuario['imagem']?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
 				</div>
 				<ul class="list-group">
 				  <li class="list-group-item"><a href="<?=site_url('perfil')?>">Ver Perfil</a></li>
@@ -50,28 +50,13 @@
 						<a href="categoria.php" class="btn btn-warning mr-1" role="button" style="border-radius: 0px;">Área de Atuação</a> <a href="categoria.php" class="btn btn-warning" role="button" style="border-radius: 0px;">Área de Atuação</a>
 					</div>
 				</div>-->
-
-				<?php if(isset($projetos) && !empty($projetos)):?>
-					<div class="row">
-						<div class="col-12">
-							<nav>
-							  <ul class="pagination">
-							    <li class="page-item disabled">
-							      <a class="page-link" href="#" tabindex="-1">Voltar</a>
-							    </li>
-							    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-							    <li class="page-item">
-							      <a class="page-link" href="#">2</a>
-							    </li>
-							    <li class="page-item"><a class="page-link" href="#">3</a></li>
-							    <li class="page-item">
-							      <a class="page-link" href="#">Próximo</a>
-							    </li>
-							  </ul>
-							</nav>
-						</div>
+				<div class="row">
+					<div class="col-12">
+						<nav>
+							<?=$links?>
+						</nav>
 					</div>
-				<?php endif;?>
+				</div>
 			</div>
 		</div>
 	</div>

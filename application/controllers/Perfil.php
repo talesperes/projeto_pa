@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Perfil extends CI_Controller {
+class Perfil extends MY_Controller {
 
 	public function __construct()
 	{
@@ -26,8 +26,18 @@ class Perfil extends CI_Controller {
 
 		$id_usuario = $this->session->userdata('id');
 
+		$this->load->model('Usuario_Model');
+		$dados['usuario'] = $this->Usuario_Model->fields('imagem')->get($id_usuario);
+
 		$this->load->model('Projeto_Model');
-		$dados['projetos'] = $projetos = $this->Projeto_Model->getMeusProjetos($id_usuario);
+		$count = $this->Projeto_Model->countMeusProjetos($id_usuario);
+
+		$perPage = $this->startPagination('perfil/projetos', $count, 3);
+        $page    = ($this->uri->segment(4) ? $this->uri->segment(4) : 1);
+        $offset  = ($page - 1) * $perPage;
+		$dados["links"]    = $this->pagination->create_links();
+
+		$dados['projetos'] = $projetos = $this->Projeto_Model->getMeusProjetos($id_usuario, $perPage, $offset);
 
 		$dados['title'] = 'Meus Projetos';
 		$this->template->load("template/main", "perfil/projetos", $dados);
@@ -41,6 +51,44 @@ class Perfil extends CI_Controller {
 
 		$this->load->model('Usuario_Model');
 		$dados['usuario'] = $this->Usuario_Model->where('id_usuario', $id)->get();
+		
+		$usuario = (!empty($this->input->post()) ? $this->input->post() : null ); 
+
+		if((!empty($usuario['senha']) || !empty($usuario['senha_cofirm'])) && $usuario['senha'] != $usuario['senha_confirm']){
+			$this->alert->set('alert-danger', 'As senhas precisam ser iguais.');
+			redirect('perfil/alterar_perfil/'.$id);
+		}
+
+		if(!empty($usuario))
+		{
+
+			if(!empty($_FILES['img_perfil']['name'])) {
+
+				$dir = 'assets/imagens/usuarios/'.$id;
+				$this->startUpload('./' . $dir);
+
+				if (!$this->upload->do_upload('img_perfil')) {
+					var_dump($this->upload->display_errors());
+					exit;
+				}
+
+				$usuario['imagem'] = $this->upload->data()['file_name'];
+			}
+
+
+			$values = array('email' => $usuario['email'], 'nome' => $usuario['nome'], 'telefone' => $usuario['telefone'], 'sexo' => $usuario['sexo'], 'nascimento' => $usuario['data_nascimento'], 'cidade' => $usuario['cidade'], 'estado' => $usuario['estado'], 'instagram' => $usuario['instagram'], 'twitter' => $usuario['twitter'], 'facebook' => $usuario['facebook'], 'github' => $usuario['github']);
+
+			if(!empty($usuario['senha']))
+				$values['senha'] = password_hash($usuario['senha'], PASSWORD_DEFAULT);
+
+			if(isset($usuario['imagem']) && !empty($usuario['imagem']))
+				$values['imagem'] = $usuario['imagem'];
+
+			$this->Usuario_Model->update($values,$id);
+
+			redirect('perfil/');
+
+		}
 
 		$dados['title'] = 'Alterar Perfil';
 		$this->template->load("template/main", "perfil/alterar_perfil", $dados);
