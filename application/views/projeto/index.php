@@ -21,10 +21,10 @@
 					<?php foreach($projetos as $p):?>
 						<div class="row mb-5">
 							<div class="col-md-4">
-								<img src="<?=base_url('assets/imagens/projeto_01.jpg')?>" class="img-thumbnail" width="100%">
+								<img src="<?=(!empty($p['imagem']) ? base_url('assets/imagens/usuarios/'.$p['id_usuario'].'/projetos/'.$p['imagem']) : base_url('assets/imagens/projeto_default.png') )?>" class="img-thumbnail" width="100%">
 							</div>
 							<div class="col-md-8">
-								<a href="projeto.php"><h3><?=$p['titulo']?></h3></a>
+								<a href="<?=site_url('projeto/visualizar/'.$p['id_projeto'])?>"><h3><?=$p['titulo']?></h3></a>
 								<p><i><?=$p['descricao']?></i></p>
 								<p>Criado por <a href=""><?=$p['nome']?></a></p>
 								<a href="#" class="btn btn-warning mr-1" role="button" style="border-radius: 0px;"><?=(!empty($p['categoria']) ? $p['categoria'] : 'Outros')?></a>

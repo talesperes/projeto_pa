@@ -75,7 +75,6 @@ class Perfil extends MY_Controller {
 				$usuario['imagem'] = $this->upload->data()['file_name'];
 			}
 
-
 			$values = array('email' => $usuario['email'], 'nome' => $usuario['nome'], 'telefone' => $usuario['telefone'], 'sexo' => $usuario['sexo'], 'nascimento' => $usuario['data_nascimento'], 'cidade' => $usuario['cidade'], 'estado' => $usuario['estado'], 'instagram' => $usuario['instagram'], 'twitter' => $usuario['twitter'], 'facebook' => $usuario['facebook'], 'github' => $usuario['github']);
 
 			if(!empty($usuario['senha']))

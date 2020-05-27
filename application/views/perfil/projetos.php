@@ -3,7 +3,7 @@
 		<div class="row pt-3">
 			<div class="col-md-3 mb-5">
 				<div class="mb-4">
-					<img src="<?=base_url('/assets/imagens/usuarios/').$this->session->userdata('id').'/'.$usuario['imagem']?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
+					<img src="<?=(!empty($usuario['imagem']) ? base_url('/assets/imagens/usuarios/').$this->session->userdata('id').'/'.$usuario['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
 				</div>
 				<ul class="list-group">
 				  <li class="list-group-item"><a href="<?=site_url('perfil')?>">Ver Perfil</a></li>
@@ -24,12 +24,12 @@
 					<?php foreach($projetos as $p):?>
 						<div class="row mb-5">
 							<div class="col-md-4">
-								<img src="<?=base_url('assets/imagens/projeto_01.jpg')?>" class="img-thumbnail" width="100%">
+								<img src="<?=(!empty($p['imagem']) ? base_url('assets/imagens/usuarios/'.$p['id_usuario'].'/projetos/'.$p['imagem']) : base_url('assets/imagens/projeto_default.png'))?>" class="img-thumbnail" width="100%">
 							</div>
 							<div class="col-md-8">
-								<a href="projeto.php"><h3><?=$p['titulo']?></h3></a>
+								<a href="<?=site_url('projeto/visualizar/'.$p['id_projeto'])?>"><h3><?=$p['titulo']?></h3></a>
 								<p><i><?=$p['descricao']?></i></p>
-								<a href="categoria.php" class="btn btn-warning mr-1" role="button" style="border-radius: 0px;">Área de Atuação</a> <a href="categoria.php" class="btn btn-warning" role="button" style="border-radius: 0px;">Área de Atuação</a>
+								<a href="#" class="btn btn-warning mr-1" role="button" style="border-radius: 0px;">Área de Atuação</a> <a href="categoria.php" class="btn btn-warning" role="button" style="border-radius: 0px;">Área de Atuação</a>
 							</div>
 						</div>
 					<?php endforeach;?>
@@ -39,17 +39,6 @@
 					</div>
 				<?php endif;?>
 
-				<!-- PADRAO
-				<div class="row mb-5">
-					<div class="col-md-4">
-						<img src="<?=base_url('assets/imagens/projeto_02.jpg')?>" class="img-thumbnail" width="100%">
-					</div>
-					<div class="col-md-8">
-						<a href="projeto.php"><h3>Nome Projeto</h3></a>
-						<p><i>Breve Descrição</i></p>
-						<a href="categoria.php" class="btn btn-warning mr-1" role="button" style="border-radius: 0px;">Área de Atuação</a> <a href="categoria.php" class="btn btn-warning" role="button" style="border-radius: 0px;">Área de Atuação</a>
-					</div>
-				</div>-->
 				<div class="row">
 					<div class="col-12">
 						<nav>
