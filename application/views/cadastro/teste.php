@@ -12,23 +12,23 @@
     </div>
    <div class="form-group">
 		<label>Instituição</label>
-	   <input type="text" name="instituicao" class="instituicao form-control">				    
+	   <input type="text" name="instituicao" class="instituicao form-control nivel_escolaridade">				    
    </div>
 		<div class="form-group">
     <label>Curso</label>
-			<input type="text" name="curso" class="curso form-control">
+			<input type="text" name="curso" class="curso form-control nivel_escolaridade">
 	</div>
 	<div class="form-group">
 		<div class="form-row">
      	<div class="col-md-6 mb-2">
           <label>Ano de Início</label>
-				<select name="ano_inicio" class="form-control ano_inicio">
+				<select name="ano_inicio" class="form-control ano_inicio nivel_escolaridade">
 		   		<option>Selecionar</option>
 	      	</select>
        </div>
        <div class="col-md-6">
           <label>Ano de Conclusão</label>
-				<select name="ano_conclusao" class="form-control ano_conclusao">
+				<select name="ano_conclusao" class="form-control ano_conclusao nivel_escolaridade">
 	    			<option>Selecionar</option>
      			</select>
        </div>
@@ -55,23 +55,23 @@
     </div>
    <div class="form-group">
 		<label>Instituição</label>
-	   <input type="text" name="instituicao" class="instituicao form-control">				    
+	   <input type="text" name="instituicao" class="instituicao form-control nivel_escolaridade">				    
    </div>
 		<div class="form-group">
     <label>Curso</label>
-			<input type="text" name="" class="curso form-control">
+			<input type="text" name="" class="curso form-control nivel_escolaridade">
 	</div>
 	<div class="form-group">
 		<div class="form-row">
      	<div class="col-md-6 mb-2">
           <label>Ano de Início</label>
-				<select name="ano_inicio" class="ano_inicio form-control">
+				<select name="ano_inicio" class="ano_inicio form-control nivel_escolaridade">
 		   		<option>Selecionar</option>
 	      	</select>
        </div>
        <div class="col-md-6">
           <label>Ano de Conclusão</label>
-				<select name="ano_conclusao" class="ano_conclusao form-control">
+				<select name="ano_conclusao" class="ano_conclusao form-control nivel_escolaridade">
 	    			<option>Selecionar</option>
      			</select>
        </div>
@@ -91,13 +91,14 @@
 	$(".enviar").click(function() {
 
 		var dados = [];
-		var i = 0;
+		var aux = [];
 
-		console.log(dados);
-
-		$(".dados-escolaridade").find('.nivel_escolaridade.instituicao').each(function() {
-			console.log($(this));
-			i++;
+		$(".dados-escolaridade").each(function() {
+			aux = [];
+			$(this).find('.nivel_escolaridade').each(function() {
+				aux.push($(this).val());
+			});
+			dados.push(aux);
 		});
 
 		console.log(dados);

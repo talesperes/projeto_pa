@@ -49,7 +49,7 @@ class Projeto extends MY_Controller {
 			}
 
 			$this->load->model("Projeto_Model");
-			$values = array('titulo' => $projeto['nome'], 'categoria' => $projeto['area'], 'descricao' => $projeto['descricao'], 'num_pessoas' => $projeto['num_pessoas'], 'status' => 'A', 'imagem' => $projeto['imagem'], 'fk_p_usuario' => $this->session->userdata('id'));
+			$values = array('titulo' => $projeto['nome'], 'categoria' => $projeto['area'], 'descricao' => $projeto['descricao'], 'num_pessoas' => $projeto['num_pessoas'], 'status' => 'Aberto', 'imagem' => $projeto['imagem'], 'fk_p_usuario' => $this->session->userdata('id'));
 			$this->Projeto_Model->insert($values);
 			redirect('perfil/projetos');
 		

@@ -87,26 +87,42 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
-      	<div style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px 20px; margin: 0px 20px;">
-	        <h3 class="font-weight-bold text-center text-primary">Login</h3>
-	        <form class="mt-4" method="post" action="<?=site_url('inicio/acessar')?>">
-			  <div class="form-group">
-			    <label for="email">Email</label>
-			    <input type="email" class="form-control" id="email_login" name="email" placeholder="Insira seu email">
-			  </div>
-			  <div class="form-group">
-			    <label for="senha">Senha</label>
-			    <input type="password" class="form-control" id="senha_login" name="senha" placeholder="Insira sua senha">
-			  </div>
-			  <center><input type="submit" name="botao_entrar" class="btn btn-primary btn-block btn-lg" value="Entrar" style="font-size: 16px;"></center>
-			  <a href="<?=site_url('inicio/resetar_senha')?>" class="text-center" style="text-decoration: none;"><small class="form-text text-muted font-weight-bold mt-2">Esqueceu sua senha?</small></a>
-			</form>
-		</div>
-		<div class="mt-4">
-			<p class="text-center">Não tem uma conta? <a href="<?=site_url('cadastro')?>" class="btn btn-warning ml-1" role="button"><span style="font-size: 14px; font-weight: bold;">Cadastre-se</span></a></p>
-		</div>	
+
+        <div id="section-login" style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px 20px; margin: 0px 20px;">
+          <h3 class="font-weight-bold text-center text-primary">Login</h3>
+          <form class="mt-4" method="post" action="<?=site_url('inicio/acessar')?>">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email_login" name="email" placeholder="Insira seu email">
+          </div>
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="password" class="form-control" id="senha_login" name="senha" placeholder="Insira sua senha">
+          </div>
+          <center><input type="submit" name="botao_entrar" class="btn btn-primary btn-block btn-lg" value="Entrar" style="font-size: 16px;"></center>
+          <span id="open-reset-password" class="text-center" style="cursor: pointer;"><small class="form-text text-muted font-weight-bold mt-2">Esqueceu sua senha?</small></span>
+          </form>
+        </div>
+
+        <div id="section-reset-password" style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px 20px; margin: 0px 20px; display: none" >
+          <h3 class="font-weight-bold text-center text-primary">Redefinir Senha</h3>
+          <div class="form-group">
+            <label for="email_reset">Seu Email</label>
+            <input type="email" class="form-control" id="email_reset" name="email_reset" placeholder="Insira seu email">
+          </div>
+          <center><input type="submit" id="btn_reset_password" name="botao_entrar" class="btn btn-primary btn-block btn-lg" value="Enviar" style="font-size: 16px;"></center>
+          <span id="open-login" class="text-center" style="cursor: pointer;"><small class="form-text text-muted font-weight-bold mt-2">Já possui uma conta? Clique para entrar</small></span>
+
+        </div>
+
+        <div class="mt-4">
+          <p class="text-center">Não tem uma conta? <a href="<?=site_url('cadastro')?>" class="btn btn-warning ml-1" role="button"><span style="font-size: 14px; font-weight: bold;">Cadastre-se</span></a></p>
+        </div>  
+
       </div>
+
     </div>
   </div>
 </div>
@@ -125,3 +141,47 @@
 </div>
 </body>
 </html>
+<script type="text/javascript" charset="utf-8">
+
+  $('#login').on('shown.bs.modal', function () {
+    $("#section-reset-password").hide();
+    $("#section-login").show();
+  })
+
+  $("#open-login").click(function() {
+    $("#section-reset-password").hide();
+    $("#section-login").show();
+  });
+
+  $("#open-reset-password").click(function() {
+    $("#section-reset-password").show();
+    $("#section-login").hide();
+  });
+
+  $("#btn_reset_password").click(function() {
+
+    $("#btn_reset_password").val('Enviando...');
+
+    var sendData = {};
+
+    sendData.email = $("#email_reset").val();
+
+    $.ajax({
+      type:"POST",
+        cache:false,
+        url:"<?=site_url('Redefinir/senha')?>",
+        data: sendData,
+        success: function (response) {
+          alert(response);
+          $("#email_reset").val('');
+          $("#btn_reset_password").val("Enviar");
+        },
+        error: function () {
+          alert('#Error#');
+          $("#btn_reset_password").val("Enviar");
+      }
+    });
+
+  });
+
+</script>

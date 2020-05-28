@@ -25,12 +25,23 @@ class Cadastro extends CI_Controller {
 		$this->load->model("Usuario_Model");
 		$usuario = $this->Usuario_Model->insert($values);
 
+		if(isset($data['escolaridade']) && !empty($data['escolaridade'])) {
+
+			$this->load->model("Escolaridade_Model");
+
+			foreach ($data['escolaridade'] as $e) {
+				$valuesEscolaridade = array('tipo' => $e[0], 'instituicao' => $e[1], 'curso' => $e[2], 'ano_inicio' => $e[3], 'ano_fim' => $e[4], 'fk_e_usuario' => $usuario);
+				$this->Escolaridade_Model->insert($valuesEscolaridade);
+			}
+
+		}
+
 	}
 
 	public function teste()
 	{
-		$dados['title'] = 'teste';
-		$this->template->load("template/main", "cadastro/teste", $dados);
-
+		// $dados['title'] = 'teste';
+		// $this->template->load("template/main", "cadastro/teste", $dados);
 	}
+
 }

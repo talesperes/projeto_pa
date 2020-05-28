@@ -115,7 +115,7 @@
                                     <h2 class="fs-title text-primary">Escolaridade</h2>
                                     <div class="form-group">
 													<label>Nível de Escolaridade</label>
-									   			<select id="nivel_escolaridade" name="nivel_escolaridade" class="form-control">
+									   			<select id="nivel_escolaridade" class="form-control campo_escolaridade">
 												    	<option value="Ensino Médio Incompleto">Ensino Médio Incompleto</option>
 												    	<option value="Ensino Médio Completo">Ensino Médio Completo</option>
 												    	<option value="Superior Incompleto">Superior Incompleto</option>
@@ -126,35 +126,47 @@
 
 											   <div class="form-group">
 													<label>Instituição</label>
-												   <input type="text" id="instituicao" name="instituicao" class="form-control">						    
+												   <input type="text" id="instituicao" name="instituicao" class="campo_escolaridade form-control validate-stepper">						    
 											   </div>
 								    			<div class="form-group">
 	                                    <label>Curso</label>
-								    				<input type="text" id="" name="" class="curso form-control">
+								    				<input type="text" class="campo_escolaridade form-control validate-stepper">
 		                           	</div>
 		                           	<div class="form-group">
 		                            		<div class="form-row">
 				                            	<div class="col-md-6 mb-2">
 				                                 <label>Ano de Início</label>   
-															<select id="ano_inicio" name="ano_inicio" class="form-control">
-													   		<option>Selecionar</option>
-												      	</select>
-				                              </div>
-				                              <div class="col-md-6">
-				                                 <label>Ano de Conclusão</label>   
-															<select id="ano_conclusao" name="ano_conclusao" class="form-control">
-												    			<option>Selecionar</option>
-											     			</select>
-				                              </div>
+													<select id="ano_inicio" name="ano_inicio" class="campo_escolaridade form-control validate-stepper">
+											   			<option value="">Selecionar</option>
+											   			<option value="2015">2015</option>
+											   			<option value="2016">2016</option>
+											   			<option value="2017">2017</option>
+											   			<option value="2018">2018</option>
+											   			<option value="2019">2019</option>
+											   			<option value="2020">2020</option>
+										      		</select>
+				                              	</div>
+				                              	<div class="col-md-6">
+				                                	<label>Ano de Conclusão</label>   
+													<select id="ano_conclusao" name="ano_conclusao" class="campo_escolaridade form-control validate-stepper">
+										    			<option value="">Selecionar</option>
+										    			<option value="2015">2015</option>
+											   			<option value="2016">2016</option>
+											   			<option value="2017">2017</option>
+											   			<option value="2018">2018</option>
+											   			<option value="2019">2019</option>
+											   			<option value="2020">2020</option>
+									     			</select>
+				                            	</div>
 			                            	</div>
 		                           	</div>
-												<div class="row">
-													<div class="col-md-12 text-right">
-														<div class="add_escolaridade btn btn-primary" style="border-radius: 30px;">+</div>
-													</div>
-												</div>
+									<div class="row">
+										<div class="col-md-12 text-right">
+											<div class="add_escolaridade btn btn-primary" style="border-radius: 30px;">+</div>
+										</div>
+									</div>
 
-											</div>
+								</div>
 
                                 </div> <!-- aqui -->
                                 <input type="button" name="previous" class="previous action-button-previous" value="Voltar"> 
@@ -220,7 +232,7 @@
 	         '<h2 class="fs-title text-primary">Escolaridade</h2>'+
 	         '<div class="form-group">'+
 					'<label>Nível de Escolaridade</label>'+
-	   			'<select id="nivel_escolaridade" name="nivel_escolaridade" class="form-control">'+
+	   			'<select id="nivel_escolaridade" class="campo_escolaridade form-control">'+
 				    	'<option value="Ensino Médio Incompleto">Ensino Médio Incompleto</option>'+
 				    	'<option value="Ensino Médio Completo">Ensino Médio Completo</option>'+
 				    	'<option value="Superior Incompleto">Superior Incompleto</option>'+
@@ -230,24 +242,36 @@
 			    '</div>'+
 			   '<div class="form-group">'+
 					'<label>Instituição</label>'+
-				   '<input type="text" id="instituicao" name="instituicao" class="form-control">'+				    
+				   '<input type="text" id="instituicao" name="instituicao" class="campo_escolaridade form-control validate-stepper">'+				    
 			   '</div>'+
 	 			'<div class="form-group">'+
 	            '<label>Curso</label>'+
-	 				'<input type="text" id="" name="" class="curso form-control">'+
+	 				'<input type="text" class="campo_escolaridade form-control validate-stepper">'+
 	      	'</div>'+
 	      	'<div class="form-group">'+
 	       		'<div class="form-row">'+
 	             	'<div class="col-md-6 mb-2">'+
 	                  '<label>Ano de Início</label>'+
-							'<select id="ano_inicio" name="ano_inicio" class="form-control">'+
-					   		'<option>Selecionar</option>'+
+							'<select id="ano_inicio" name="ano_inicio" class="campo_escolaridade form-control validate-stepper">'+
+					   		'<option value="">Selecionar</option>'+
+					   		'<option value="2015">2015</option>'+
+				   			'<option value="2016">2016</option>'+
+				   			'<option value="2017">2017</option>'+
+				   			'<option value="2018">2018</option>'+
+				   			'<option value="2019">2019</option>'+
+				   			'<option value="2020">2020</option>'+
 				      	'</select>'+
 	               '</div>'+
 	               '<div class="col-md-6">'+
 	                  '<label>Ano de Conclusão</label>'+
-							'<select id="ano_conclusao" name="ano_conclusao" class="form-control">'+
-				    			'<option>Selecionar</option>'+
+							'<select id="ano_conclusao" name="ano_conclusao" class="campo_escolaridade form-control validate-stepper">'+
+				    			'<option value="">Selecionar</option>'+
+				    			'<option value="2015">2015</option>'+
+					   			'<option value="2016">2016</option>'+
+					   			'<option value="2017">2017</option>'+
+					   			'<option value="2018">2018</option>'+
+					   			'<option value="2019">2019</option>'+
+					   			'<option value="2020">2020</option>'+
 			     			'</select>'+
 	               '</div>'+
 	          	'</div>'+
@@ -274,7 +298,20 @@
 	$( "#btnCadastro" ).click(function() {
 		var sendData = {};
 
-		sendData.escolaridade = $("#escolaridade").val();
+		// ------------- pega todas as escolaridades -------------
+		var escolaridades = [];
+		var aux = [];
+
+		$(".dados-escolaridade").each(function() {
+			aux = [];
+			$(this).find('.campo_escolaridade').each(function() {
+				aux.push($(this).val());
+			});
+			escolaridades.push(aux);
+		});
+		// ------------------------------------------------------
+
+		sendData.escolaridade = escolaridades;
 		sendData.nome = $("#nome").val();
 		sendData.telefone = $("#telefone").val();
 		sendData.sexo = $("#sexo").val();
