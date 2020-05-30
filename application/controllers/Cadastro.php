@@ -40,8 +40,8 @@ class Cadastro extends CI_Controller {
 
 	public function teste()
 	{
-		// $dados['title'] = 'teste';
-		// $this->template->load("template/main", "cadastro/teste", $dados);
+		$dados['title'] = 'teste';
+		$this->template->load("template/main", "cadastro/teste", $dados);
 	}
 
 }

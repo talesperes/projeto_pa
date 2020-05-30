@@ -32,7 +32,7 @@ class Perfil extends MY_Controller {
 		$this->load->model('Projeto_Model');
 		$count = $this->Projeto_Model->countMeusProjetos($id_usuario);
 
-		$perPage = $this->startPagination('perfil/projetos', $count, 3);
+		$perPage = $this->startPagination('perfil/projetos', $count, 4);
         $page    = ($this->uri->segment(4) ? $this->uri->segment(4) : 1);
         $offset  = ($page - 1) * $perPage;
 		$dados["links"]    = $this->pagination->create_links();
@@ -75,7 +75,7 @@ class Perfil extends MY_Controller {
 				$usuario['imagem'] = $this->upload->data()['file_name'];
 			}
 
-			$values = array('email' => $usuario['email'], 'nome' => $usuario['nome'], 'telefone' => $usuario['telefone'], 'sexo' => $usuario['sexo'], 'nascimento' => $usuario['data_nascimento'], 'cidade' => $usuario['cidade'], 'estado' => $usuario['estado'], 'instagram' => $usuario['instagram'], 'twitter' => $usuario['twitter'], 'facebook' => $usuario['facebook'], 'github' => $usuario['github']);
+			$values = array('email' => $usuario['email'], 'nome' => $usuario['nome'], 'telefone' => $usuario['telefone'], 'sexo' => $usuario['sexo'], 'nascimento' => $usuario['data_nascimento'], 'cidade' => $usuario['cidade'], 'estado' => $usuario['estado'], 'instagram' => $usuario['instagram'], 'twitter' => $usuario['twitter'], 'facebook' => $usuario['facebook'], 'github' => $usuario['github'], 'biografia' => $usuario['biografia']);
 
 			if(!empty($usuario['senha']))
 				$values['senha'] = password_hash($usuario['senha'], PASSWORD_DEFAULT);

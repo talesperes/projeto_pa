@@ -7,6 +7,7 @@
 	<!-- BOOTSTRAP -->
   <link href="<?=base_url('assets/css/bootstrap.css')?>" rel="stylesheet">
   <link href="<?=base_url('assets/css/stepper.css')?>" rel="stylesheet">
+  <link href="<?=base_url('assets/css/style.css')?>" rel="stylesheet">
 	<!-- FONT AWESOME -->
 	<!-- <link href="<?=base_url('assets/css/fontawesome.css')?>" rel="stylesheet"> -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -21,9 +22,19 @@
 <!-- HEADER -->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning py-0">
 
-  <a class="navbar-brand" href="<?=site_url('inicio')?>">
-  	<img src="<?=base_url('assets/imagens/logo.png')?>">
+  <a class="navbar-brand d-block d-md-block d-lg-none" href="<?=site_url('inicio')?>">
+    <img src="<?=base_url('assets/imagens/logo.png')?>" width="200">
   </a>
+
+  <a class="navbar-brand d-none d-md-none d-lg-block" href="<?=site_url('inicio')?>">
+    <img src="<?=base_url('assets/imagens/logo.png')?>">
+  </a>
+
+  <ul class="navbar-nav ml-auto mr-2 d-block d-md-block d-lg-none">
+    <li class="nav-item">
+    <a href="notificacoes.php"><span class="badge badge-dark badge-pill py-2 px-3"><i class="fas fa-bell fa-lg mr-1"></i> 4</span></a>
+    </li>
+  </ul>
 
   <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

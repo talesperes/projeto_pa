@@ -1,0 +1,25 @@
+.no-hover:hover{
+  background-color:  #1657ce;
+  border-color: transparent;
+}
+
+.foto-projeto-index{
+  width: auto; 
+  height: 155px; 
+  background-size: cover; 
+  background-position: center;
+}
+
+.foto-projeto-perfil{
+  width: auto; 
+  height: 180px; 
+  background-size: cover; 
+  background-position: center;
+}
+
+.foto-perfil{
+  width: auto; 
+  height: 220px; 
+  background-size: cover; 
+  background-position: center;
+}

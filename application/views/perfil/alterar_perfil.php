@@ -1,10 +1,10 @@
 <section>
-	<div class="container py-5 mt-2 mb-5">
-		<div class="row">
-			<div class="col-md-3 mb-5">
-				<div class="mb-4">
-					<img src="<?=(!empty($usuario['imagem']) ? base_url('/assets/imagens/usuarios/').$this->session->userdata('id').'/'.$usuario['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
-				</div>
+<div class="container py-5 mt-2 mb-5">
+	<div class="row justify-content-center">
+		<div class="col-md-3 col-5 mb-5">
+			<div class="img-thumbnail mb-2">
+        		<div class="foto-perfil" style="background-image: url('<?=(!empty($usuario['imagem']) ? base_url('/assets/imagens/usuarios/').$this->session->userdata('id').'/'.$usuario['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
+        	</div>
 				<ul class="list-group">
 				  <li class="list-group-item"><a href="<?=site_url('perfil')?>">Ver Perfil</a></li>
 				  <li class="list-group-item active"><a href="<?=site_url('perfil/alterar_perfil/').$this->session->userdata('id')?>" class="text-white">Alterar Perfil</a></li>
@@ -13,7 +13,7 @@
 				  <li class="list-group-item"><a href="<?=site_url('inicio/sair')?>">Sair</a></li>
 				</ul>
 			</div>
-			<div class="col-md-9">
+			<div class="col-md-9 col-7">
 				<form method="post" action="<?=site_url('perfil/alterar_perfil/'.$usuario['id_usuario'])?>" enctype="multipart/form-data">
 					<?php if(has_alert()):  
 				      foreach(has_alert() as $type => $message): ?>  
@@ -65,9 +65,22 @@
                             <div class="col-md-6">
                                 <label>Data de Nascimento</label>
                                 <input type="date" name="data_nascimento" class="form-control" value="<?=$usuario['nascimento']?>">
+                                <div class="form-check text-right mt-1">
+								  <input class="form-check-input" type="checkbox" name="exibir_idade" value="" checked>
+								  <label class="form-check-label">
+								    <small>Exibir minha idade para todos</small>
+								  </label>
+								</div>
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+	                    <h6 class="pt-4 text-primary font-weight-bold text-uppercase">Biografia</h6>
+	                    <div class="form-group pt-2">
+							<label>Insira uma breve descrição sobre você</label>
+						    <textarea class="form-control" name="biografia" rows="6"><?=$usuario['biografia']?></textarea>						    
+					    </div>
+					</div>
                     <div class="form-group">
                     	<h6 class="pt-4 text-primary font-weight-bold text-uppercase">Localização</h6>
 				    	<div class="form-row pt-2">
@@ -131,53 +144,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                    	<h2 class="fs-title text-primary">Escolaridade</h2>
-                        <div class="form-group">
-							<label>Nível de Escolaridade</label>
-						    <select name="nivel_escolaridade" class="form-control">
-						    	<option value="Ensino Médio Incompleto">Ensino Médio Incompleto</option>
-						    	<option value="Ensino Médio Completo">Ensino Médio Completo</option>
-						    	<option value="Superior Incompleto">Superior Incompleto</option>
-						    	<option value="Superior Completo">Superior Completo</option>
-						    	<option value="Cursando Técnico">Cursando Técnico</option>
-						    </select>						    
-					    </div>
-                    </div>
-                    <div class="form-row pt-2">
-                    	<div class="col-md-6 mb-2">
-		                    <div class="form-group">
-								<label>Instituição</label>
-							    <input type="text" name="instituicao" class="form-control">						    
-						    </div>
-						</div>
-						<div class="col-md-6 mb-2">
-						    <div class="form-group">
-		                        <label>Curso</label> <input type="text" name="curso" class="form-control">
-		                    </div>
-		                </div>
-		            </div>
-                    <div class="form-group">
-                    	<div class="form-row">
-                        	<div class="col-6 mb-2">
-                                <label>Ano de Início</label>   
-								<select name="ano_inicio" class="form-control">
-								    <option>Selecionar</option>
-							     </select>
-                            </div>
-                            <div class="col-6">
-                                <label>Ano de Conclusão</label>   
-								<select name="ano_conclusao" class="form-control">
-								    <option>Selecionar</option>
-							     </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-4">
-						<div class="col-md-12 text-right">
-							<button class="btn btn-primary" style="border-radius: 30px;">+</button>
-						</div>
-					</div>
 				    <input type="submit" value="Alterar" name="submit" class="btn btn-primary btn-block">
 				</form>
 			</div>

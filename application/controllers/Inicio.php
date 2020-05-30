@@ -38,7 +38,7 @@ class Inicio extends CI_Controller {
 			
 			$this->session->set_userdata($values);
 
-			redirect('inicio');
+			redirect('perfil');
 
 		} else {
 			redirect('inicio/sair');

@@ -37,23 +37,23 @@
 						</div>
 					</div>
 					<div class="row mt-4">
-						<div class="col-md-2">
-							<a href="" class="btn btn-warning" role="button" style="border-radius: 0px;">Computação</a>
+						<div class="col-md-2 mb-2">
+							<a href="" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Arquitetura</a>
 						</div>
-						<div class="col-md-2">
-							<a href="" class="btn btn-warning" role="button" style="border-radius: 0px;">Arquitetura</a>
+						<div class="col-md-2 mb-2">
+							<a href="" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Biologia</a>
 						</div>
-						<div class="col-md-2">
-							<a href="" class="btn btn-warning" role="button" style="border-radius: 0px;">Engenharia</a>
+						<div class="col-md-2 mb-2">
+							<a href="" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Computação</a>
 						</div>
-						<div class="col-md-2">
-							<a href="" class="btn btn-warning" role="button" style="border-radius: 0px;">Psicologia</a>
+						<div class="col-md-2 mb-2">
+							<a href="" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Engenharia</a>
 						</div>
-						<div class="col-md-2">
-							<a href="" class="btn btn-warning" role="button" style="border-radius: 0px;">Biologia</a>
+						<div class="col-md-2 mb-2">
+							<a href="" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Psicologia</a>
 						</div>
-						<div class="col-md-2">
-							<a href="" class="btn btn-primary" role="button" style="border-radius: 0px;">Ver todas</a>
+						<div class="col-md-2 mb-2">
+							<a href="" class="btn btn-primary btn-block" role="button" style="border-radius: 0px;">Ver todas</a>
 						</div>
 					</div>
 					<div class="row mt-5 pt-5">
@@ -65,10 +65,12 @@
 
 						<?php if(isset($projetosDestaque) && !empty($projetosDestaque)):?>
 					        <?php foreach($projetosDestaque as $pd):?>
-					            <div class="col-md-3 col-6">
-					            	<img class="foto-projeto mb-2" src="<?=base_url('assets/imagens/projeto_01.jpg')?>" width="100%">
-					                <h5><?=$pd['titulo']?></h5>
-					                <span>Criado por <a href=""><?=$pd['nome']?></a></span>
+					            <div class="col-md-3 col-6 mb-4">
+			            			<div class="img-thumbnail mb-2">
+			            				<div class="foto-projeto-index" style="background-image: url('<?=base_url('assets/imagens/projeto_01.jpg')?>');"></div>
+					            	</div>
+			                		<h5><?=$pd['titulo']?></h5>
+			                		<span>Criado por <a href=""><?=$pd['nome']?></a></span>
 					                <a></a>
 					            </div>
 					        <?php endforeach;?>

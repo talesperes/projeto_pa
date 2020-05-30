@@ -1,5 +1,10 @@
 <div class="container py-5 mt-5 mb-5">
-	<div class="row">
+	<div class="row justify-content-center">
+		<div class="col-4 col-lg-2 text-center">
+			<a href="<?=site_url('projeto')?>" class="btn btn-primary btn-block" role="button"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a>
+		</div>
+	</div>
+	<div class="row mt-5">
 		<div class="col-12 text-center">
 			<h2 class="text-primary"><strong>Criar Projeto</strong></h2>
 		</div>

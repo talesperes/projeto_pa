@@ -1,10 +1,10 @@
-<section class="py-5">
-	<div class="container-fluid px-5">
-		<div class="row pt-3">
-			<div class="col-md-3 mb-5">
-				<div class="mb-4">
-					<img src="<?=(!empty($usuario['imagem']) ? base_url('/assets/imagens/usuarios/').$this->session->userdata('id').'/'.$usuario['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>" width="100%" style="border: 1px solid #ddd; padding: 5px;">
-				</div>
+<section>
+<div class="container py-5 mt-2 mb-5">
+	<div class="row justify-content-center">
+		<div class="col-md-3 col-5 mb-5">
+			<div class="img-thumbnail mb-2">
+        		<div class="foto-perfil" style="background-image: url('<?=(!empty($usuario['imagem']) ? base_url('/assets/imagens/usuarios/').$this->session->userdata('id').'/'.$usuario['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
+        	</div>
 				<ul class="list-group">
 				  <li class="list-group-item"><a href="<?=site_url('perfil')?>">Ver Perfil</a></li>
 				  <li class="list-group-item"><a href="<?=site_url('perfil/alterar_perfil/').$this->session->userdata('id')?>">Alterar Perfil</a></li>
@@ -13,18 +13,19 @@
 				  <li class="list-group-item"><a href="<?=site_url('inicio/sair')?>">Sair</a></li>
 				</ul>
 			</div>
-			<div class="col-md-9">
-				<div class="row mb-5 justify-content-end">
+			<div class="col-md-9 col-7">
+				<div class="row mb-3">
 					<div class="col-md-3">
 						<a href="<?=site_url('projeto/criar_projeto')?>" class="btn btn-success btn-block" role="button">Criar Projeto +</a>
 					</div>
 				</div>
-
 				<?php if(isset($projetos) && !empty($projetos)):?>
 					<?php foreach($projetos as $p):?>
 						<div class="row mb-5">
 							<div class="col-md-4">
-								<img src="<?=(!empty($p['imagem']) ? base_url('assets/imagens/usuarios/'.$p['id_usuario'].'/projetos/'.$p['imagem']) : base_url('assets/imagens/projeto_default.png'))?>" class="img-thumbnail" width="100%">
+								<div class="img-thumbnail mb-2">
+					        		<div class="foto-projeto-perfil" style="background-image: url('<?=(!empty($p['imagem']) ? base_url('assets/imagens/usuarios/'.$p['id_usuario'].'/projetos/'.$p['imagem']) : base_url('assets/imagens/projeto_default.png'))?>');"></div>
+					        	</div>
 							</div>
 							<div class="col-md-8">
 								<a href="<?=site_url('projeto/visualizar/'.$p['id_projeto'])?>"><h3><?=$p['titulo']?></h3></a>
