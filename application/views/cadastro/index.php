@@ -23,7 +23,7 @@
 									    <input type="text" id="nome" name="nome" class="form-control validate-stepper">						    
 								    </div>
 								    <div class="form-group">
-										<label>Telefone</label>
+										<label>Telefone/Celular</label>
 									    <input type="text" id="telefone" name="telefone" class="form-control validate-stepper">						    
 								    </div>
 	                                <div class="form-group">
@@ -43,13 +43,7 @@
 	                                </div>
 	                                <div class="form-group">
 	                                	<h6 class="pt-4 text-primary font-weight-bold text-uppercase">Localização</h6>
-								    	<div class="form-row pt-2">
-								    		<div class="col-md-8 mb-2">
-			                                    <label>Cidade</label>
-			                                    <select id="cidade" name="cidade" class="form-control validate-stepper">
-			                                    	<option value="">-</option>
-			                                    </select>
-			                                </div>
+						<div class="form-row pt-2">
 			                                <div class="col-md-4">
 			                                    <label>Estado</label>
 			                                    <select id="estado" name="estado" class="form-control validate-stepper">
@@ -83,6 +77,12 @@
 													<option value="TO">Tocantins</option>
 			                                    </select>
 			                                </div>
+							<div class="col-md-8 mb-2">
+							    <label>Cidade</label>
+							    <select id="cidade" name="cidade" class="form-control validate-stepper">
+								<option value="">-</option>
+							    </select>
+							</div>
 			                            </div>
 	                                </div>
 	                                <div class="form-group">
