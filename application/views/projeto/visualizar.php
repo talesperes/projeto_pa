@@ -10,8 +10,14 @@
 					</div>
 					<div class="col-md-8">
 						<div>
-							
-							<h2><?=$projeto['titulo']?> <?=(!in_array($projeto['status'], array('Executando', 'Finalizado')) && $projeto['id_usuario'] == $this->session->userdata('id') ? '<a href="'.site_url('projeto/editar_projeto/'.$projeto['id_projeto']).'"><button class="btn btn-primary text-right">Editar</button></a>' : '')?> </h2>
+							<div class="row">
+								<div class="col-md-6">
+									<h2><?=$projeto['titulo']?></h2>
+								</div>
+								<div class="col-md-6">
+									<?=(!in_array($projeto['status'], array('Executando', 'Finalizado')) && $projeto['id_usuario'] == $this->session->userdata('id') ? '<a href="'.site_url('projeto/editar_projeto/'.$projeto['id_projeto']).'"><button class="btn btn-primary text-right">Editar</button></a>' : '')?>
+								</div>
+							</div>
 							<hr>
 							<div class="row">
 								<div class="col-md-6">
