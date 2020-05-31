@@ -106,7 +106,7 @@
 					<div class="row mt-2">
 						<?php if(isset($solicitacoes) && !empty($solicitacoes)):?>
 							<?php foreach($solicitacoes as $s):?>
-								<div class="col-md-3 text-center">
+								<div class="col-md-2 col-6 text-center">
 									<span style="font-size: 16px;"><a href='#'><?=$s['nome']?></a> </span><br>
 									<div class="img-thumbnail mt-1 mb-2">
 										<div class="foto-perfil" style="background-image: url('<?=(!empty($s['imagem']) ? base_url('/assets/imagens/usuarios/').$s['id_usuario'].'/'.$s['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
