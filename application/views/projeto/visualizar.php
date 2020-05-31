@@ -88,7 +88,9 @@
 							<?php foreach($projetosRel as $pr):?>
 								<div class="col-md-3">
 									<a href="<?=site_url('projeto/visualizar/').$pr['id_projeto']?>"><h4 class="mt-2"><?=$pr['titulo']?></h4></a>
-									<img src="<?=(!empty($pr['imagem']) ? base_url('/assets/imagens/usuarios/').$pr['fk_p_usuario'].'/projetos/'.$pr['imagem'] : base_url('/assets/imagens/projeto_default.png'))?>" class="img-thumbnail" width="100%">
+									<div class="img-thumbnail mb-2">
+										<div class="foto-projeto-index" style="background-image: url('<?=(!empty($pr['imagem']) ? base_url('/assets/imagens/usuarios/').$pr['fk_p_usuario'].'/projetos/'.$pr['imagem'] : base_url('/assets/imagens/projeto_default.png'))?>');"></div>
+									</div>
 									<span class="mt-2" style="font-size: 14px;"><?=$pr['descricao']?></span>
 								</div>
 							<?php endforeach;?>
@@ -133,7 +135,7 @@
 
 			</div>
 
-			<div class="col-md-2 text-center">
+			<div class="col-md-3 text-center">
 				<span style="font-size: 14px;">Projeto criado por <br> <?=($this->session->userdata('id') != $projeto['id_usuario'] ? "<a href='<?=site_url('perfil/index/'".$projeto['id_usuario'].")?>".$projeto['nome']."</a>" : $projeto['nome'] )?> </span><br>
 				<div class="img-thumbnail mt-1 mb-2">
 					<div class="foto-pequena" style="background-image: url('<?=(!empty($projeto['imagem']) ? base_url('/assets/imagens/usuarios/').$projeto['id_usuario'].'/'.$projeto['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>'); height: 160px;"></div>
