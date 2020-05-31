@@ -1,14 +1,16 @@
 <section class="py-5">
 	<div class="container-fluid px-5">
 		<div class="row pt-3">
-			<div class="col-10">
+			<div class="col-md-10 mb-5">
 				<div class="row">
 					<div class="col-md-4">
-						<img src="<?=(!empty($projeto['imagem_projeto']) ? base_url('assets/imagens/usuarios/'.$projeto['id_usuario'].'/projetos/'.$projeto['imagem_projeto']) : base_url('assets/imagens/projeto_default.png') )?>" class="img-thumbnail" width="100%">
+						<div class="img-thumbnail mb-2">
+							<div class="foto-projeto" style="background-image: url('<?=(!empty($projeto['imagem_projeto']) ? base_url('assets/imagens/usuarios/'.$projeto['id_usuario'].'/projetos/'.$projeto['imagem_projeto']) : base_url('assets/imagens/projeto_default.png') )?>');"></div>
+						</div>
 					</div>
 					<div class="col-md-8">
 						<div>
-							<h2><?=$projeto['titulo']?> </h2>
+							<h2 class="mt-3"><?=$projeto['titulo']?> </h2>
 							<p class="mb-1"><small>Participantes: <button class="btn btn-primary btn-sm"> <?=(!empty($participantes) ? $participantes['qtd'] : 0)?> / <?=$projeto['num_pessoas']?> </button></small></p>
 							<p><small>Status: <button class="btn btn-warning btn-sm"> <?=$projeto['status']?> </button></small></p>
 							
@@ -101,14 +103,16 @@
 							<hr>
 						</div>
 					</div>
-					<div class="row mt-5">
+					<div class="row mt-2">
 						<?php if(isset($solicitacoes) && !empty($solicitacoes)):?>
 							<?php foreach($solicitacoes as $s):?>
 								<div class="col-md-3 text-center">
 									<span style="font-size: 14px;"><a href='#'><?=$s['nome']?></a> </span><br>
-									<img src="<?=(!empty($s['imagem']) ? base_url('/assets/imagens/usuarios/').$s['id_usuario'].'/'.$s['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>" class="img-thumbnail my-2" width="100">
-									<a href="<?=site_url('projeto/aceitar/'.$projeto['id_projeto'].'/'.$s['id_usuario'])?>" class="btn btn-primary form-control">Aceitar</a>
-									<a href="<?=site_url('projeto/recusar/'.$projeto['id_projeto'].'/'.$s['id_usuario'])?>" class="btn btn-danger form-control">Recusar</a>
+									<div class="img-thumbnail mb-2">
+										<div class="foto-perfil" style="background-image: url('<?=(!empty($s['imagem']) ? base_url('/assets/imagens/usuarios/').$s['id_usuario'].'/'.$s['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
+									</div>
+									<a href="<?=site_url('projeto/aceitar/'.$projeto['id_projeto'].'/'.$s['id_usuario'])?>" class="btn btn-primary form-control mb-2"><i class="fas fa-check mr-1"></i> Aceitar</a>
+									<a href="<?=site_url('projeto/recusar/'.$projeto['id_projeto'].'/'.$s['id_usuario'])?>" class="btn btn-danger form-control"><i class="fas fa-times mr-1"></i> Recusar</a>
 								</div>
 							<?php endforeach;?>
 						<?php else:?>
