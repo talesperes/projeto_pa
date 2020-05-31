@@ -115,7 +115,7 @@
 					<div class="row mt-2">
 						<?php if(isset($solicitacoes) && !empty($solicitacoes)):?>
 							<?php foreach($solicitacoes as $s):?>
-								<div class="col-md-2 col-6 text-center">
+								<div class="col-md-3 col-6 text-center">
 									<span style="font-size: 16px;"><a href='<?=site_url('perfil/index/'.$s['id_usuario'])?>'><?=$s['nome']?></a> </span><br>
 									<div class="img-thumbnail mt-1 mb-2">
 										<div class="foto-pequena" style="background-image: url('<?=(!empty($s['imagem']) ? base_url('/assets/imagens/usuarios/').$s['id_usuario'].'/'.$s['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
@@ -135,7 +135,7 @@
 
 			</div>
 
-			<div class="col-md-3 text-center">
+			<div class="col-md-2 text-center">
 				<span style="font-size: 14px;">Projeto criado por <br> <?=($this->session->userdata('id') != $projeto['id_usuario'] ? "<a href='<?=site_url('perfil/index/'".$projeto['id_usuario'].")?>".$projeto['nome']."</a>" : $projeto['nome'] )?> </span><br>
 				<div class="img-thumbnail mt-1 mb-2">
 					<div class="foto-pequena" style="background-image: url('<?=(!empty($projeto['imagem']) ? base_url('/assets/imagens/usuarios/').$projeto['id_usuario'].'/'.$projeto['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>'); height: 160px;"></div>
