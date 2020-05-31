@@ -38,5 +38,24 @@ class Cadastro extends CI_Controller {
 
 	}
 
+	public function verificaEmail()
+	{
+		$data = $this->input->post();
+
+		if(isset($data['email'])){ 
+
+		    $emailPostado = $data['email'];
+
+		    $this->load->model('Usuario_Model');
+		    $email = $this->Usuario_Model->where("email", $emailPostado)->get();
+
+		    if($email) 
+		        echo json_encode(array('email' => 'Email já cadastrado.')); 
+		    else 
+		        echo json_encode(array('email' => 'valido' )); 
+		}
+
+	}
+
 
 }

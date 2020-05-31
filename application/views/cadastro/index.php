@@ -226,6 +226,27 @@
 </div>
 <script type="text/javascript">
 
+	var email = $("#email"); 
+    email.blur(function() { 
+        $.ajax({ 
+            url: '<?=site_url('cadastro/verificaEmail')?>', 
+            type: 'POST', 
+            data:{"email" : email.val()}, 
+            success: function(data) { 
+            	data = $.parseJSON(data); 
+
+            	$(".validate-error").remove();
+
+            	if(data.email != 'valido') {
+	            	$("#btnCadastro").prop('disabled', true);
+	            	$("<small class='validate-error'>"+data.email+"</small>").css("color", "red").insertAfter($("#email"));
+            	} else {
+	            	$("#btnCadastro").prop('disabled', false);
+            	}
+            } 
+        }); 
+    }); 
+
 	$(document).on('click','.add_escolaridade', function() {
 
 		var html =	'<div class="form-card dados-escolaridade">'+
