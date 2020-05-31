@@ -9,8 +9,8 @@
 					<div class="col-md-8">
 						<div>
 							<h2><?=$projeto['titulo']?> </h2>
-							<small>Participantes: <button class="btn btn-primary"> <?=(!empty($participantes) ? $participantes['qtd'] : 0)?> / <?=$projeto['num_pessoas']?> </button></small><br>
-							<small>Status: <button class="btn btn-warning"> <?=$projeto['status']?> </button></small>
+							<small class="mb-1">Participantes: <button class="btn btn-primary btn-sm"> <?=(!empty($participantes) ? $participantes['qtd'] : 0)?> / <?=$projeto['num_pessoas']?> </button></small><br>
+							<small>Status: <button class="btn btn-warning btn-sm"> <?=$projeto['status']?> </button></small>
 							
 							<?php if($projeto['status'] == 'Executando' && $projeto['id_usuario'] == $this->session->userdata('id')): ?>
 								<br>
