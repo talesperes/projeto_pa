@@ -120,7 +120,7 @@
 			</div>
 
 			<div class="col-md-2 text-center">
-				<span style="font-size: 14px;">Projeto criado por <br> <?=($this->session->userdata('id') != $projeto['id_usuario'] ? "<a href='perfil.php'>".$projeto['nome']."</a>" : $projeto['nome'] )?> </span><br>
+				<span style="font-size: 14px;">Projeto criado por <br> <?=($this->session->userdata('id') != $projeto['id_usuario'] ? "<a href='<?=site_url('perfil/index/'".$projeto['id_usuario'].")?>'>".$projeto['nome']."</a>" : $projeto['nome'] )?> </span><br>
 				<img src="<?=(!empty($projeto['imagem']) ? base_url('/assets/imagens/usuarios/').$projeto['id_usuario'].'/'.$projeto['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>" class="img-thumbnail my-2" width="100"><br>
 				<?php if($this->session->userdata('id') != $projeto['id_usuario']):?>
 					<span style="font-size: 14px;">Mais sobre o autor</span>
@@ -128,7 +128,7 @@
 						<p class="mt-3" style="font-size: 12px;">
 							<?=(!empty($projeto['biografia']) ? $projeto['biografia'] : 'Autor sem biografia.' )?>
 						</p>
-						<a href="#">Visitar Perfil</a>
+						<a href="<?=site_url('perfil/index/'.$projeto['id_usuario'])?>">Visitar Perfil</a>
 					</div>
 				<?php endif;?>
 			</div>
