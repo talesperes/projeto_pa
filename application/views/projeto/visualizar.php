@@ -10,7 +10,7 @@
 					</div>
 					<div class="col-md-8">
 						<div>
-							<h2 class="mt-3"><?=$projeto['titulo']?> </h2>
+							<h2 class="mt-lg-3"><?=$projeto['titulo']?> </h2>
 							<p class="mb-1"><small>Participantes: <button class="btn btn-primary btn-sm"> <?=(!empty($participantes) ? $participantes['qtd'] : 0)?> / <?=$projeto['num_pessoas']?> </button></small></p>
 							<p><small>Status: <button class="btn btn-warning btn-sm"> <?=$projeto['status']?> </button></small></p>
 							
