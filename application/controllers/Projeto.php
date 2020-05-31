@@ -223,4 +223,27 @@ class Projeto extends MY_Controller {
 
 	}
 
+	public function editar_projeto($id_projeto)
+	{
+		if(!isset($id_projeto))
+			redirect('projeto');
+
+		$this->load->model('Projeto_Model');
+
+		$dados['projeto'] = $this->Projeto_Model->get($id_projeto);
+
+		$data = (!empty($this->input->post()) ? $this->input->post() : null);
+
+		if(!empty($data)) {
+
+			$this->Projeto_Model->update(array('titulo' => $data['nome'], 'descricao' => $data['descricao'], 'categoria' => $data['area'], 'num_pessoas' => $data['num_pessoas']),$id_projeto);
+
+			redirect('projeto/visualizar/'.$id_projeto);
+		}
+
+		$dados['title'] = 'Editar Projeto';
+		$this->template->load("template/main", "projeto/editar_projeto", $dados);
+
+	}
+
 }

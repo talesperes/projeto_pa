@@ -63,6 +63,8 @@
 										</div>
 									</div>
 								<?php endforeach;?>
+							<?php else:?>
+								<i>Você não possui nenhuma solicitação</i>
 							<?php endif;?>
 					  	</div>
 					  	<div class="tab-pane fade" id="sol_aceitas" role="tabpanel" aria-labelledby="sol_aceitas">
