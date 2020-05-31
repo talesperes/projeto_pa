@@ -20,7 +20,7 @@
               <?php foreach($rankingUsuarios as $key => $ru):?>
                 <tr>
                   <th scope="row"><?=$key+1?></th>
-                  <td><a href="<?=$ru['id_usuario']?>"><?=$ru['nome']?></a></td>
+                  <td><a href="<?=site_url('perfil/index/'.$ru['id_usuario'])?>"><?=$ru['nome']?></a></td>
                   <td><?=$ru['pontuacao']?></td>
                 </tr>
               <?php endforeach;?>
