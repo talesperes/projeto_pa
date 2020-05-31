@@ -109,5 +109,14 @@ class Perfil extends MY_Controller {
 		$this->template->load("template/main", "perfil/alterar_perfil", $dados);
 	}
 
+	public function getEscolaridade($id_escolaridade) 
+	{
+
+		$this->load->model("Escolaridade_Model");
+		$dados['escolaridade'] = $this->Escolaridade_Model->get($id_escolaridade);
+
+		$this->load->view("perfil/getEscolaridade", $dados);
+	}
+
 
 }

@@ -44,12 +44,6 @@
 	                                <div class="form-group">
 	                                	<h6 class="pt-4 text-primary font-weight-bold text-uppercase">Localização</h6>
 								    	<div class="form-row pt-2">
-								    		<div class="col-md-8 mb-2">
-			                                    <label>Cidade</label>
-			                                    <select id="cidade" name="cidade" class="form-control validate-stepper">
-			                                    	<option value="">-</option>
-			                                    </select>
-			                                </div>
 			                                <div class="col-md-4">
 			                                    <label>Estado</label>
 			                                    <select id="estado" name="estado" class="form-control validate-stepper">
@@ -81,6 +75,12 @@
 													<option value="SP">São Paulo</option>
 													<option value="SE">Sergipe</option>
 													<option value="TO">Tocantins</option>
+			                                    </select>
+			                                </div>
+			                                <div class="col-md-8 mb-2">
+			                                    <label>Cidade</label>
+			                                    <select id="cidade" name="cidade" class="form-control validate-stepper">
+			                                    	<option value="">-</option>
 			                                    </select>
 			                                </div>
 			                            </div>
@@ -343,7 +343,15 @@
 		}
 
 	});
-	
+
+	$('#telefone').keypress(function(event) {
+	   if($(this).val().length == 15){ // Celular com 9 dígitos + 2 dígitos DDD e 4 da máscara
+	      $('#telefone').mask('(00) 00000-0009');
+	   } else {
+	      $('#telefone').mask('(00) 0000-00009');
+	   }
+	});
+
 </script>
 <script>
 	$(function() {

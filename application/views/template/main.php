@@ -14,6 +14,7 @@
 
   <!-- JAVASCRIPT -->
   <script src="<?=base_url('assets/js/jquery-3.4.1.js')?>"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
   <script src="<?=base_url('assets/js/bootstrap.js')?>"></script>
   <script src="<?=base_url('assets/js/stepper.js')?>"></script>
 </head>
