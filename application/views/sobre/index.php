@@ -2,11 +2,19 @@
 	<div class="container-fluid px-5">
 		<div class="row pt-3">
 			<div class="col-12">
+				<h4>Qual o objetivo do Naluta?</h4>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue justo dolor, eu auctor neque placerat in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque tempus justo et leo faucibus, vel viverra dolor accumsan. Aenean tempor justo non consequat imperdiet. Phasellus ac velit orci. Aenean dolor lorem, suscipit sed vulputate varius, placerat nec nisl. Maecenas congue risus a orci lobortis dictum. Vestibulum porta tellus ac ex sagittis ornare. Ut at sem quam. Vivamus quis odio libero.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue justo dolor, eu auctor neque placerat in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque tempus justo et leo faucibus, vel viverra dolor accumsan. Aenean tempor justo non consequat imperdiet. Phasellus ac velit orci. Aenean dolor lorem, suscipit sed vulputate varius, placerat nec nisl. Maecenas congue risus a orci lobortis dictum. Vestibulum porta tellus ac ex sagittis ornare. Ut at sem quam. Vivamus quis odio libero.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue justo dolor, eu auctor neque placerat in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque tempus justo et leo faucibus, vel viverra dolor accumsan. Aenean tempor justo non consequat imperdiet. Phasellus ac velit orci. Aenean dolor lorem, suscipit sed vulputate varius, placerat nec nisl. Maecenas congue risus a orci lobortis dictum. Vestibulum porta tellus ac ex sagittis ornare. Ut at sem quam. Vivamus quis odio libero.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue justo dolor, eu auctor neque placerat in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque tempus justo et leo faucibus, vel viverra dolor accumsan. Aenean tempor justo non consequat imperdiet. Phasellus ac velit orci. Aenean dolor lorem, suscipit sed vulputate varius, placerat nec nisl. Maecenas congue risus a orci lobortis dictum. Vestibulum porta tellus ac ex sagittis ornare. Ut at sem quam. Vivamus quis odio libero.
+					Com várias pessoas passando a desenvolver seus próprios projetos a
+					partir de suas ideias, acaba sendo necessária a contribuição de outras pessoas para
+					torná-los realidade. Com esse sistema é possível unir pessoas para trabalharem
+					juntas, visando a realização de seus projetos.
+				</p>
+				<p>
+					O Sistema tem como objetivo reunir pessoas de diversos lugares, com
+					diferentes habilidades para trabalharem em conjunto, afim de ajudar no
+					desenvolvimento de um projeto, onde uma pessoa ao criá-lo passa a ser o líder do
+					mesmo, podendo aplicar definições como bem quiser e permitir com que pessoas
+					interessadas no projeto possam participar, tendo antes a permissão do líder.
 				</p>
 				<img src="<?=site_url('assets/imagens/banner.jpg')?>" width="100%">
 			</div>
