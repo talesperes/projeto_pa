@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<?php if(isset($usuariosProjeto) && !empty($usuariosProjeto)):?>
 				<?php foreach($usuariosProjeto as $up):?>
-					<div class="col-md-12">
+					<div class="col-md-6">
 						<p><?=$up['nome']?></p>
 						<input type="hidden" name="id_usuario[]" value="<?=$up['id_usuario']?>">
 						<select class="form-control" name="nota[]">
