@@ -61,7 +61,7 @@
 									<h5><?=$esc['tipo']?></h5>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row mt-3">
 								<div class="col-md-6 mb-3 mb-lg-0">
 									<h6 style="font-size: 12px;">Curso</h6>
 									<h5><?=$esc['curso']?></h5>
