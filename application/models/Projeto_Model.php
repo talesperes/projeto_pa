@@ -133,4 +133,65 @@ class Projeto_Model extends MY_Model
 
 	}
 
+	public function getNotificacao($id_usuario, $limit = null, $start = null)
+	{
+		$this->_database->select("count(*) as qtd");
+
+		$this->_database->from("usuario_projeto up");
+		
+		$this->_database->where("fk_up_projeto = p.id_projeto");
+		$this->_database->where("up.status",'Aguardando');
+
+		$subQuery = $this->_database->get_compiled_select();
+
+		$this->_database->select('p.id_projeto');
+		$this->_database->select('p.titulo');
+		$this->_database->select('('.$subQuery.') qtd');
+
+		$this->_database->from('projeto p');
+
+		$this->_database->where('fk_p_usuario', $id_usuario);
+		$this->_database->where('status', 'Aberto');
+		$this->_database->where('('.$subQuery.') > 0');
+
+		if($limit !== null && $start !== null)
+			$this->_database->limit($limit, $start);
+
+		$query = $this->_database->get();
+
+		if($query->num_rows() > 0)
+			return $query->result_array();
+		else
+			return null;
+	}
+
+	public function countAllNotificacao($id_usuario)
+	{
+		$this->_database->select("count(*) as qtd");
+
+		$this->_database->from("usuario_projeto up");
+		
+		$this->_database->where("fk_up_projeto = p.id_projeto");
+		$this->_database->where("up.status",'Aguardando');
+
+		$subQuery = $this->_database->get_compiled_select();
+
+		$this->_database->select('p.id_projeto');
+		$this->_database->select('p.titulo');
+		$this->_database->select('('.$subQuery.') qtd');
+
+		$this->_database->from('projeto p');
+
+		$this->_database->where('fk_p_usuario', $id_usuario);
+		$this->_database->where('status', 'Aberto');
+		$this->_database->where('('.$subQuery.') > 0');
+
+		$query = $this->_database->get();
+
+		if($query->num_rows() > 0)
+			return $query->num_rows();
+		else
+			return null;
+	}
+
 }

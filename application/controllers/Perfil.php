@@ -157,5 +157,22 @@ class Perfil extends MY_Controller {
 		redirect('perfil');
 	}
 
+	public function notificacao()
+	{
+
+		$this->load->model('Projeto_Model');
+
+		$count = $this->Projeto_Model->countAllNotificacao($this->session->userdata('id'));
+
+		$perPage = $this->startPagination('perfil/notificacao', $count, 6);
+        $page    = ($this->uri->segment(4) ? $this->uri->segment(4) : 1);
+        $offset  = ($page - 1) * $perPage;
+		$dados["links"]    = $this->pagination->create_links();
+
+		$dados['notificacoes'] = $notificacoes = $this->Projeto_Model->getNotificacao($this->session->userdata('id'), $perPage, $offset);
+
+		$dados['title'] = 'Notificações';
+		$this->template->load("template/main", "perfil/notificacao", $dados);
+	}
 
 }
