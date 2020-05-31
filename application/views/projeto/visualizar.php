@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="img-thumbnail mb-2">
-							<div class="foto-projeto" style="background-image: url('<?=(!empty($projeto['imagem_projeto']) ? base_url('assets/imagens/usuarios/'.$projeto['id_usuario'].'/projetos/'.$projeto['imagem_projeto']) : base_url('assets/imagens/projeto_default.png') )?>');"></div>
+							<div class="foto-projeto" style="background-image: url('<?=(!empty($projeto['imagem_projeto']) ? base_url('assets/imagens/usuarios/'.$projeto['id_usuario'].'/projetos/'.$projeto['imagem_projeto']) : base_url('assets/imagens/projeto_default.png') )?>'); height: 240px;"></div>
 						</div>
 					</div>
 					<div class="col-md-8">
@@ -69,7 +69,7 @@
 				</div>
 
 				<?php if($this->session->userdata('id') != $projeto['id_usuario']):?>
-					<div class="row mt-5">
+					<div class="row mt-3">
 						<div class="col-12 pt-5">
 							<h3>Projetos Relacionados:</h3>
 							<hr>
@@ -97,7 +97,7 @@
 						</div>
 					</div>
 				<?php elseif($participantes['qtd'] != $projeto['num_pessoas']):?>
-					<div class="row mt-5">
+					<div class="row mt-3">
 						<div class="col-12 pt-5">
 							<h3>Solicitações:</h3>
 							<hr>
@@ -107,8 +107,8 @@
 						<?php if(isset($solicitacoes) && !empty($solicitacoes)):?>
 							<?php foreach($solicitacoes as $s):?>
 								<div class="col-md-3 text-center">
-									<span style="font-size: 14px;"><a href='#'><?=$s['nome']?></a> </span><br>
-									<div class="img-thumbnail mb-2">
+									<span style="font-size: 16px;"><a href='#'><?=$s['nome']?></a> </span><br>
+									<div class="img-thumbnail mt-1 mb-2">
 										<div class="foto-perfil" style="background-image: url('<?=(!empty($s['imagem']) ? base_url('/assets/imagens/usuarios/').$s['id_usuario'].'/'.$s['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
 									</div>
 									<a href="<?=site_url('projeto/aceitar/'.$projeto['id_projeto'].'/'.$s['id_usuario'])?>" class="btn btn-primary form-control mb-2"><i class="fas fa-check mr-1"></i> Aceitar</a>
