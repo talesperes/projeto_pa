@@ -39,11 +39,13 @@
 										      </div>
 										      <div class="modal-body">
 											<div style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px 20px; margin: 0px 20px;">
+												<h5 class="text-primary font-weight-bold text-center">Avalie seus colegas de equipe</h5>
+												<p class="text-center">Antes de finalizar seu projeto, avalie com uma nota de 1 a 5 os seguintes participantes do seu projeto:</p>
 												<form action="<?=site_url('projeto/finalizar/'.$projeto['id_projeto'])?>" method="POST">
 													<div id="usuariosProjeto">
 
 													</div>
-													<button class="btn btn-primary btn-block btn-lg">Finalizar</button>
+													<button class="btn btn-primary btn-block btn-lg mt-2">Finalizar</button>
 												</form>
 
 												</div>
