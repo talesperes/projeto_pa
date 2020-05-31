@@ -73,6 +73,9 @@
       </ul>
     <?php else:?>
       <ul class="navbar-nav ml-auto mt-lg-0 mt-md-0 mr-lg-4">
+      <li class="nav-item text-center mb-2 d-none d-md-none d-lg-block" style="margin-top: 5px;">
+	<a href="notificacoes.php"><span class="badge badge-dark badge-pill py-2 px-3"><i class="fas fa-bell fa-lg mr-1"></i> 4</span></a>
+      	</li>
         <li class="nav-item text-center mb-2">
           <a href="<?=site_url('perfil')?>" class="btn btn-primary text-white" role="button"><span style="letter-spacing: 1px; font-size: 12px;"><i class="fas fa-user-alt mr-1"></i> MEU PERFIL</span></a>
         </li>
