@@ -30,7 +30,7 @@
 							</div>
 							<div class="col-md-8">
 								<a href="<?=site_url('projeto/visualizar/'.$p['id_projeto'])?>"><h3><?=$p['titulo']?></h3></a>
-								<p><i><?=$p['descricao']?></i></p>
+								<p><i><?=(strlen($p['descricao']) > 200 ? substr($p['descricao'], 0, 200).'...' : $p['descricao'] )?></i></p>
 								<a href="#" class="btn btn-warning mr-1" role="button" style="border-radius: 0px;"><?=(!empty($p['categoria']) ? $p['categoria'] : 'Outros')?></a>
 							</div>
 						</div>

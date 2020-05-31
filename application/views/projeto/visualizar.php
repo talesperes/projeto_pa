@@ -102,7 +102,7 @@
 									<div class="img-thumbnail mb-2">
 										<div class="foto-projeto-index" style="background-image: url('<?=(!empty($pr['imagem']) ? base_url('/assets/imagens/usuarios/').$pr['fk_p_usuario'].'/projetos/'.$pr['imagem'] : base_url('/assets/imagens/projeto_default.png'))?>');"></div>
 									</div>
-									<span class="mt-2" style="font-size: 14px;"><?=$pr['descricao']?></span>
+									<span class="mt-2" style="font-size: 14px;"><?=(strlen($pr['descricao']) > 200 ? substr($pr['descricao'], 0, 200).'...' : $pr['descricao'] )?></span>
 								</div>
 							<?php endforeach;?>
 						</div>
