@@ -128,7 +128,7 @@
 
 			<div class="col-md-2 text-center">
 				<span style="font-size: 14px;">Projeto criado por <br> <?=($this->session->userdata('id') != $projeto['id_usuario'] ? "<a href='<?=site_url('perfil/index/'".$projeto['id_usuario'].")?>".$projeto['nome']."</a>" : $projeto['nome'] )?> </span><br>
-				<div class="img-thumbnail mb-2">
+				<div class="img-thumbnail mt-1 mb-2">
 					<div class="foto-pequena" style="background-image: url('<?=(!empty($projeto['imagem']) ? base_url('/assets/imagens/usuarios/').$projeto['id_usuario'].'/'.$projeto['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>'); height: 160px;"></div>
 				</div>
 				<?php if($this->session->userdata('id') != $projeto['id_usuario']):?>
