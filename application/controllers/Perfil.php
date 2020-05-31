@@ -118,5 +118,44 @@ class Perfil extends MY_Controller {
 		$this->load->view("perfil/getEscolaridade", $dados);
 	}
 
+	public function salvar_escolaridade($id_escolaridade)
+	{
+		$data = (!empty($this->input->post()) ? $this->input->post() : null );
+
+		if(isset($data) && !empty($data)) {
+
+			$this->load->model('Escolaridade_Model');
+			$update = $this->Escolaridade_Model->update(array('tipo' => $data['nivel-escolaridade'], 'instituicao' => $data['instituicao'], 'curso' => $data['curso'], 'ano_inicio' => $data['ano_inicio'], 'ano_fim' => $data['ano_fim']), $id_escolaridade);
+
+			if($update)
+				$this->alert->set('alert-success', 'Formação Acadêmica alterada com sucesso!');
+			else
+				$this->alert->set('alert-danger', 'Houve um problema ao atualizar a formação acadêmica');
+
+		}
+
+		redirect('perfil');
+
+	}
+
+	public function add_escolaridade()
+	{
+		$data = (!empty($this->input->post()) ? $this->input->post() : null );
+
+		if(isset($data) && !empty($data)) {
+
+			$this->load->model('Escolaridade_Model');
+			$insert = $this->Escolaridade_Model->insert(array('tipo' => $data['nivel-escolaridade'], 'instituicao' => $data['instituicao'], 'curso' => $data['curso'], 'ano_inicio' => $data['ano_inicio'], 'ano_fim' => $data['ano_fim'], 'fk_e_usuario' => $this->session->userdata('id')));
+
+			if($insert)
+				$this->alert->set('alert-success', 'Formação Acadêmica adicionada com sucesso!');
+			else
+				$this->alert->set('alert-danger', 'Houve um problema ao adicionar a formação acadêmica');
+
+		}
+
+		redirect('perfil');
+	}
+
 
 }

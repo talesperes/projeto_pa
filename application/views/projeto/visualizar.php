@@ -79,7 +79,7 @@
 							<?php foreach($projetosRel as $pr):?>
 								<div class="col-md-3">
 									<a href="<?=site_url('projeto/visualizar/').$pr['id_projeto']?>"><h4 class="mt-2"><?=$pr['titulo']?></h4></a>
-									<img src="<?=(!empty($pr['imagem']) ? base_url('/assets/imagens/usuarios/').$pr['fk_p_usuario'].'/'.$pr['imagem'] : base_url('/assets/imagens/projeto_default.png'))?>" class="img-thumbnail" width="100%">
+									<img src="<?=(!empty($pr['imagem']) ? base_url('/assets/imagens/usuarios/').$pr['fk_p_usuario'].'/projetos/'.$pr['imagem'] : base_url('/assets/imagens/projeto_default.png'))?>" class="img-thumbnail" width="100%">
 									<span class="mt-2" style="font-size: 14px;"><?=$pr['descricao']?></span>
 								</div>
 							<?php endforeach;?>
