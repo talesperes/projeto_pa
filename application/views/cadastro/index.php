@@ -23,7 +23,7 @@
 									    <input type="text" id="nome" name="nome" class="form-control validate-stepper">						    
 								    </div>
 								    <div class="form-group">
-										<label>Telefone</label>
+										<label>Telefone/Celular</label>
 									    <input type="text" id="telefone" name="telefone" class="form-control validate-stepper">						    
 								    </div>
 	                                <div class="form-group">
