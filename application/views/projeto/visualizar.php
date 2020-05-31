@@ -11,11 +11,11 @@
 					<div class="col-md-8">
 						<div>
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-9">
 									<h2><?=$projeto['titulo']?></h2>
 								</div>
-								<div class="col-md-6">
-									<?=(!in_array($projeto['status'], array('Executando', 'Finalizado')) && $projeto['id_usuario'] == $this->session->userdata('id') ? '<a href="'.site_url('projeto/editar_projeto/'.$projeto['id_projeto']).'"><button class="btn btn-primary text-right">Editar</button></a>' : '')?>
+								<div class="col-md-3 text-lg-right">
+									<?=(!in_array($projeto['status'], array('Executando', 'Finalizado')) && $projeto['id_usuario'] == $this->session->userdata('id') ? '<a href="'.site_url('projeto/editar_projeto/'.$projeto['id_projeto']).'"><button class="btn btn-primary">Editar</button></a>' : '')?>
 								</div>
 							</div>
 							<hr>
