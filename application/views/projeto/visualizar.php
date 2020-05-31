@@ -54,7 +54,7 @@
 							   <?php endforeach; ?>  
 							<?php endif; ?>
 
-							<?php if($this->session->userdata('id') != $projeto['id_usuario'] && $participantes['qtd'] != $projeto['num_pessoas']):?>
+							<?php if($this->session->userdata('id') != $projeto['id_usuario'] && $participantes['qtd'] != $projeto['num_pessoas'] && $this->session->userdata('logado')):?>
 								<?php if($projetoPart):?>
 									<a href="<?=site_url('projeto/cancelar/'.$projeto['id_projeto'])?>" class="btn btn-danger" role="button">Cancelar Solicitação</a>
 								<?php else:?>
