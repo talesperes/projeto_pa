@@ -12,6 +12,7 @@
 						<div>
 							
 							<h2><?=$projeto['titulo']?> <?=(!in_array($projeto['status'], array('Executando', 'Finalizado')) && $projeto['id_usuario'] == $this->session->userdata('id') ? '<a href="'.site_url('projeto/editar_projeto/'.$projeto['id_projeto']).'"><button class="btn btn-primary">Editar</button></a>' : '')?> </h2>
+							<hr>
 							<div class="row">
 								<div class="col-md-6">
 									<p class="mb-1"><small>Participantes: <button class="btn btn-primary btn-sm"> <?=(!empty($participantes) ? $participantes['qtd'] : 0)?> / <?=$projeto['num_pessoas']?> </button></small></p>
@@ -20,7 +21,7 @@
 								<div class="col-md-6 text-lg-right">
 									<?php if($projeto['status'] == 'Executando' && $projeto['id_usuario'] == $this->session->userdata('id')): ?>
 									
-										<button class="btn btn-danger" data-toggle="modal" data-target="#rating" id="btnFinalizar" data-projeto="<?=$projeto['id_projeto']?>"><small>Finalizar Projeto</small></button>
+										<button class="btn btn-danger" data-toggle="modal" data-target="#rating" id="btnFinalizar" data-projeto="<?=$projeto['id_projeto']?>">Finalizar Projeto</button>
 
 										<div class="modal fade" id="rating" tabindex="-1" role="dialog" aria-labelledby="ratingModal" aria-hidden="true">
 										  <div class="modal-dialog modal-lg" role="document">
