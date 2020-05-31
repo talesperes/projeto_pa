@@ -10,38 +10,45 @@
 					</div>
 					<div class="col-md-8">
 						<div>
-							<h2><?=$projeto['titulo']?> <?=(!in_array($projeto['status'], array('Executando', 'Finalizado')) && $projeto['id_usuario'] == $this->session->userdata('id') ? '<a href="'.site_url('projeto/editar_projeto/'.$projeto['id_projeto']).'"><button class="btn btn-primary">Editar</button></a>' : '')?> </h2>
-							<p class="mb-1"><small>Participantes: <button class="btn btn-primary btn-sm"> <?=(!empty($participantes) ? $participantes['qtd'] : 0)?> / <?=$projeto['num_pessoas']?> </button></small></p>
-							<p><small>Status: <button class="btn btn-warning btn-sm"> <?=$projeto['status']?> </button></small></p>
 							
-							<?php if($projeto['status'] == 'Executando' && $projeto['id_usuario'] == $this->session->userdata('id')): ?>
-								<br>
-								<button class="btn btn-success" data-toggle="modal" data-target="#rating" id="btnFinalizar" data-projeto="<?=$projeto['id_projeto']?>"><small>Finalizar Projeto</small></button>
-
-								<div class="modal fade" id="rating" tabindex="-1" role="dialog" aria-labelledby="ratingModal" aria-hidden="true">
-								  <div class="modal-dialog modal-lg" role="document">
-								    <div class="modal-content pb-3" style="border-radius: 0.5rem;">
-								      <div class="modal-header">
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								          <span aria-hidden="true">&times;</span>
-								        </button>
-								      </div>
-								      <div class="modal-body">
-								      	<div style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px 20px; margin: 0px 20px;">
-								      		<form action="<?=site_url('projeto/finalizar/'.$projeto['id_projeto'])?>" method="POST">
-									      		<div id="usuariosProjeto">
-									      			
-									      		</div>
-								      			<button class="btn btn-primary btn-block btn-lg">Finalizar</button>
-								      		</form>
-
-										</div>
-								      </div>
-								    </div>
-								  </div>
+							<h2><?=$projeto['titulo']?> <?=(!in_array($projeto['status'], array('Executando', 'Finalizado')) && $projeto['id_usuario'] == $this->session->userdata('id') ? '<a href="'.site_url('projeto/editar_projeto/'.$projeto['id_projeto']).'"><button class="btn btn-primary">Editar</button></a>' : '')?> </h2>
+							<div class="row">
+								<div class="col-md-6">
+									<p class="mb-1"><small>Participantes: <button class="btn btn-primary btn-sm"> <?=(!empty($participantes) ? $participantes['qtd'] : 0)?> / <?=$projeto['num_pessoas']?> </button></small></p>
+									<p><small>Status: <button class="btn btn-success btn-sm"> <?=$projeto['status']?> </button></small></p>
 								</div>
+								<div class="col-md-6 text-lg-right">
+									<?php if($projeto['status'] == 'Executando' && $projeto['id_usuario'] == $this->session->userdata('id')): ?>
+									
+										<button class="btn btn-danger" data-toggle="modal" data-target="#rating" id="btnFinalizar" data-projeto="<?=$projeto['id_projeto']?>"><small>Finalizar Projeto</small></button>
 
-							<?php endif;?>
+										<div class="modal fade" id="rating" tabindex="-1" role="dialog" aria-labelledby="ratingModal" aria-hidden="true">
+										  <div class="modal-dialog modal-lg" role="document">
+										    <div class="modal-content pb-3" style="border-radius: 0.5rem;">
+										      <div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											  <span aria-hidden="true">&times;</span>
+											</button>
+										      </div>
+										      <div class="modal-body">
+											<div style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px 20px; margin: 0px 20px;">
+												<form action="<?=site_url('projeto/finalizar/'.$projeto['id_projeto'])?>" method="POST">
+													<div id="usuariosProjeto">
+
+													</div>
+													<button class="btn btn-primary btn-block btn-lg">Finalizar</button>
+												</form>
+
+												</div>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+
+									<?php endif;?>
+								</div>
+							</div>
+							
 
 							<p class="mt-3">
 								<?=$projeto['descricao']?>
@@ -81,7 +88,9 @@
 							<?php foreach($projetosRel as $pr):?>
 								<div class="col-md-3">
 									<a href="<?=site_url('projeto/visualizar/').$pr['id_projeto']?>"><h4 class="mt-2"><?=$pr['titulo']?></h4></a>
-									<img src="<?=(!empty($pr['imagem']) ? base_url('/assets/imagens/usuarios/').$pr['fk_p_usuario'].'/projetos/'.$pr['imagem'] : base_url('/assets/imagens/projeto_default.png'))?>" class="img-thumbnail" width="100%">
+									<div class="img-thumbnail mb-2">
+										<div class="foto-projeto-index" style="background-image: url('<?=(!empty($pr['imagem']) ? base_url('/assets/imagens/usuarios/').$pr['fk_p_usuario'].'/projetos/'.$pr['imagem'] : base_url('/assets/imagens/projeto_default.png'))?>');"></div>
+									</div>
 									<span class="mt-2" style="font-size: 14px;"><?=$pr['descricao']?></span>
 								</div>
 							<?php endforeach;?>
@@ -106,7 +115,7 @@
 					<div class="row mt-2">
 						<?php if(isset($solicitacoes) && !empty($solicitacoes)):?>
 							<?php foreach($solicitacoes as $s):?>
-								<div class="col-md-2 col-6 text-center">
+								<div class="col-md-3 col-6 text-center">
 									<span style="font-size: 16px;"><a href='<?=site_url('perfil/index/'.$s['id_usuario'])?>'><?=$s['nome']?></a> </span><br>
 									<div class="img-thumbnail mt-1 mb-2">
 										<div class="foto-pequena" style="background-image: url('<?=(!empty($s['imagem']) ? base_url('/assets/imagens/usuarios/').$s['id_usuario'].'/'.$s['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
