@@ -42,42 +42,47 @@
 			</div>
 			<div>
 				<h4 class="text-primary font-weight-bold">Formação Acadêmica</h4>
-				<?php foreach($escolaridade as $esc):?>
-					<hr>
-					<article>
-						<div class="row">
-							<div class="col-md-6 mb-3 mb-lg-0">
-								<h6 style="font-size: 12px;">Curso</h6>
-								<h5><?=$esc['curso']?></h5>
-							</div>
-							<div class="col-md-6 text-lg-right">
-								<div class="row justify-content-end">
-									<div class="col-md-3 col-6">
-										<h6 style="font-size: 12px;">Início</h6>
-										<h5><?=$esc['ano_inicio']?></h5>
-									</div>
-									<div class="col-md-3 col-6">
-										<h6 style="font-size: 12px;">Conclusão</h6>
-										<h5><?=$esc['ano_fim']?></h5>
-									</div>
+				<?php if(isset($escolaridade) && !empty($escolaridade)):?>
+					<?php foreach($escolaridade as $esc):?>
+						<hr>
+						<article>
+							<div class="row">
+								<div class="col-md-6 mb-3 mb-lg-0">
+									<h6 style="font-size: 12px;">Curso</h6>
+									<h5><?=$esc['curso']?></h5>
 								</div>
-							</div>
-						</div>
-						<div class="row mt-3">
-							<div class="col-6">
-								<h6 style="font-size: 12px;">Instituição</h6>
-								<h5><?=$esc['instituicao']?></h5>
-							</div>
-							<?php if($usuario['id_usuario'] == $this->session->userdata('id')):?>
 								<div class="col-md-6 text-lg-right">
-									<button type="button" class="btn btn-primary btn-sm px-3 mt-3" data-toggle="modal" data-target="#alteracao">
-									    <span style="font-size: 14px;">Alterar</span>
-									</button>
+									<div class="row justify-content-end">
+										<div class="col-md-3 col-6">
+											<h6 style="font-size: 12px;">Início</h6>
+											<h5><?=$esc['ano_inicio']?></h5>
+										</div>
+										<div class="col-md-3 col-6">
+											<h6 style="font-size: 12px;">Conclusão</h6>
+											<h5><?=$esc['ano_fim']?></h5>
+										</div>
+									</div>
 								</div>
-							<?php endif;?>
-						</div>
-					</article>
-				<?php endforeach;?>
+							</div>
+							<div class="row mt-3">
+								<div class="col-6">
+									<h6 style="font-size: 12px;">Instituição</h6>
+									<h5><?=$esc['instituicao']?></h5>
+								</div>
+								<?php if($usuario['id_usuario'] == $this->session->userdata('id')):?>
+									<div class="col-md-6 text-lg-right">
+										<button type="button" class="btn btn-primary btn-sm px-3 mt-3" data-toggle="modal" data-target="#alteracao">
+										    <span style="font-size: 14px;">Alterar</span>
+										</button>
+									</div>
+								<?php endif;?>
+							</div>
+						</article>
+					<?php endforeach;?>
+				<?php else:?>
+					<i>Você não possui nenhuma formação acadêmica</i>
+				<?php endif;?>
+
 				<?php if($usuario['id_usuario'] == $this->session->userdata('id')):?>
 					<div class="row mt-3">
 						<div class="col-md-12 text-right">
