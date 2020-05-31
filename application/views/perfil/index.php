@@ -10,6 +10,7 @@
 				  <li class="list-group-item active"><a href="<?=site_url('perfil')?>" class="text-white">Ver Perfil</a></li>
 				  <li class="list-group-item"><a href="<?=site_url('perfil/alterar_perfil/').$this->session->userdata('id')?>">Alterar Perfil</a></li>
 				  <li class="list-group-item"><a href="<?=site_url('perfil/projetos')?>">Meus Projetos</a></li>
+				  <li class="list-group-item"><a href="<?=site_url('solicitacao')?>">Solicitações</a></li>
 				  <li class="list-group-item"><a href="<?=site_url('projeto/criar_projeto')?>">Criar Projeto</a></li>
 				  <li class="list-group-item"><a href="<?=site_url('inicio/sair')?>">Sair</a></li>
 				</ul>

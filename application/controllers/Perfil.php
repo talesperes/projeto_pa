@@ -7,6 +7,10 @@ class Perfil extends MY_Controller {
 	{
 		parent::__construct();
 
+		if (!$this->session->userdata('logado')) {
+        	redirect('inicio');
+      	}
+
 	}
 
 	public function index($id = null)
@@ -39,7 +43,7 @@ class Perfil extends MY_Controller {
 		$id_usuario = $this->session->userdata('id');
 
 		$this->load->model('Usuario_Model');
-		$dados['usuario'] = $this->Usuario_Model->fields('imagem')->get($id_usuario);
+		$dados['usuario'] = $this->Usuario_Model->fields(array('imagem', 'id_usuario'))->get($id_usuario);
 
 		$this->load->model('Projeto_Model');
 		$count = $this->Projeto_Model->countMeusProjetos($id_usuario);
@@ -87,7 +91,7 @@ class Perfil extends MY_Controller {
 				$usuario['imagem'] = $this->upload->data()['file_name'];
 			}
 
-			$values = array('email' => $usuario['email'], 'nome' => $usuario['nome'], 'telefone' => $usuario['telefone'], 'sexo' => $usuario['sexo'], 'nascimento' => $usuario['data_nascimento'], 'cidade' => $usuario['cidade'], 'estado' => $usuario['estado'], 'instagram' => $usuario['instagram'], 'twitter' => $usuario['twitter'], 'facebook' => $usuario['facebook'], 'github' => $usuario['github'], 'biografia' => $usuario['biografia']);
+			$values = array('email' => $usuario['email'], 'nome' => ucwords(strtolower($usuario['nome'])), 'telefone' => $usuario['telefone'], 'sexo' => $usuario['sexo'], 'nascimento' => $usuario['data_nascimento'], 'cidade' => $usuario['cidade'], 'estado' => $usuario['estado'], 'instagram' => $usuario['instagram'], 'twitter' => $usuario['twitter'], 'facebook' => $usuario['facebook'], 'github' => $usuario['github'], 'biografia' => $usuario['biografia']);
 
 			if(!empty($usuario['senha']))
 				$values['senha'] = password_hash($usuario['senha'], PASSWORD_DEFAULT);

@@ -108,6 +108,7 @@
 									<span style="font-size: 14px;"><a href='#'><?=$s['nome']?></a> </span><br>
 									<img src="<?=(!empty($s['imagem']) ? base_url('/assets/imagens/usuarios/').$s['id_usuario'].'/'.$s['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>" class="img-thumbnail my-2" width="100">
 									<a href="<?=site_url('projeto/aceitar/'.$projeto['id_projeto'].'/'.$s['id_usuario'])?>" class="btn btn-primary form-control">Aceitar</a>
+									<a href="<?=site_url('projeto/recusar/'.$projeto['id_projeto'].'/'.$s['id_usuario'])?>" class="btn btn-danger form-control">Recusar</a>
 								</div>
 							<?php endforeach;?>
 						<?php else:?>
@@ -120,7 +121,7 @@
 			</div>
 
 			<div class="col-md-2 text-center">
-				<span style="font-size: 14px;">Projeto criado por <br> <?=($this->session->userdata('id') != $projeto['id_usuario'] ? "<a href='<?=site_url('perfil/index/'".$projeto['id_usuario'].")?>'>".$projeto['nome']."</a>" : $projeto['nome'] )?> </span><br>
+				<span style="font-size: 14px;">Projeto criado por <br> <?=($this->session->userdata('id') != $projeto['id_usuario'] ? "<a href='<?=site_url('perfil/index/'".$projeto['id_usuario'].")?>".$projeto['nome']."</a>" : $projeto['nome'] )?> </span><br>
 				<img src="<?=(!empty($projeto['imagem']) ? base_url('/assets/imagens/usuarios/').$projeto['id_usuario'].'/'.$projeto['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>" class="img-thumbnail my-2" width="100"><br>
 				<?php if($this->session->userdata('id') != $projeto['id_usuario']):?>
 					<span style="font-size: 14px;">Mais sobre o autor</span>

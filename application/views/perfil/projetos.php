@@ -9,6 +9,7 @@
 				  <li class="list-group-item"><a href="<?=site_url('perfil')?>">Ver Perfil</a></li>
 				  <li class="list-group-item"><a href="<?=site_url('perfil/alterar_perfil/').$this->session->userdata('id')?>">Alterar Perfil</a></li>
 				  <li class="list-group-item active"><a href="<?=site_url('perfil/projetos')?>" class="text-white">Meus Projetos</a></li>
+				  <li class="list-group-item"><a href="<?=site_url('solicitacao')?>">Solicitações</a></li>
 				  <li class="list-group-item"><a href="<?=site_url('projeto/criar_projeto')?>">Criar Projeto</a></li>
 				  <li class="list-group-item"><a href="<?=site_url('inicio/sair')?>">Sair</a></li>
 				</ul>
@@ -24,7 +25,7 @@
 						<div class="row mb-5">
 							<div class="col-md-4">
 								<div class="img-thumbnail mb-2">
-					        		<div class="foto-projeto-perfil" style="background-image: url('<?=(!empty($p['imagem']) ? base_url('assets/imagens/usuarios/'.$p['id_usuario'].'/projetos/'.$p['imagem']) : base_url('assets/imagens/projeto_default.png'))?>');"></div>
+					        		<div class="foto-projeto-pequena" style="background-image: url('<?=(!empty($p['imagem']) ? base_url('assets/imagens/usuarios/'.$p['id_usuario'].'/projetos/'.$p['imagem']) : base_url('assets/imagens/projeto_default.png'))?>');"></div>
 					        	</div>
 							</div>
 							<div class="col-md-8">

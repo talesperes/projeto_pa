@@ -20,7 +20,7 @@ class Cadastro extends CI_Controller {
 
 		$data = $this->input->post();
 
-		$values = array('nome' => $data['nome'], 'sexo' => $data['sexo'], 'email' => $data['email'], 'nascimento' => $data['data_nascimento'], 'cidade' => $data['cidade'], 'telefone' => $data['telefone'], 'estado' => $data['estado'],'instagram' => $data['instagram'],'twitter' => $data['twitter'],'linkedin' => $data['linkedin'],'facebook' => $data['facebook'], 'github' => $data['github'], 'senha' => password_hash($data['senha'], PASSWORD_DEFAULT));
+		$values = array('nome' => ucwords(strtolower($data['nome'])), 'sexo' => $data['sexo'], 'email' => $data['email'], 'nascimento' => $data['data_nascimento'], 'cidade' => $data['cidade'], 'telefone' => $data['telefone'], 'estado' => $data['estado'],'instagram' => $data['instagram'],'twitter' => $data['twitter'],'linkedin' => $data['linkedin'],'facebook' => $data['facebook'], 'github' => $data['github'], 'senha' => password_hash($data['senha'], PASSWORD_DEFAULT));
 
 		$this->load->model("Usuario_Model");
 		$usuario = $this->Usuario_Model->insert($values);
@@ -38,10 +38,5 @@ class Cadastro extends CI_Controller {
 
 	}
 
-	public function teste()
-	{
-		$dados['title'] = 'teste';
-		$this->template->load("template/main", "cadastro/teste", $dados);
-	}
 
 }

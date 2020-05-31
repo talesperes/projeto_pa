@@ -70,7 +70,7 @@
 			            				<div class="foto-projeto-index" style="background-image: url('<?=(!empty($pd['imagem']) ? base_url('assets/imagens/usuarios/'.$pd['id_usuario'].'/projetos/'.$pd['imagem']) : base_url('assets/imagens/projeto_default.png') )?>?>');"></div>
 					            	</div>
 			                		<h5><a href="<?=site_url('projeto/visualizar/'.$pd['id_projeto'])?>"><?=$pd['titulo']?></a></h5>
-			                		<span>Criado por <a href=""><?=$pd['nome']?></a></span>
+			                		<span>Criado por <a href="<?=site_url('perfil/index/'.$pd['id_usuario'])?>"><?=$pd['nome']?></a></span>
 					                <a></a>
 					            </div>
 					        <?php endforeach;?>

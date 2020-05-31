@@ -140,7 +140,7 @@ class Projeto extends MY_Controller {
 
 	}
 
-	public function aceitar($id_projeto, $id_usuario)
+	public function aceitar($id_projeto, $id_usuario, $isTelaSolicitacao = '0')
 	{
 
 		if(!isset($id_projeto) && empty($id_projeto) && !isset($id_usuario) && empty($id_usuario))
@@ -154,18 +154,40 @@ class Projeto extends MY_Controller {
 
 		if($participantes['qtd'] == $projeto['num_pessoas']) {
 			$this->alert->set('alert-warning', 'Esse projeto já possui a quantidade de participantes necessária.');
-			redirect('projeto/visualizar/'.$id_projeto);
 		} else {
 
 			$update = $this->UsuarioProjeto_Model->where('fk_up_projeto', $id_projeto)->where('fk_up_usuario', $id_usuario)->update(array('status' => 'Participando'));		
-
 			if($update)
 				$this->alert->set('alert-success', 'Solicitação Aceita!');
 			else
 				$this->alert->set('alert-danger', 'Houve um problema ao aceitar a solicitação!');
-
-			redirect('projeto/visualizar/'.$id_projeto);
 		}
+
+		if($isTelaSolicitacao == '1')
+			redirect('solicitacao');
+		else
+			redirect('projeto/visualizar/'.$id_projeto);
+
+	}
+
+	public function recusar($id_projeto, $id_usuario, $isTelaSolicitacao = '0')
+	{
+		if(!isset($id_projeto) && empty($id_projeto) && !isset($id_usuario) && empty($id_usuario))
+			redirect('projeto/');
+
+		$this->load->model('UsuarioProjeto_Model');
+
+		$update = $this->UsuarioProjeto_Model->where('fk_up_projeto', $id_projeto)->where('fk_up_usuario', $id_usuario)->update(array('status' => 'Recusado'));		
+
+		if($update)
+			$this->alert->set('alert-success', 'A solicitação foi recusada!');
+		else
+			$this->alert->set('alert-danger', 'Houve um problema ao recusar a solicitação!');
+
+		if($isTelaSolicitacao == '1')
+			redirect('solicitacao');
+		else
+			redirect('projeto/visualizar/'.$id_projeto);
 
 	}
 
