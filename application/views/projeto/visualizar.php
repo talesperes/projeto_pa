@@ -17,7 +17,7 @@
 									<p class="mb-1"><small>Participantes: <button class="btn btn-primary btn-sm"> <?=(!empty($participantes) ? $participantes['qtd'] : 0)?> / <?=$projeto['num_pessoas']?> </button></small></p>
 									<p><small>Status: <button class="btn btn-warning btn-sm"> <?=$projeto['status']?> </button></small></p>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6 text-lg-right">
 									<?php if($projeto['status'] == 'Executando' && $projeto['id_usuario'] == $this->session->userdata('id')): ?>
 									
 										<button class="btn btn-danger" data-toggle="modal" data-target="#rating" id="btnFinalizar" data-projeto="<?=$projeto['id_projeto']?>"><small>Finalizar Projeto</small></button>
