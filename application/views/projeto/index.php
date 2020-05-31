@@ -5,7 +5,7 @@
 				<div class="row mb-5">
 
 					<?php if($this->session->userdata('logado')):?>
-						<div class="col-md-3">
+						<div class="col-md-3 mb-2">
 							<a href="<?=site_url('projeto/criar_projeto')?>" class="btn btn-success btn-block" role="button">Criar Projeto +</a>
 						</div>
 					<?php endif;?>
@@ -22,7 +22,9 @@
 					<?php foreach($projetos as $p):?>
 						<div class="row mb-5">
 							<div class="col-md-4">
-								<img src="<?=(!empty($p['imagem']) ? base_url('assets/imagens/usuarios/'.$p['id_usuario'].'/projetos/'.$p['imagem']) : base_url('assets/imagens/projeto_default.png') )?>" class="img-thumbnail" width="100%">
+								<div class="img-thumbnail mb-2">
+					        		<div class="foto-projeto" style="background-image: url('<?=(!empty($p['imagem']) ? base_url('assets/imagens/usuarios/'.$p['id_usuario'].'/projetos/'.$p['imagem']) : base_url('assets/imagens/projeto_default.png') )?>');"></div>
+					        	</div>
 							</div>
 							<div class="col-md-8">
 								<a href="<?=site_url('projeto/visualizar/'.$p['id_projeto'])?>"><h3><?=$p['titulo']?></h3></a>

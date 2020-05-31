@@ -67,7 +67,7 @@
 					        <?php foreach($projetosDestaque as $pd):?>
 					            <div class="col-md-3 col-6 mb-4">
 			            			<div class="img-thumbnail mb-2">
-			            				<div class="foto-projeto-index" style="background-image: url('<?=base_url('assets/imagens/projeto_01.jpg')?>');"></div>
+			            				<div class="foto-projeto-index" style="background-image: url('<?=(!empty($pd['imagem']) ? base_url('assets/imagens/usuarios/'.$pd['id_usuario'].'/projetos/'.$pd['imagem']) : base_url('assets/imagens/projeto_default.png') )?>?>');"></div>
 					            	</div>
 			                		<h5><a href="<?=site_url('projeto/visualizar/'.$pd['id_projeto'])?>"><?=$pd['titulo']?></a></h5>
 			                		<span>Criado por <a href=""><?=$pd['nome']?></a></span>
@@ -91,7 +91,7 @@
 							<ul class="list-group mt-4">
 								<?php if(isset($usuariosRank) && !empty($usuariosRank)):?>
 									<?php foreach($usuariosRank as $ur):?>
-										<li class="list-group-item"><a href=""><?=$ur['nome']?></a></li>
+										<li class="list-group-item"><a href="<?=site_url('perfil/index/'.$ur['id_usuario'])?>"><?=$ur['nome']?></a></li>
 									<?php endforeach;?>
 								<?php endif;?>
 							</ul>

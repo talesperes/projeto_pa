@@ -10,9 +10,16 @@
   background-position: center;
 }
 
-.foto-projeto-perfil{
+.foto-projeto-pequena{
   width: auto; 
   height: 180px; 
+  background-size: cover; 
+  background-position: center;
+}
+
+.foto-projeto{
+  width: auto; 
+  height: 200px; 
   background-size: cover; 
   background-position: center;
 }
@@ -20,6 +27,20 @@
 .foto-perfil{
   width: auto; 
   height: 220px; 
+  background-size: cover; 
+  background-position: center;
+}
+
+.foto-perfil-comprida{
+  width: auto; 
+  height: 250px; 
+  background-size: cover; 
+  background-position: center;
+}
+
+.foto-pequena{
+  width: auto; 
+  height: 130px; 
   background-size: cover; 
   background-position: center;
 }

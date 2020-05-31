@@ -17,7 +17,7 @@ class Inicio extends CI_Controller {
 		$dados['projetosDestaque'] = $this->Projeto_Model->getProjetos($filtros);
 
 		$this->load->model("Usuario_Model");
-		$dados['usuariosRank'] = $usuariosRank = $this->Usuario_Model->fields(array('nome', 'pontuacao'))->order_by('pontuacao', 'desc')->limit(20)->get_all();
+		$dados['usuariosRank'] = $usuariosRank = $this->Usuario_Model->fields(array('id_usuario', 'nome', 'pontuacao'))->order_by('pontuacao', 'desc')->limit(20)->get_all();
 
 		$dados['title'] = 'Inicio';
 		$this->template->load("template/main", "inicio/index", $dados);

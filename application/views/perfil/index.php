@@ -3,7 +3,7 @@
 	<div class="row justify-content-center">
 		<div class="col-md-3 col-5 mb-5">
 			<div class="img-thumbnail mb-2">
-        		<div class="foto-perfil" style="background-image: url('<?=(!empty($usuario['imagem']) ? base_url('/assets/imagens/usuarios/').$this->session->userdata('id').'/'.$usuario['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
+        		<div class="foto-perfil" style="background-image: url('<?=(!empty($usuario['imagem']) ? base_url('/assets/imagens/usuarios/').$usuario['id_usuario'].'/'.$usuario['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
         	</div>
 			<?php if($usuario['id_usuario'] == $this->session->userdata('id')):?>
 				<ul class="list-group">
@@ -110,6 +110,11 @@
 						<?php endif;?>
 					</div>
 				</article>
+				<div class="row mt-3">
+					<div class="col-md-12 text-right">
+						<button class="btn btn-primary" style="border-radius: 30px;">+</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
