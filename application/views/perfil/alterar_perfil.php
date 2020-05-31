@@ -66,12 +66,12 @@
                             <div class="col-md-6">
                                 <label>Data de Nascimento</label>
                                 <input type="date" name="data_nascimento" class="form-control" value="<?=$usuario['nascimento']?>">
-                                <div class="form-check text-right mt-1">
+                                <!--<div class="form-check text-right mt-1">
 								  <input class="form-check-input" type="checkbox" name="exibir_idade" value="" checked>
 								  <label class="form-check-label">
 								    <small>Exibir minha idade para todos</small>
 								  </label>
-								</div>
+								</div>-->
                             </div>
                         </div>
                     </div>
