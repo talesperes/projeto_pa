@@ -5,13 +5,15 @@
 			<div class="img-thumbnail mb-2">
         		<div class="foto-perfil" style="background-image: url('<?=(!empty($usuario['imagem']) ? base_url('/assets/imagens/usuarios/').$this->session->userdata('id').'/'.$usuario['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
         	</div>
-			<ul class="list-group">
-			  <li class="list-group-item active"><a href="<?=site_url('perfil')?>" class="text-white">Ver Perfil</a></li>
-			  <li class="list-group-item"><a href="<?=site_url('perfil/alterar_perfil/').$this->session->userdata('id')?>">Alterar Perfil</a></li>
-			  <li class="list-group-item"><a href="<?=site_url('perfil/projetos')?>">Meus Projetos</a></li>
-			  <li class="list-group-item"><a href="<?=site_url('projeto/criar_projeto')?>">Criar Projeto</a></li>
-			  <li class="list-group-item"><a href="<?=site_url('inicio/sair')?>">Sair</a></li>
-			</ul>
+			<?php if($usuario['id_usuario'] == $this->session->userdata('id')):?>
+				<ul class="list-group">
+				  <li class="list-group-item active"><a href="<?=site_url('perfil')?>" class="text-white">Ver Perfil</a></li>
+				  <li class="list-group-item"><a href="<?=site_url('perfil/alterar_perfil/').$this->session->userdata('id')?>">Alterar Perfil</a></li>
+				  <li class="list-group-item"><a href="<?=site_url('perfil/projetos')?>">Meus Projetos</a></li>
+				  <li class="list-group-item"><a href="<?=site_url('projeto/criar_projeto')?>">Criar Projeto</a></li>
+				  <li class="list-group-item"><a href="<?=site_url('inicio/sair')?>">Sair</a></li>
+				</ul>
+			<?php endif;?>
 		</div>
 		<div class="col-md-9 col-7">
 			<div class="mb-5">
@@ -65,11 +67,13 @@
 							<h6 style="font-size: 12px;">Instituição</h6>
 							<h5>Nome Instituição</h5>
 						</div>
-						<div class="col-md-6 text-lg-right">
-							<button type="button" class="btn btn-primary btn-sm px-3 mt-3" data-toggle="modal" data-target="#alteracao">
-							    <span style="font-size: 14px;">Alterar</span>
-							</button>
-						</div>
+						<?php if($usuario['id_usuario'] == $this->session->userdata('id')):?>
+							<div class="col-md-6 text-lg-right">
+								<button type="button" class="btn btn-primary btn-sm px-3 mt-3" data-toggle="modal" data-target="#alteracao">
+								    <span style="font-size: 14px;">Alterar</span>
+								</button>
+							</div>
+						<?php endif;?>
 					</div>
 				</article>
 				<hr>
@@ -97,11 +101,13 @@
 							<h6 style="font-size: 12px;">Instituição</h6>
 							<h5>Nome Instituição</h5>
 						</div>
-						<div class="col-md-6 text-lg-right">
-							<button type="button" class="btn btn-primary btn-sm px-3 mt-3" data-toggle="modal" data-target="#alteracao">
-							    <span style="font-size: 14px;">Alterar</span>
-							</button>
-						</div>
+						<?php if($usuario['id_usuario'] == $this->session->userdata('id')):?>
+							<div class="col-md-6 text-lg-right">
+								<button type="button" class="btn btn-primary btn-sm px-3 mt-3" data-toggle="modal" data-target="#alteracao">
+								    <span style="font-size: 14px;">Alterar</span>
+								</button>
+							</div>
+						<?php endif;?>
 					</div>
 				</article>
 			</div>

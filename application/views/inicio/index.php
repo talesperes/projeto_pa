@@ -69,7 +69,7 @@
 			            			<div class="img-thumbnail mb-2">
 			            				<div class="foto-projeto-index" style="background-image: url('<?=base_url('assets/imagens/projeto_01.jpg')?>');"></div>
 					            	</div>
-			                		<h5><?=$pd['titulo']?></h5>
+			                		<h5><a href="<?=site_url('projeto/visualizar/'.$pd['id_projeto'])?>"><?=$pd['titulo']?></a></h5>
 			                		<span>Criado por <a href=""><?=$pd['nome']?></a></span>
 					                <a></a>
 					            </div>
@@ -79,7 +79,7 @@
 					</div>
 					<div class="row mt-4">
 						<div class="col-12 text-center">
-							<a href="" class="btn btn-primary btn-lg" role="button" style="border-radius: 0px;">Ver mais</a>
+							<a href="<?=site_url('projeto')?>" class="btn btn-primary btn-lg" role="button" style="border-radius: 0px;">Ver mais</a>
 						</div>
 					</div>
 				</div>

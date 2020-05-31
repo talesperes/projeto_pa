@@ -9,13 +9,22 @@ class Perfil extends MY_Controller {
 
 	}
 
-	public function index()
+	public function index($id = null)
 	{
 
-		$id_usuario = $this->session->userdata('id');
+		if(isset($id) && !empty($id))
+			$id_usuario = $id;
+		else
+			$id_usuario = $this->session->userdata('id');
+
+		if(empty($id_usuario))
+			redirect('inicio');
 
 		$this->load->model('Usuario_Model');
 		$dados['usuario'] = $this->Usuario_Model->getUsuario($id_usuario);
+
+		if(empty($dados['usuario']))
+			redirect('inicio');
 
 		$dados['title'] = 'Meu Perfil';
 		$this->template->load("template/main", "perfil/index", $dados);

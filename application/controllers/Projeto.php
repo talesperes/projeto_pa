@@ -169,4 +169,36 @@ class Projeto extends MY_Controller {
 
 	}
 
+	public function getUsuarios($id)
+	{
+
+		$this->load->model("UsuarioProjeto_Model");
+		$dados['usuariosProjeto'] = $this->UsuarioProjeto_Model->getUsuariosProjeto($id);
+
+		$this->load->view("projeto/getUsuarios", $dados);
+	}
+
+	public function finalizar($id_projeto)
+	{
+		$data = (!empty($this->input->post()) ? $this->input->post() : null);
+
+		if(!empty($data)) {
+
+			$this->load->model('Usuario_Model');
+
+			foreach ($data['id_usuario'] as $key => $id) {
+				$usuario = $this->Usuario_Model->fields('pontuacao')->get($id);
+				$this->Usuario_Model->update(array('pontuacao' => $data['nota'][$key] + $usuario['pontuacao']),$id);
+			}
+
+			$this->load->model("Projeto_Model");
+			$this->Projeto_Model->update(array('status' => 'Finalizado'),$id_projeto);
+
+
+		}
+		
+		redirect('projeto');
+
+	}
+
 }

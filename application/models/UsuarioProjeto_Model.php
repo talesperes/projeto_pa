@@ -54,4 +54,23 @@ class UsuarioProjeto_Model extends MY_Model
 
 	}
 
+	public function getUsuariosProjeto($id)
+	{
+		$this->_database->select("u.id_usuario");
+		$this->_database->select("u.nome");
+		$this->_database->select("u.imagem");
+		$this->_database->from("usuario_projeto up");
+		$this->_database->join("usuario u", "up.fk_up_usuario = u.id_usuario");
+
+		$this->_database->where("fk_up_projeto", $id);
+		$this->_database->where("status", "Participando");
+
+		$query = $this->_database->get();
+
+		if($query->num_rows() > 0)
+			return $query->result_array();
+		else
+			return null;
+	}
+
 }

@@ -17,6 +17,7 @@ class Usuario_Model extends MY_Model
 
 	public function getUsuario($id_usuario)
 	{
+		$this->_database->select('id_usuario');
 		$this->_database->select('nome');
 		$this->_database->select('email');
 		$this->_database->select('telefone');

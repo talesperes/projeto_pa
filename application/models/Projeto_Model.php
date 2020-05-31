@@ -60,6 +60,17 @@ class Projeto_Model extends MY_Model
 		if(isset($filtros['search']) && !empty($filtros['search']))
 			$this->_database->where("p.titulo like '%".$filtros['search']."%'");
 
+		if(isset($filtros['order']) && !empty($filtros['order'])) {
+
+			if($filtros['order'] == 'alfabetica')
+				$this->_database->order_by('p.titulo');
+			elseif($filtros['order'] == 'novo')
+				$this->_database->order_by('p.id_projeto desc');
+			elseif($filtros['order'] == 'antigo')
+				$this->_database->order_by('p.id_projeto asc');
+
+		}
+
 		if(isset($filtros['limit']) && !empty($filtros['limit']))
 			$this->_database->limit($filtros['limit']);
 

@@ -14,7 +14,7 @@
 							
 							<?php if($projeto['status'] == 'Executando' && $projeto['id_usuario'] == $this->session->userdata('id')): ?>
 								<br>
-								<button class="btn btn-success" data-toggle="modal" data-target="#rating"><small>Finalizar Projeto</small></button>
+								<button class="btn btn-success" data-toggle="modal" data-target="#rating" id="btnFinalizar" data-projeto="<?=$projeto['id_projeto']?>"><small>Finalizar Projeto</small></button>
 
 								<div class="modal fade" id="rating" tabindex="-1" role="dialog" aria-labelledby="ratingModal" aria-hidden="true">
 								  <div class="modal-dialog modal-lg" role="document">
@@ -26,8 +26,13 @@
 								      </div>
 								      <div class="modal-body">
 								      	<div style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px 20px; margin: 0px 20px;">
-								      		AQUI DEVE FICAR OS USUARIOS QUE PARTICIPARAM E A NOTA 
-								      		<button class="btn btn-primary btn-block btn-lg">Finalizar</button>
+								      		<form action="<?=site_url('projeto/finalizar/'.$projeto['id_projeto'])?>" method="POST">
+									      		<div id="usuariosProjeto">
+									      			
+									      		</div>
+								      			<button class="btn btn-primary btn-block btn-lg">Finalizar</button>
+								      		</form>
+
 										</div>
 								      </div>
 								    </div>
@@ -83,8 +88,8 @@
 
 					<div class="row mt-2">
 						<div class="col-12 pt-5">
-							<form class="form-inline" method="post" action="">
-							   <input class="form-control mr-3 w-75" type="text" placeholder="Pesquise por título, instituição ou área de conhecimento" aria-label="Procurar">
+							<form class="form-inline" method="get" action="<?=site_url('projeto')?>">
+							   <input class="form-control mr-3 w-75" type="text" name="search" placeholder="Pesquise por título, instituição ou área de conhecimento" aria-label="Procurar">
 							   <button class="btn btn-primary no-hover" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
 							</form>
 						</div>
@@ -130,3 +135,9 @@
 		</div>
 	</div>
 </section>
+<script type="text/javascript">
+	$("#btnFinalizar").click(function() {
+		var id = $(this).data('projeto');
+		$("#usuariosProjeto").load('<?=site_url('projeto/getUsuarios/')?>'+id);
+	});
+</script>
