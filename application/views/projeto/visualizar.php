@@ -15,7 +15,7 @@
 									<h2><?=$projeto['titulo']?></h2>
 								</div>
 								<div class="col-md-3 text-lg-right">
-									<?=(!in_array($projeto['status'], array('Executando', 'Finalizado')) && $projeto['id_usuario'] == $this->session->userdata('id') ? '<a href="'.site_url('projeto/editar_projeto/'.$projeto['id_projeto']).'"><button class="btn btn-primary">Editar</button></a>' : '')?>
+									<?=(!in_array($projeto['status'], array('Executando', 'Finalizado')) && $projeto['id_usuario'] == $this->session->userdata('id') ? '<a href="'.site_url('projeto/editar_projeto/'.$projeto['id_projeto']).'"><button class="btn btn-primary btn-block">Editar</button></a>' : '')?>
 								</div>
 							</div>
 							<hr>
@@ -129,7 +129,7 @@
 								<div class="col-md-3 col-6 text-center">
 									<span style="font-size: 16px;"><a href='<?=site_url('perfil/index/'.$s['id_usuario'])?>'><?=$s['nome']?></a> </span><br>
 									<div class="img-thumbnail mt-1 mb-2">
-										<div class="foto-pequena" style="background-image: url('<?=(!empty($s['imagem']) ? base_url('/assets/imagens/usuarios/').$s['id_usuario'].'/'.$s['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
+										<div class="foto-pequena" style="background-image: url('<?=(!empty($s['imagem']) ? base_url('/assets/imagens/usuarios/').$s['id_usuario'].'/'.$s['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>'); height: 150px;"></div>
 									</div>
 									<a href="<?=site_url('projeto/aceitar/'.$projeto['id_projeto'].'/'.$s['id_usuario'])?>" class="btn btn-primary form-control mb-2"><i class="fas fa-check mr-1"></i> Aceitar</a>
 									<a href="<?=site_url('projeto/recusar/'.$projeto['id_projeto'].'/'.$s['id_usuario'])?>" class="btn btn-danger form-control"><i class="fas fa-times mr-1"></i> Recusar</a>
@@ -147,9 +147,7 @@
 			</div>
 
 			<div class="col-md-2 text-center">
-				<span style="font-size: 14px;">Projeto criado por <br>
-<?=($this->session->userdata('id') != $projeto['id_usuario'] ? "<a href='".site_url('perfil/index/'.$projeto['id_usuario'])."'>".$projeto['nome']."</a>" : $projeto['nome'] )?> 
-				</span><br>
+				<span style="font-size: 14px;">Projeto criado por <br> <?=($this->session->userdata('id') != $projeto['id_usuario'] ? "<a href='<?=site_url('perfil/index/'".$projeto['id_usuario'].")?>".$projeto['nome']."</a>" : $projeto['nome'] )?> </span><br>
 				<div class="img-thumbnail mt-1 mb-2">
 					<div class="foto-pequena" style="background-image: url('<?=(!empty($projeto['imagem']) ? base_url('/assets/imagens/usuarios/').$projeto['id_usuario'].'/'.$projeto['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>'); height: 160px;"></div>
 				</div>
