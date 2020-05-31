@@ -233,7 +233,7 @@ class Projeto extends MY_Controller {
 		$dados['projeto'] = $projeto = $this->Projeto_Model->get($id_projeto);
 
 		if($projeto['id_usuario'] != $this->session->userdata('id'))
-			redirect('projeto/visualizar/'.$projeto['id_projeto'])
+			redirect('projeto/visualizar/'.$projeto['id_projeto']);
 
 		$data = (!empty($this->input->post()) ? $this->input->post() : null);
 
