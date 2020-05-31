@@ -40,12 +40,8 @@
 										      <div class="modal-body">
 											<div style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px 20px; margin: 0px 20px;">
 												<form action="<?=site_url('projeto/finalizar/'.$projeto['id_projeto'])?>" method="POST">
-													<div class="row">
-														<div class="col-md-12">
-															<div id="usuariosProjeto">
+													<div id="usuariosProjeto">
 
-															</div>
-														</div>
 													</div>
 													<button class="btn btn-primary btn-block btn-lg">Finalizar</button>
 												</form>
