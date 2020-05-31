@@ -26,6 +26,9 @@ class Perfil extends MY_Controller {
 		if(empty($dados['usuario']))
 			redirect('inicio');
 
+		$this->load->model('Escolaridade_Model');
+		$dados['escolaridade'] = $this->where('fk_e_usuario', $id_usuario)->Escolaridade_Model->get_all();
+
 		$dados['title'] = 'Meu Perfil';
 		$this->template->load("template/main", "perfil/index", $dados);
 	}
