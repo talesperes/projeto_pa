@@ -109,14 +109,16 @@
 								<div class="col-md-2 col-6 text-center">
 									<span style="font-size: 16px;"><a href='#'><?=$s['nome']?></a> </span><br>
 									<div class="img-thumbnail mt-1 mb-2">
-										<div class="foto-perfil" style="background-image: url('<?=(!empty($s['imagem']) ? base_url('/assets/imagens/usuarios/').$s['id_usuario'].'/'.$s['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
+										<div class="foto-pequena" style="background-image: url('<?=(!empty($s['imagem']) ? base_url('/assets/imagens/usuarios/').$s['id_usuario'].'/'.$s['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
 									</div>
 									<a href="<?=site_url('projeto/aceitar/'.$projeto['id_projeto'].'/'.$s['id_usuario'])?>" class="btn btn-primary form-control mb-2"><i class="fas fa-check mr-1"></i> Aceitar</a>
 									<a href="<?=site_url('projeto/recusar/'.$projeto['id_projeto'].'/'.$s['id_usuario'])?>" class="btn btn-danger form-control"><i class="fas fa-times mr-1"></i> Recusar</a>
 								</div>
 							<?php endforeach;?>
 						<?php else:?>
-							<i>Esse projeto ainda não possui nenhuma solicitação de participação.</i>
+							<div class="col-12">
+								<i>Esse projeto ainda não possui nenhuma solicitação de participação.</i>
+							</div>
 						<?php endif;?>
 
 					</div>
@@ -126,6 +128,9 @@
 
 			<div class="col-md-2 text-center">
 				<span style="font-size: 14px;">Projeto criado por <br> <?=($this->session->userdata('id') != $projeto['id_usuario'] ? "<a href='<?=site_url('perfil/index/'".$projeto['id_usuario'].")?>".$projeto['nome']."</a>" : $projeto['nome'] )?> </span><br>
+				<div class="img-thumbnail mb-2">
+					<div class="foto-pequena" style="background-image: url('<?=(!empty($projeto['imagem']) ? base_url('/assets/imagens/usuarios/').$projeto['id_usuario'].'/'.$projeto['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>');"></div>
+				</div>
 				<img src="<?=(!empty($projeto['imagem']) ? base_url('/assets/imagens/usuarios/').$projeto['id_usuario'].'/'.$projeto['imagem'] : base_url('/assets/imagens/foto_usuario.png'))?>" class="img-thumbnail my-2" width="100"><br>
 				<?php if($this->session->userdata('id') != $projeto['id_usuario']):?>
 					<span style="font-size: 14px;">Mais sobre o autor</span>
