@@ -15,12 +15,12 @@
 				</ul>
 			</div>
 			<div class="col-md-9 col-7">
-				<div class="row mb-3">
+				<div class="row mb-5">
 					<div class="col-md-3">
 						<a href="<?=site_url('projeto/criar_projeto')?>" class="btn btn-success btn-block" role="button">Criar Projeto +</a>
 					</div>
 					<div class="col-md-9">
-						<h5 class="mb-4 text-right">Filtrar por:</h5>
+						<h5 class="mb-2 text-right">Filtrar por:</h5>
 						<form class="form-inline justify-content-end" method="get" action="">
 						   <select class="form-control mr-3" name="">
 						   		<option value="">Todos os projetos</option>
