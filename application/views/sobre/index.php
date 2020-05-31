@@ -1,5 +1,5 @@
 <section class="py-5">
-	<div class="container-fluid px-5">
+	<div class="container px-5">
 		<div class="row pt-3">
 			<div class="col-12 text-center">
 				<h4 class="text-primary font-weight-bold mb-3">Qual o objetivo do Naluta?</h4>
