@@ -191,7 +191,7 @@ class Projeto_Model extends MY_Model
 		if($query->num_rows() > 0)
 			return $query->num_rows();
 		else
-			return null;
+			return 0;
 	}
 
 }

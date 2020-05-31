@@ -52,4 +52,12 @@ class Inicio extends CI_Controller {
 		redirect('inicio');
 	}
 
+	public function getNumNotificacao()
+	{
+		$this->load->model('Projeto_Model');
+		$count = $this->Projeto_Model->countAllNotificacao($this->session->userdata('id'));
+
+	    echo json_encode(array('num' => $count)); 
+	}
+
 }

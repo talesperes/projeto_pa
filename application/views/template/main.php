@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
   <link rel="shortcut icon" href="<?=base_url('assets/imagens/book.png')?>">
-	<title><?=(!empty($title) ? $title : 'Projeto PA')?></title>
-	<!-- BOOTSTRAP -->
+  <title><?=(!empty($title) ? $title : 'Projeto PA')?></title>
+  <!-- BOOTSTRAP -->
   <link href="<?=base_url('assets/css/bootstrap.css')?>" rel="stylesheet">
   <link href="<?=base_url('assets/css/stepper.css')?>" rel="stylesheet">
   <link href="<?=base_url('assets/css/style.css')?>" rel="stylesheet">
-	<!-- FONT AWESOME -->
-	<!-- <link href="<?=base_url('assets/css/fontawesome.css')?>" rel="stylesheet"> -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- FONT AWESOME -->
+  <!-- <link href="<?=base_url('assets/css/fontawesome.css')?>" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   <!-- JAVASCRIPT -->
   <script src="<?=base_url('assets/js/jquery-3.4.1.js')?>"></script>
@@ -19,7 +19,7 @@
   <script src="<?=base_url('assets/js/stepper.js')?>"></script>
 </head>
 <body>
-	
+  
 <!-- HEADER -->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning py-0">
 
@@ -31,11 +31,13 @@
     <img src="<?=base_url('assets/imagens/logo.png')?>">
   </a>
 
-  <ul class="navbar-nav ml-auto mr-2 d-block d-md-block d-lg-none">
-    <li class="nav-item">
-    <a href="notificacoes.php"><span class="badge badge-dark badge-pill py-2 px-3"><i class="fas fa-bell fa-lg mr-1"></i> 4</span></a>
-    </li>
-  </ul>
+  <?php if($this->session->userdata('logado')):?>
+    <ul class="navbar-nav ml-auto mr-2 d-block d-md-block d-lg-none">
+      <li class="nav-item">
+      <a href="<?=site_url('perfil/notificacao')?>"><span class="badge badge-dark badge-pill py-2 px-3"><i class="fas fa-bell fa-lg mr-1"></i> <span class="num_not">0</span></span></a>
+      </li>
+    </ul>
+  <?php endif;?>
 
   <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -62,20 +64,20 @@
 
     <?php if(!$this->session->userdata('logado')):?>
       <ul class="navbar-nav ml-auto mt-lg-0 mt-md-0 mr-lg-4">
-        	<li class="nav-item text-center mb-2">
-        		<a href="<?=site_url('cadastro')?>" class="btn btn-primary text-white" role="button"><span style="letter-spacing: 1px; font-size: 12px;">CADASTRE-SE <i class="fas fa-feather-alt"></i></span></a>
-        	</li>
-        	<li class="nav-item text-center mb-2">
-        		<button type="button" class="btn btn-light" data-toggle="modal" data-target="#login">
-  			  <span style="letter-spacing: 1px; font-size: 12px;">LOGIN <i class="fas fa-sign-in-alt"></i></span>
-  			</button>
-        	</li>
+          <li class="nav-item text-center mb-2">
+            <a href="<?=site_url('cadastro')?>" class="btn btn-primary text-white" role="button"><span style="letter-spacing: 1px; font-size: 12px;">CADASTRE-SE <i class="fas fa-feather-alt"></i></span></a>
+          </li>
+          <li class="nav-item text-center mb-2">
+            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#login">
+          <span style="letter-spacing: 1px; font-size: 12px;">LOGIN <i class="fas fa-sign-in-alt"></i></span>
+        </button>
+          </li>
       </ul>
     <?php else:?>
       <ul class="navbar-nav ml-auto mt-lg-0 mt-md-0 mr-lg-4">
-      <li class="nav-item text-center mb-2 d-none d-md-none d-lg-block" style="margin-top: 5px;">
-	<a href="notificacoes.php"><span class="badge badge-dark badge-pill py-2 px-3"><i class="fas fa-bell fa-lg mr-1"></i> 4</span></a>
-      	</li>
+        <li class="nav-item text-center mb-2 d-none d-md-none d-lg-block" style="margin-top: 5px;">
+          <a href="<?=site_url('perfil/notificacao')?>"><span class="badge badge-dark badge-pill py-2 px-3"><i class="fas fa-bell fa-lg mr-1"></i> <span class="num_not">0</span> </span></a>
+        </li>
         <li class="nav-item text-center mb-2">
           <a href="<?=site_url('perfil')?>" class="btn btn-primary text-white" role="button"><span style="letter-spacing: 1px; font-size: 12px;"><i class="fas fa-user-alt mr-1"></i> MEU PERFIL</span></a>
         </li>
@@ -88,7 +90,6 @@
         </li>
       </ul>
     <?php endif;?>
-
 
   </div>
 </nav>
@@ -156,6 +157,23 @@
 </div>
 </body>
 </html>
+<?php if($this->session->userdata('logado')):?>
+<script type="text/javascript">
+  function getNumNotificacao() {
+    console.log('aqui');
+    $.ajax({ 
+        url: '<?=site_url('inicio/getNumNotificacao')?>', 
+        success: function(data) { 
+          data = $.parseJSON(data); 
+          $('.num_not').html(data.num);
+        } 
+    });
+  }
+  getNumNotificacao();
+  setInterval(getNumNotificacao, 1000 * 60 * 3);
+
+</script>
+<?php endif;?>
 <script type="text/javascript" charset="utf-8">
 
   $('#login').on('shown.bs.modal', function () {

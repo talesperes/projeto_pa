@@ -29,6 +29,8 @@
 							</div>
 						</div>
 					<?php endforeach;?>
+				<?php else:?>
+					<i>Você não possui nenhuma notificação.</i>
 				<?php endif;?>
 
 			</div>
