@@ -160,7 +160,6 @@
 <?php if($this->session->userdata('logado')):?>
 <script type="text/javascript">
   function getNumNotificacao() {
-    console.log('aqui');
     $.ajax({ 
         url: '<?=site_url('inicio/getNumNotificacao')?>', 
         success: function(data) { 
