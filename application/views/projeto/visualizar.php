@@ -43,7 +43,6 @@
 												<p class="text-center">Antes de finalizar seu projeto, avalie com uma nota de 1 a 5 os seguintes participantes do seu projeto:</p>
 												<form action="<?=site_url('projeto/finalizar/'.$projeto['id_projeto'])?>" method="POST">
 													<div id="usuariosProjeto">
-
 													</div>
 													<button class="btn btn-primary btn-block btn-lg mt-2">Finalizar</button>
 												</form>
@@ -98,8 +97,8 @@
 										    		<div class="modal-body pt-0">
 										        		<h5 class="font-weight-bold text-center text-primary">Chat</h5>
 										        		<div class="container mt-3">
-										        			<div class="px-4 px-lg-5 pt-3" style="border: 2px solid #ddd; border-radius: 10px;">
-										        				<div id="messages">
+										        			<div class="px-4 px-lg-5 pt-3" style="border: 2px solid #ddd; border-radius: 10px; height: 30vw">
+										        				<div class="col-md-12" id="messages" style="height: 100%; overflow: auto; width: 100%;">
 										        				</div>
 										        			</div>
 										        			<div class="mt-4">
@@ -208,6 +207,13 @@
 	</div>
 </section>
 <script type="text/javascript">
+  $(document).ready(function() { 
+    $(function() {  
+        $("#messages").niceScroll();
+    });
+  });
+</script>
+<script type="text/javascript">
 	$("#btnFinalizar").click(function() {
 		var id = $(this).data('projeto');
 		$("#usuariosProjeto").load('<?=site_url('projeto/getUsuarios/')?>'+id);
@@ -225,7 +231,7 @@
 	});
 
 	function loadMessages() {
-		console.log('aqui');
+		
 		$.ajax({ 
 	        url: '<?=site_url('chat/getMessages/'.$projeto['id_projeto'])?>', 
 	        success: function(data) { 
@@ -247,8 +253,12 @@
 						$('<div class="row mb-3"><div class="col-3 col-md-2"><div class="img-thumbnail"><div class="foto-pequena" style="background-image: url('+imagem+'); height: 60px"></div></div></div><div class="col-9 col-md-10 bg-light py-1"><small class="text-primary font-weight-bold">'+value.nome+'</small><p class="mb-0">'+value.mensagem+'</p></div></div>').appendTo("#messages");
 				});
 
+				var messageBody = document.querySelector('#messages');
+				messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+
 	        } 
 	    });
+
 	}
 
 	$('#chat').on('shown.bs.modal', function () {

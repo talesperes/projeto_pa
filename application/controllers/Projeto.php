@@ -246,7 +246,20 @@ class Projeto extends MY_Controller {
 
 		if(!empty($data)) {
 
-			$this->Projeto_Model->update(array('titulo' => $data['nome'], 'descricao' => $data['descricao'], 'categoria' => $data['area'], 'num_pessoas' => $data['num_pessoas']),$id_projeto);
+			if(!empty($_FILES['img_projeto']['name'])) {
+
+				$dir = 'assets/imagens/usuarios/'.$this->session->userdata('id').'/projetos/';
+				$this->startUpload('./' . $dir);
+
+				if (!$this->upload->do_upload('img_projeto')) {
+					var_dump($this->upload->display_errors());
+					exit;
+				}
+
+				$projeto['imagem'] = $this->upload->data()['file_name'];
+			}
+
+			$this->Projeto_Model->update(array('titulo' => $data['nome'], 'descricao' => $data['descricao'], 'categoria' => $data['area'], 'imagem' => $projeto['imagem'], 'num_pessoas' => $data['num_pessoas']),$id_projeto);
 
 			redirect('projeto/visualizar/'.$id_projeto);
 		}

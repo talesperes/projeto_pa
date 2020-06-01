@@ -17,6 +17,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
   <script src="<?=base_url('assets/js/bootstrap.js')?>"></script>
   <script src="<?=base_url('assets/js/stepper.js')?>"></script>
+  <script src="<?=base_url('assets/js/jquery.nicescroll.js')?>"></script>
 </head>
 <body>
   
@@ -158,6 +159,13 @@
 </body>
 </html>
 <?php if($this->session->userdata('logado')):?>
+<script type="text/javascript">
+  $(document).ready(function() { 
+    $(function() {  
+        $("body").niceScroll({cursorcolor: "#1657ce"});
+    });
+  });
+</script>
 <script type="text/javascript">
   function getNumNotificacao() {
     $.ajax({ 

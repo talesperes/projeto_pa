@@ -127,6 +127,7 @@ class UsuarioProjeto_Model extends MY_Model
 	public function getProjetosParticipa($id_usuario, $limit = null, $start = null)
 	{	
 		$this->_database->select("p.*");
+		$this->_database->select("p.fk_p_usuario as id_usuario");
 		$this->_database->select("up.fk_up_usuario");
 		$this->_database->from("usuario_projeto up");
 		$this->_database->join("projeto p", "p.id_projeto = up.fk_up_projeto");
