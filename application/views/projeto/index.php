@@ -12,7 +12,7 @@
 
 					<div class="col-md-9">
 						<form class="form-inline" method="get" action="<?=site_url('/projeto')?>">
-						  <input class="form-control mr-3 w-75" name="search" type="text" value="<?=(isset($filtros['search']) ? $filtros['search'] : '')?>" placeholder="Pesquise por título, instituição ou área de conhecimento" aria-label="Procurar">
+						  <input class="form-control mr-3 w-75" name="search" type="text" value="<?=(isset($filtros['search']) ? $filtros['search'] : '')?>" placeholder="Pesquise por título" aria-label="Procurar">
 						  <input type="hidden" name="order" value="<?=$this->input->get('order')?>">
 						  <input type="hidden" name="area" value="<?=$this->input->get('area')?>">
 						   <button class="btn btn-primary no-hover" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>

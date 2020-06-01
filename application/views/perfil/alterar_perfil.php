@@ -152,50 +152,6 @@
 	</div>
 </section>
 
-<!-- Modal Alterar Instituição -->
-<div class="modal fade" id="alteracao" tabindex="-1" role="dialog" aria-labelledby="alteracao" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content pb-3" style="border-radius: 0.5rem;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      	<div style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px 20px; margin: 0px 20px;">
-	        <h3 class="font-weight-bold text-center text-primary">Formação Acadêmica</h3>
-	        <form class="mt-4">
-        	  <div class="form-group">
-			    <label for="curso">Curso</label>
-			    <input type="text" class="form-control" id="curso" name="curso">
-			  </div>
-			  <div class="form-group">
-			    <label for="instituicao">Instituição</label>
-			    <input type="text" class="form-control" id="instituicao" name="instituicao">
-			  </div>
-			  <div class="form-group">
-			  	<div class="form-row">
-			  		<div class="col-6">
-			    		<label for="ano_inicio">Ano de Início</label>
-			    		<select name="ano_inicio" class="form-control">
-			    			<option value=""></option>
-			    		</select>
-			    	</div>
-			    	<div class="col-6">
-			    		<label for="ano_conclusao">Ano de Conclusão</label>
-			    		<select name="ano_conclusao" class="form-control">
-			    			<option value=""></option>
-			    		</select>
-			    	</div>
-			    </div>
-			  </div>
-			  <center><input type="submit" name="botao_alterar" class="btn btn-primary btn-block btn-lg" value="Alterar" style="font-size: 16px;"></center>
-			</form>
-		</div>	
-      </div>
-    </div>
-  </div>
-</div>
 <script type="text/javascript">
 $(document).ready(function() {
 

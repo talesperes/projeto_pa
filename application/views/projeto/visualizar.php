@@ -153,7 +153,7 @@
 					<div class="row mt-2">
 						<div class="col-12 pt-5">
 							<form class="form-inline" method="get" action="<?=site_url('projeto')?>">
-							   <input class="form-control mr-3 w-75" type="text" name="search" placeholder="Pesquise por título, instituição ou área de conhecimento" aria-label="Procurar">
+							   <input class="form-control mr-3 w-75" type="text" name="search" placeholder="Pesquise por título" aria-label="Procurar">
 							   <button class="btn btn-primary no-hover" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
 							</form>
 						</div>

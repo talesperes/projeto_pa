@@ -78,6 +78,8 @@ class Projeto extends MY_Controller {
 			foreach ($idParticipantes as $ip) {
 				$dados['idParticipantes'][] = $ip['fk_up_usuario'];
 			}
+		} else {
+			$dados['idParticipantes'] = array();
 		}
 
 		if($participantes['qtd'] == $projeto['num_pessoas'] && $projeto['status'] == 'Aberto') {
