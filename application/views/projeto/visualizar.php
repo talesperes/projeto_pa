@@ -80,7 +80,7 @@
 										<?php endif;?>
 									<?php endif;?>
 								</div>
-								<?php if($projeto['status'] != 'Aberto' && $this->session->userdata('logado') && ($projeto['id_usuario'] == $this->session->userdata('id') || in_array($this->session->userdata('id'), $idParticipantes)) ):?>
+								<?php if($this->session->userdata('logado') && ($projeto['id_usuario'] == $this->session->userdata('id') || in_array($this->session->userdata('id'), $idParticipantes)) ):?>
 									<div class="col-lg-6">
 										<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#chat">
 										    Chat <i class="fas fa-comments mr-1"></i>
