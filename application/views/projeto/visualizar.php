@@ -85,6 +85,60 @@
 										<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#chat">
 										    Chat <i class="fas fa-comments mr-1"></i>
 										</button>
+										
+										<!-- Chat Modal Novo -->
+										<!-- <div class="modal fade" id="chat" tabindex="-1" role="dialog" aria-labelledby="chatModal" aria-hidden="true">
+										  <div class="modal-dialog modal-lg" role="document">
+										    <div class="modal-content pb-3" style="border-radius: 0.5rem;">
+										      <div class="modal-header">
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body pt-0">
+										        <h5 class="font-weight-bold text-center text-primary">Chat</h5>
+										        <div class="container mt-3">
+										        	<div class="px-4 px-lg-5 pt-3" style="border: 2px solid #ddd; border-radius: 10px;">
+										        	<div class="row mb-3">
+										        		<div class="col-3 col-md-2">
+										        			<div class="img-thumbnail">
+												        		<div class="foto-pequena" style="background-image: url('imagens/foto_perfil.jpg'); height: 60px"></div>
+												        	</div>
+										        		</div>
+										        		<div class="col-9 col-md-10 bg-light py-1">
+										        			<small class="text-primary font-weight-bold">Woody</small>
+										        			<p class="mb-0">amigo ond esta?</p>
+										        		</div>
+										        	</div>
+										        	<div class="row mb-3">
+										        		<div class="col-9 col-md-10 bg-light py-1 text-right">
+										        			<small class="text-warning font-weight-bold">Buzz Lightyear</small>
+										        			<p class="mb-0">amigo esto aqui</p>
+										        		</div>
+										        		<div class="col-3 col-md-2">
+										        			<div class="img-thumbnail">
+												        		<div class="foto-pequena" style="background-image: url('imagens/foto_perfil.jpg'); height: 60px"></div>
+												        	</div>
+										        		</div>
+										        	</div>
+										        </div>
+										        <form class="mt-4">
+												  <div class="form-row">
+												  	<div class="col-10">
+												    	<input type="text" class="form-control" name="" placeholder="Digite sua mensagem...">
+												    </div>
+												    <div class="col-2">
+													    <button class="btn btn-primary btn-block">
+												          <i class="fas fa-paper-plane"></i>
+												        </button>
+												    </div>
+												  </div>
+												</form>
+										      </div>
+										    </div>
+										  </div>
+										</div> -->
+										<!-- /Chat Modal -->
 
 										<!-- Chat Modal -->
 											<div class="modal fade" id="chat" tabindex="-1" role="dialog" aria-labelledby="chatModal" aria-hidden="true">
