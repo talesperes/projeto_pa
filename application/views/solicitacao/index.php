@@ -23,9 +23,6 @@
 						  <li class="nav-item">
 						    <a class="nav-link active" id="sobre-tab" data-toggle="tab" href="#sol_abertas" role="tab" aria-controls="sol_abertas" aria-selected="true">Solicitações Abertas</a>
 						  </li>
-						  <li class="nav-item">
-						    <a class="nav-link" id="formacao-tab" data-toggle="tab" href="#sol_aceitas" role="tab" aria-controls="sol_aceitas" aria-selected="false">Solicitações Aceitas</a>
-						  </li>
 						</ul>
 					</div>
 				</div>
@@ -66,27 +63,6 @@
 							<?php else:?>
 								<i>Você não possui nenhuma solicitação</i>
 							<?php endif;?>
-					  	</div>
-					  	<div class="tab-pane fade" id="sol_aceitas" role="tabpanel" aria-labelledby="sol_aceitas">
-					  		<div class="row">
-						  		<div class="col-md-3">
-									<div class="img-thumbnail mb-2">
-						        		<div class="foto-pequena" style="background-image: url('imagens/foto_perfil.jpg');"></div>
-						        	</div>
-								</div>
-								<div class="col-md-9">
-									<a href="perfil.php"><h5>Nome Usuário</h5></a>
-									<p class="mb-2">Participa do projeto <a href="projeto.php">Nome Projeto</a></p>
-									<div class="row">
-										<div class="col-md-6 mb-2">
-											<a href="categoria.php" class="btn btn-primary btn-block" role="button"><i class="fas fa-comments mr-1"></i> Chat</a>
-										</div>
-										<div class="col-md-6 mb-2">
-											<a href="categoria.php" class="btn btn-danger btn-block" role="button"><i class="fas fa-times mr-1"></i> Remover participante</a>
-										</div>
-									</div>							  
-								</div>
-							</div>
 					  	</div>
 					</div>				
 				</div>
