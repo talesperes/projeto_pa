@@ -91,24 +91,46 @@
 										  <div class="modal-dialog" role="document">
 										    <div class="modal-content pb-3" style="border-radius: 0.5rem;">
 										      <div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											  <span aria-hidden="true">&times;</span>
-											</button>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
 										      </div>
 										      <div class="modal-body pt-0">
-											<h3 class="font-weight-bold text-center text-primary">Chat</h3>
-											<div style="width: auto; height: 200px; border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px 20px;">
-												<p>Aqui vão as mensagens</p>
-											</div>
-											<form class="mt-4">
+										        <h6 class="font-weight-bold text-center text-primary">Chat</h6>
+										        <h6 class="font-weight-bold text-center">Suas mensagens com:</h6>
+										        <div class="row justify-content-center mt-3">
+										        	<div class="col-3 text-right">
+										        		<div class="img-thumbnail mb-2">
+											        		<div class="foto-pequena" style="background-image: url('imagens/foto_perfil.jpg'); height: 60px"></div>
+											        	</div>
+										        	</div>
+										        	<div class="col-4">
+										        		<h6 class="text-primary font-weight-bold">Woody</h6>
+										        	</div>
+										        </div>
+										        <div style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px">
+										        	<div class="row mb-3">
+										        		<div class="col-12 bg-light py-1" style="border-radius: 5px;">
+										        			<small class="text-primary font-weight-bold">Woody</small>
+										        			<p class="mb-0">amigo ond esta?</p>
+										        		</div>
+										        	</div>
+										        	<div class="row mb-3">
+										        		<div class="col-12 bg-light py-1 text-right" style="border-radius: 5px;">
+										        			<small class="text-warning font-weight-bold">Buzz Lightyear</small>
+										        			<p class="mb-0">amigo esto aqui</p>
+										        		</div>
+										        	</div>
+										        </div>
+										        <form class="mt-4">
 												  <div class="form-row">
-													<div class="col-10">
-													<input type="text" class="form-control" name="" placeholder="Digite sua mensagem...">
+												  	<div class="col-10">
+												    	<input type="text" class="form-control" name="" placeholder="Digite sua mensagem...">
 												    </div>
 												    <div class="col-2">
 													    <button class="btn btn-primary btn-block">
-													  <i class="fas fa-paper-plane"></i>
-													</button>
+												          <i class="fas fa-paper-plane"></i>
+												        </button>
 												    </div>
 												  </div>
 												</form>
