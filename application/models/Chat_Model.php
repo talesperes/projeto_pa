@@ -19,6 +19,7 @@ class Chat_Model extends MY_Model
 	{
 		$this->_database->select("c.*");
 		$this->_database->select("u.nome");
+		$this->_database->select("u.imagem");
 		
 		$this->_database->from('chat c');
 		$this->_database->join('usuario u', 'u.id_usuario = c.fk_c_usuario');

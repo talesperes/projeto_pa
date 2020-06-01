@@ -34,7 +34,7 @@ class Inicio extends CI_Controller {
 
 		if (password_verify($data['senha'], $usuario['senha'])) {
 
-			$values = array('id' => $usuario['id_usuario'], 'nome' => $usuario['nome'], 'email' => $usuario['email'], 'telefone' => $usuario['telefone'], 'cidade' => $usuario['cidade'], 'estado' => $usuario['estado'], 'idade' => $interval->y,'logado' => true);
+			$values = array('id' => $usuario['id_usuario'], 'nome' => $usuario['nome'], 'email' => $usuario['email'], 'telefone' => $usuario['telefone'], 'cidade' => $usuario['cidade'], 'estado' => $usuario['estado'], 'imagem' => $usuario['imagem'], 'idade' => $interval->y,'logado' => true);
 			
 			$this->session->set_userdata($values);
 

@@ -87,105 +87,38 @@
 										</button>
 										
 										<!-- Chat Modal Novo -->
-										<!-- <div class="modal fade" id="chat" tabindex="-1" role="dialog" aria-labelledby="chatModal" aria-hidden="true">
-										  <div class="modal-dialog modal-lg" role="document">
-										    <div class="modal-content pb-3" style="border-radius: 0.5rem;">
-										      <div class="modal-header">
-										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										          <span aria-hidden="true">&times;</span>
-										        </button>
-										      </div>
-										      <div class="modal-body pt-0">
-										        <h5 class="font-weight-bold text-center text-primary">Chat</h5>
-										        <div class="container mt-3">
-										        	<div class="px-4 px-lg-5 pt-3" style="border: 2px solid #ddd; border-radius: 10px;">
-										        	<div class="row mb-3">
-										        		<div class="col-3 col-md-2">
-										        			<div class="img-thumbnail">
-												        		<div class="foto-pequena" style="background-image: url('imagens/foto_perfil.jpg'); height: 60px"></div>
-												        	</div>
-										        		</div>
-										        		<div class="col-9 col-md-10 bg-light py-1">
-										        			<small class="text-primary font-weight-bold">Woody</small>
-										        			<p class="mb-0">amigo ond esta?</p>
-										        		</div>
-										        	</div>
-										        	<div class="row mb-3">
-										        		<div class="col-9 col-md-10 bg-light py-1 text-right">
-										        			<small class="text-warning font-weight-bold">Buzz Lightyear</small>
-										        			<p class="mb-0">amigo esto aqui</p>
-										        		</div>
-										        		<div class="col-3 col-md-2">
-										        			<div class="img-thumbnail">
-												        		<div class="foto-pequena" style="background-image: url('imagens/foto_perfil.jpg'); height: 60px"></div>
-												        	</div>
-										        		</div>
-										        	</div>
-										        </div>
-										        <form class="mt-4">
-												  <div class="form-row">
-												  	<div class="col-10">
-												    	<input type="text" class="form-control" name="" placeholder="Digite sua mensagem...">
-												    </div>
-												    <div class="col-2">
-													    <button class="btn btn-primary btn-block">
-												          <i class="fas fa-paper-plane"></i>
-												        </button>
-												    </div>
-												  </div>
-												</form>
-										      </div>
-										    </div>
-										  </div>
-										</div> -->
-										<!-- /Chat Modal -->
-
-										<!-- Chat Modal -->
-											<div class="modal fade" id="chat" tabindex="-1" role="dialog" aria-labelledby="chatModal" aria-hidden="true">
-											  <div class="modal-dialog modal-lg" role="document">
-											    <div class="modal-content pb-3" style="border-radius: 0.5rem;">
-											      <div class="modal-header">
-											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											          <span aria-hidden="true">&times;</span>
-											        </button>
-											      </div>
-											      <div class="modal-body pt-0">
-											        <h6 class="font-weight-bold text-center text-primary">Chat</h6>
-											        <div  style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px">
-											        	<div id="messages">
-											        	</div>
-											        	<!--
-											        	<div class="row mb-3">
-											        		<div class="col-12 bg-light py-1" style="border-radius: 5px;">
-											        			<small class="text-primary font-weight-bold">Woody</small>
-											        			<p class="mb-0">amigo ond esta?</p>
-											        		</div>
-											        	</div>
-											        	<div class="row mb-3">
-											        		<div class="col-12 bg-light py-1 text-right" style="border-radius: 5px;">
-											        			<small class="text-warning font-weight-bold">Buzz Lightyear</small>
-											        			<p class="mb-0">amigo esto aqui</p>
-											        		</div>
-											        	</div>
-											        	-->
-
-											        </div>
-											        <div class="mt-4">
-													  <div class="form-row">
-													  	<div class="col-10">
-													    	<input type="text" class="form-control" id="msg" placeholder="Digite sua mensagem...">
-													    </div>
-													    <div class="col-2">
-														    <button id="sendMsg" class="btn btn-primary btn-block">
-													          <i class="fas fa-paper-plane"></i>
-													        </button>
-													    </div>
-													  </div>
-													</div>
-											      </div>
-											    </div>
-											  </div>
+										<div class="modal fade" id="chat" tabindex="-1" role="dialog" aria-labelledby="chatModal" aria-hidden="true">
+											<div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content pb-3" style="border-radius: 0.5rem;">
+										    		<div class="modal-header">
+										        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          			<span aria-hidden="true">&times;</span>
+										        		</button>
+										      		</div>
+										    		<div class="modal-body pt-0">
+										        		<h5 class="font-weight-bold text-center text-primary">Chat</h5>
+										        		<div class="container mt-3">
+										        			<div class="px-4 px-lg-5 pt-3" style="border: 2px solid #ddd; border-radius: 10px;">
+										        				<div id="messages">
+										        				</div>
+										        			</div>
+										        			<div class="mt-4">
+												  				<div class="form-row">
+												  					<div class="col-10">
+												    					<input type="text" class="form-control" id="msg" placeholder="Digite sua mensagem...">
+												    				</div>
+												    				<div class="col-2">
+													    				<button id="sendMsg" class="btn btn-primary btn-block">
+												         				<i class="fas fa-paper-plane"></i>
+												      				</button>
+												   				</div>
+																</div>
+															</div>
+										      		</div>
+										    		</div>
+										  		</div>
 											</div>
+										</div>
 										<!-- /Chat Modal -->
 									</div>
 								<?php endif;?>
@@ -282,35 +215,50 @@
 </script>
 <script type="text/javascript">
 
+  	var base_url = '<?=base_url()?>';
+  	var interval_chat;
+
 	$('#msg').on('keypress', function (e) {
-         if(e.which === 13){
-            $("#sendMsg").click();
-         }
-   	});
-
-
+      if(e.which === 13){
+         $("#sendMsg").click();
+      }
+	});
 
 	function loadMessages() {
+		console.log('aqui');
 		$.ajax({ 
 	        url: '<?=site_url('chat/getMessages/'.$projeto['id_projeto'])?>', 
 	        success: function(data) { 
 				$("#messages").html('');
 	        	data = $.parseJSON(data);
 	        	var id_usuario = '<?=$this->session->userdata('id')?>';
+	        	var imagem;
 
 		        $.each( data, function( key, value ) {
+
+		        	if(value.imagem)
+		        		imagem = "'"+base_url+"assets/imagens/usuarios/"+value.fk_c_usuario+"/"+value.imagem+"'";
+		        	else
+		        		imagem = "'"+base_url+"assets/imagens/foto_usuario.png'";
+
 		        	if(value.fk_c_usuario == id_usuario)
-		        		$('<div class="row mb-3"><div class="col-12 bg-light py-1 text-right" style="border-radius: 5px;"><small class="text-warning font-weight-bold">'+value.nome+'</small><p class="mb-0">'+value.mensagem+'</p></div></div>').appendTo("#messages");
+		        		$('<div class="row mb-3"><div class="col-9 col-md-10 bg-light py-1 text-right"><small class="text-warning font-weight-bold">'+value.nome+'</small><p class="mb-0">'+value.mensagem+'</p></div><div class="col-3 col-md-2"><div class="img-thumbnail"><div class="foto-pequena" style="background-image: url('+imagem+'); height: 60px"></div></div></div></div>').appendTo("#messages");
 					else
-						$('<div class="row mb-3"><div class="col-12 bg-light py-1" style="border-radius: 5px;"><small class="text-primary font-weight-bold">'+value.nome+'</small><p class="mb-0">'+value.mensagem+'</p></div></div>').appendTo("#messages")
+						$('<div class="row mb-3"><div class="col-3 col-md-2"><div class="img-thumbnail"><div class="foto-pequena" style="background-image: url('+imagem+'); height: 60px"></div></div></div><div class="col-9 col-md-10 bg-light py-1"><small class="text-primary font-weight-bold">'+value.nome+'</small><p class="mb-0">'+value.mensagem+'</p></div></div>').appendTo("#messages");
 				});
 
 	        } 
 	    });
 	}
 
-	loadMessages();
-	setInterval(loadMessages, 4000);
+	$('#chat').on('shown.bs.modal', function () {
+		loadMessages();
+		interval_chat = setInterval(loadMessages, 5000);
+	});
+
+	$('#chat').on('hidden.bs.modal', function() {
+		clearInterval(interval_chat);
+	});
 
 	$("#sendMsg").click(function() {
 
@@ -321,8 +269,15 @@
 
 			var sendData = {};
 			sendData.msg = msg.val();
+			let imagem;
 
-			$('<div class="row mb-3"><div class="col-12 bg-light py-1 text-right" style="border-radius: 5px;"><small class="text-warning font-weight-bold">'+nome_usuario+'</small><p class="mb-0">'+msg.val()+'</p></div></div>').appendTo("#messages");
+			<?php if(!empty($this->session->userdata('imagem'))):?>
+				imagem = "<?=base_url('assets/imagens/usuarios/'.$this->session->userdata('id').'/'.$this->session->userdata('imagem'))?>";
+			<?php else:?>
+				imagem = "<?=base_url('assets/imagens/foto_usuario.png')?>";
+			<?php endif;?>
+
+			$('<div class="row mb-3"><div class="col-9 col-md-10 bg-light py-1 text-right"><small class="text-warning font-weight-bold">'+nome_usuario+'</small><p class="mb-0">'+msg.val()+'</p></div><div class="col-3 col-md-2"><div class="img-thumbnail"><div class="foto-pequena" style="background-image: url('+imagem+'); height: 60px"></div></div></div></div>').appendTo("#messages");
 
 			$.ajax({
 		    	type:"POST",
