@@ -38,14 +38,24 @@
 				<p><i><?=(!empty($usuario['biografia']) ? $usuario['biografia'] : 'Biografia')?></i></p>
 				<hr>
 				<div class="row">
-					<div class="col-4">
+					<div class="col-md-4">
 						<p><i><i class="fas fa-map-marker-alt"></i> <?=$usuario['cidade']?> / <?=$usuario['estado']?></i></p>
 					</div>
-					<div class="col-5 text-lg-center">
+					<div class="col-md-5 text-lg-center">
 						<p><i><i class="fas fa-envelope"></i> <?=$usuario['email']?></i></p>
 					</div>
-					<div class="col-3 text-lg-right">
+					<div class="col-md-3 text-lg-right">
 						<p><i><i class="fas fa-phone"></i> <?=$usuario['telefone']?></i></p>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-12 text-right">
+						<h5>
+							<a href="" target="_blank" class="px-2"><i class="fab fa-instagram fa-lg"></i></a>
+							<a href="" target="_blank" class="px-2"><i class="fab fa-twitter fa-lg"></i></a>
+							<a href="" target="_blank" class="px-2"><i class="fab fa-facebook-f fa-lg"></i></a>
+							<a href="" target="_blank" class="px-2"><i class="fab fa-youtube fa-lg"></i></a>
+						</h5>
 					</div>
 				</div>
 			</div>
