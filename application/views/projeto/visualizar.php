@@ -15,14 +15,14 @@
 									<h2><?=$projeto['titulo']?></h2>
 								</div>
 								<div class="col-md-3 text-lg-right">
-									<?=(!in_array($projeto['status'], array('Executando', 'Finalizado')) && $projeto['id_usuario'] == $this->session->userdata('id') ? '<a href="'.site_url('projeto/editar_projeto/'.$projeto['id_projeto']).'"><button class="btn btn-primary btn-block">Editar</button></a>' : '')?>
+									<?=(!isset($status_updated) && !in_array($projeto['status'], array('Executando', 'Finalizado')) && $projeto['id_usuario'] == $this->session->userdata('id') ? '<a href="'.site_url('projeto/editar_projeto/'.$projeto['id_projeto']).'"><button class="btn btn-primary btn-block">Editar</button></a>' : '')?>
 								</div>
 							</div>
 							<hr>
 							<div class="row">
 								<div class="col-md-6">
 									<p class="mb-1"><small>Participantes: <button class="btn btn-primary btn-sm"> <?=(!empty($participantes) ? $participantes['qtd'] : 0)?> / <?=$projeto['num_pessoas']?> </button></small></p>
-									<p><small>Status: <button class="btn btn-success btn-sm"> <?=$projeto['status']?> </button></small></p>
+									<p><small>Status: <button class="btn btn-success btn-sm"> <?=(isset($status_updated) ? $status_updated : $projeto['status']) ?> </button></small></p>
 								</div>
 								<div class="col-md-6 text-lg-right">
 									<?php if($projeto['status'] == 'Executando' && $projeto['id_usuario'] == $this->session->userdata('id')): ?>

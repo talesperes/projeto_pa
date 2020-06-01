@@ -187,7 +187,7 @@
 				  	<div class="form-row">
 				  		<div class="col-6">
 				    		<label for="ano_inicio">Ano de Início</label>
-				    		<select name="ano_inicio" class="form-control" required="required">
+				    		<select id="ano_inicio" name="ano_inicio" class="form-control" required="required">
 				    			<option value="">Selecionar</option>
 					   			<option value="2000">2000</option>
 					   			<option value="2001">2001</option>
@@ -214,7 +214,7 @@
 				    	</div>
 				    	<div class="col-6">
 				    		<label for="ano_fim">Ano de Conclusão</label>
-				    		<select name="ano_fim" class="form-control" required="required">
+				    		<select id="ano_fim" name="ano_fim" class="form-control" required="required">
 				    			<option value="">Selecionar</option>
 					   			<option value="2000">2000</option>
 					   			<option value="2001">2001</option>
@@ -251,7 +251,8 @@
 				    	</div>
 				    </div>
 				  </div>
-				  <center><input type="submit" name="botao_adicionar" class="btn btn-primary btn-block btn-lg" value="Adicionar" style="font-size: 16px;"></center>
+				  <center><input type="submit" name="botao_adicionar" id="botao_adicionar" class="btn btn-primary btn-block btn-lg" value="Adicionar" style="font-size: 16px;">
+				  	<small id="error-add-escolaridade" style="color: red"></small></center>
 				</form>
 		</div>	
       </div>
@@ -265,4 +266,36 @@ $(".btnAlterar").click(function() {
 	var id = $(this).data('escolaridade');
 	$("#escolaridade").load('<?=site_url('perfil/getEscolaridade/')?>'+id);
 });
+</script>
+<script type="text/javascript">
+$(".btnRemover").click(function() {
+	
+	var id = $(this).data('escolaridade');
+
+	alertify.confirm(
+		'Remover',
+		'Deseja mesmo remover essa Formação Acadêmica?',
+		function(){
+			window.location.href = "<?=site_url('perfil/remove_escolaridade/')?>"+id;
+		},
+		function(){}
+	);
+});	
+</script>
+<script type="text/javascript">
+	function validaAnoAdd() {
+		if($("#ano_fim").val() && $("#ano_inicio").val()) {
+			if(parseInt($("#ano_fim").val()) < parseInt($("#ano_inicio").val())) {
+				$("#error-add-escolaridade").html('Ano de inicio não pode ser maior que Ano de Conclusão');
+				$("#botao_adicionar").prop('disabled', true);
+			} else {
+				$("#error-add-escolaridade").html('');
+				$("#botao_adicionar").prop('disabled', false);
+			}
+		}
+	}
+
+	$("#ano_fim, #ano_inicio").change(function() {
+		validaAnoAdd();
+	});
 </script>

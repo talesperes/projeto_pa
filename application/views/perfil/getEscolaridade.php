@@ -21,7 +21,7 @@
   	<div class="form-row">
   		<div class="col-6">
     		<label for="ano_inicio">Ano de Início</label>
-    		<select name="ano_inicio" class="form-control" required="required">
+    		<select id="ano_inicio_alterar" name="ano_inicio" class="form-control" required="required">
     			<option value="">Selecionar</option>
           <option <?=($escolaridade['ano_inicio'] == '2000' ? 'selected' : '')?> value="2000">2000</option>
           <option <?=($escolaridade['ano_inicio'] == '2001' ? 'selected' : '')?> value="2001">2001</option>
@@ -48,7 +48,7 @@
     	</div>
     	<div class="col-6">
     		<label for="ano_fim">Ano de Conclusão</label>
-    		<select name="ano_fim" class="form-control" required="required">
+    		<select id="ano_fim_alterar" name="ano_fim" class="form-control" required="required">
     			<option value="">Selecionar</option>
           <option <?=($escolaridade['ano_fim'] == '2000' ? 'selected' : '')?> value="2000">2000</option>
           <option <?=($escolaridade['ano_fim'] == '2001' ? 'selected' : '')?> value="2001">2001</option>
@@ -85,5 +85,22 @@
     	</div>
     </div>
   </div>
-  <center><input type="submit" name="botao_alterar" class="btn btn-primary btn-block btn-lg" value="Alterar" style="font-size: 16px;"></center>
+  <center><input type="submit" id="botao_alterar" name="botao_alterar" class="btn btn-primary btn-block btn-lg" value="Alterar" style="font-size: 16px;"><small id="error-alterar-escolaridade" style="color: red"></small></center>
 </form>
+<script type="text/javascript">
+  function validaAnoAlterar() {
+    if($("#ano_fim_alterar").val() && $("#ano_inicio_alterar").val()) {
+      if(parseInt($("#ano_fim_alterar").val()) < parseInt($("#ano_inicio_alterar").val())) {
+        $("#error-alterar-escolaridade").html('Ano de inicio não pode ser maior que Ano de Conclusão');
+        $("#botao_alterar").prop('disabled', true);
+      } else {
+        $("#error-alterar-escolaridade").html('');
+        $("#botao_alterar").prop('disabled', false);
+      }
+    }
+  }
+
+  $("#ano_fim_alterar, #ano_inicio_alterar").change(function() {
+    validaAnoAlterar();
+  });
+</script>

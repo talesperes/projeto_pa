@@ -28,6 +28,7 @@ O naluta foi desenvolvido utilizando as seguintes bibliotecas e framework:
 | MY_Model | [https://github.com/avenirer/CodeIgniter-MY_Model][MYM] |
 | JQuery | [https://jquery.com][JQU] |
 | JQuery.NiceScroll | [https://github.com/inuyaksa/jquery.nicescroll][JNI] |
+| AlertifyJS | [https://alertifyjs.com][ALE] |
 | Bootstrap 4 | [https://getbootstrap.com][BOO] |
 | Font Awesome | [https://fontawesome.com/][FON] |
 
@@ -45,5 +46,6 @@ Ferramentas utilizadas para o desenvolvimento do projeto:
 [MYM]: <https://github.com/avenirer/CodeIgniter-MY_Model>
 [JQU]: <https://jquery.com>
 [JNI]: <https://github.com/inuyaksa/jquery.nicescroll>
+[ALE]: <https://alertifyjs.com>
 [BOO]: <https://getbootstrap.com>
 [FON]: <https://fontawesome.com/>

@@ -166,6 +166,24 @@ class Perfil extends MY_Controller {
 		redirect('perfil');
 	}
 
+	public function remove_escolaridade($id_escolaridade)
+	{
+		if(isset($id_escolaridade) && !empty($id_escolaridade)) {
+
+			$this->load->model("Escolaridade_Model");
+
+			$delete = $this->Escolaridade_Model->where('id_escolaridade', $id_escolaridade)->delete();
+
+			if($delete)
+				$this->alert->set('alert-success', 'Formação Acadêmica removida com sucesso!');
+			else
+				$this->alert->set('alert-danger', 'Houve um problema ao remover a formação acadêmica');
+		
+		}
+
+		redirect('perfil');
+	}
+
 	public function notificacao()
 	{
 

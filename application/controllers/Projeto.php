@@ -84,15 +84,17 @@ class Projeto extends MY_Controller {
 
 		if($participantes['qtd'] == $projeto['num_pessoas'] && $projeto['status'] == 'Aberto') {
 			$update = $this->Projeto_Model->update(array('status' => 'Executando'), $id);
-			if($update)
-				$this->alert->set('alert-success', 'Quantidade de participantes completa, status do projeto foi alterado para "Executando".');
+			if($update) {
+				$this->alert->set('alert-success', 'Quantidade de participantes está completa, status do projeto foi alterado para "Executando".');
+				$dados['status_updated'] = "Executando";
+			}
 		}
 
 		if($this->session->userdata('id') == $projeto['id_usuario']) {
 			$dados['solicitacoes'] = $solicitacoes = $this->UsuarioProjeto_Model->getSolicitacoesProjeto($id); 
 		}
 
-		$dados['projetosRel'] = $projetosRel = $this->Projeto_Model->where('categoria', $projeto['categoria'])->limit(4)->get_all();
+		$dados['projetosRel'] = $projetosRel = $this->Projeto_Model->where('categoria', $projeto['categoria'])->where('status', 'Aberto')->limit(4)->get_all();
 
 		$dados['title'] = 'Projeto';
 		$this->template->load("template/main", "projeto/visualizar", $dados);
