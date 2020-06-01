@@ -75,9 +75,9 @@
 								<div class="col-md-6">
 									<?php if($this->session->userdata('id') != $projeto['id_usuario'] && $participantes['qtd'] != $projeto['num_pessoas'] && $this->session->userdata('logado')):?>
 										<?php if($projetoPart):?>
-											<a href="<?=site_url('projeto/cancelar/'.$projeto['id_projeto'])?>" class="btn btn-danger" role="button">Cancelar Solicitação</a>
+											<a href="<?=site_url('projeto/cancelar/'.$projeto['id_projeto'])?>" class="btn btn-danger btn-block" role="button">Cancelar Solicitação</a>
 										<?php else:?>
-											<a href="<?=site_url('projeto/participar/'.$projeto['id_projeto'])?>" class="btn btn-primary" role="button">Solicitar Participação +</a>
+											<a href="<?=site_url('projeto/participar/'.$projeto['id_projeto'])?>" class="btn btn-primary btn-block" role="button">Solicitar Participação +</a>
 										<?php endif;?>
 									<?php endif;?>
 								</div>
