@@ -9,7 +9,6 @@
   <link href="<?=base_url('assets/css/stepper.css')?>" rel="stylesheet">
   <link href="<?=base_url('assets/css/style.css')?>" rel="stylesheet">
   <!-- FONT AWESOME -->
-  <!-- <link href="<?=base_url('assets/css/fontawesome.css')?>" rel="stylesheet"> -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   <!-- JAVASCRIPT -->

@@ -1,70 +1,48 @@
-###################
-What is CodeIgniter
-###################
+[![N|Solid](https://naluta.site/assets/imagens/logo.png)](https://naluta.site)
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+## Qual o objetivo do Naluta?
 
-*******************
-Release Information
-*******************
+Com várias pessoas passando a desenvolver seus próprios projetos a partir de suas ideias, acaba sendo necessária a contribuição de outras pessoas para torná-los realidade. Com esse sistema é possível unir pessoas para trabalharem juntas, visando a realização de seus projetos.
+O Sistema tem como objetivo reunir pessoas de diversos lugares, com diferentes habilidades para trabalharem em conjunto, afim de ajudar no desenvolvimento de um projeto, onde uma pessoa ao criá-lo passa a ser o líder do mesmo, podendo aplicar definições como bem quiser e permitir com que pessoas interessadas no projeto possam participar, tendo antes a permissão do líder.
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+### Requisitos do Sistema
+- Servidor Web
+- PHP versão 5.6 ou mais recente
+- Banco de dados MySQL
 
-**************************
-Changelog and New Features
-**************************
+### Instalação
+- Localize o banco de dados **banco_naluta.sql** na pasta **assets/database/**
+- Importe o banco de dados
+- Configure a conexão com o banco no arquivo **database.php**
+- Mova os arquivos para dentro do servidor web
+- Configure a conexão com o servidor de email SMTP no arquivo **Redefinir.php** no método **sendEmailPassword**, para que o sistema possa enviar email de redefinição de senha [OPCIONAL]
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+### Desenvolvimento
 
-*******************
-Server Requirements
-*******************
+O naluta foi desenvolvido utilizando as seguintes bibliotecas e framework:
 
-PHP version 5.6 or newer is recommended.
+|  | LINK |
+| ------ | ------ |
+| Codeigniter 3 | [https://github.com/bcit-ci/CodeIgniter][COD] |
+| MY_Model | [https://github.com/avenirer/CodeIgniter-MY_Model][MYM] |
+| JQuery | [https://jquery.com][JQU] |
+| JQuery.NiceScroll | [https://github.com/inuyaksa/jquery.nicescroll][JNI] |
+| Bootstrap 4 | [https://getbootstrap.com][BOO] |
+| Font Awesome | [https://fontawesome.com/][FON] |
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+### Ferramentas
 
-************
-Installation
-************
+Ferramentas utilizadas para o desenvolvimento do projeto:
+- Sublime Text 3
+- WampServer
+- MySQL Workbench
+- GitHub Desktop
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
+###### *Projeto desenvolvido para fins acadêmicos.
 
-*******
-License
-*******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+[COD]: <https://github.com/bcit-ci/CodeIgniter>
+[MYM]: <https://github.com/avenirer/CodeIgniter-MY_Model>
+[JQU]: <https://jquery.com>
+[JNI]: <https://github.com/inuyaksa/jquery.nicescroll>
+[BOO]: <https://getbootstrap.com>
+[FON]: <https://fontawesome.com/>
