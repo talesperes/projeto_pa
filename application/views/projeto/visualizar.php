@@ -64,21 +64,61 @@
 							</p>
 
 							<?php if(has_alert()): ?>
-						      <?php foreach(has_alert() as $type => $message): ?>  
-								   <div class="alert alert-dismissible <?php echo $type; ?>">  
-								      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-									      <?php echo $message; ?>  
+						      		<?php foreach(has_alert() as $type => $message): ?>  
+								   	<div class="alert alert-dismissible <?php echo $type; ?>">  
+								      		<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+										<?php echo $message; ?>  
 									</div>
-							   <?php endforeach; ?>  
+								<?php endforeach; ?>  
 							<?php endif; ?>
+							<div class="row">
+								<div class="col-md-6">
+									<?php if($this->session->userdata('id') != $projeto['id_usuario'] && $participantes['qtd'] != $projeto['num_pessoas'] && $this->session->userdata('logado')):?>
+										<?php if($projetoPart):?>
+											<a href="<?=site_url('projeto/cancelar/'.$projeto['id_projeto'])?>" class="btn btn-danger" role="button">Cancelar Solicitação</a>
+										<?php else:?>
+											<a href="<?=site_url('projeto/participar/'.$projeto['id_projeto'])?>" class="btn btn-primary" role="button">Solicitar Participação +</a>
+										<?php endif;?>
+									<?php endif;?>
+								</div>
+								<div class="col-lg-6">
+									<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#chat">
+									    Chat <i class="fas fa-comments mr-1"></i>
+									</button>
 
-							<?php if($this->session->userdata('id') != $projeto['id_usuario'] && $participantes['qtd'] != $projeto['num_pessoas'] && $this->session->userdata('logado')):?>
-								<?php if($projetoPart):?>
-									<a href="<?=site_url('projeto/cancelar/'.$projeto['id_projeto'])?>" class="btn btn-danger" role="button">Cancelar Solicitação</a>
-								<?php else:?>
-									<a href="<?=site_url('projeto/participar/'.$projeto['id_projeto'])?>" class="btn btn-primary" role="button">Solicitar Participação +</a>
-								<?php endif;?>
-							<?php endif;?>
+									<!-- Chat Modal -->
+										<div class="modal fade" id="chat" tabindex="-1" role="dialog" aria-labelledby="chatModal" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content pb-3" style="border-radius: 0.5rem;">
+										      <div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											  <span aria-hidden="true">&times;</span>
+											</button>
+										      </div>
+										      <div class="modal-body pt-0">
+											<h3 class="font-weight-bold text-center text-primary">Chat</h3>
+											<div style="width: auto; height: 200px; border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px 20px;">
+												<p>Aqui vão as mensagens</p>
+											</div>
+											<form class="mt-4">
+												  <div class="form-row">
+													<div class="col-10">
+													<input type="text" class="form-control" name="" placeholder="Digite sua mensagem...">
+												    </div>
+												    <div class="col-2">
+													    <button class="btn btn-primary btn-block">
+													  <i class="fas fa-paper-plane"></i>
+													</button>
+												    </div>
+												  </div>
+												</form>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+									<!-- /Chat Modal -->
+								</div>
+							</div>
 
 						</div>
 					</div>
