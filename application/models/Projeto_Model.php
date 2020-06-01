@@ -60,6 +60,21 @@ class Projeto_Model extends MY_Model
 		if(isset($filtros['search']) && !empty($filtros['search']))
 			$this->_database->where("p.titulo like '%".$filtros['search']."%'");
 
+		if(isset($filtros['area']) && !empty($filtros['area'])) {
+
+			if($filtros['area'] == 'arquitetura')
+				$this->_database->where("p.categoria", 'Arquitetura');
+			elseif($filtros['area'] == 'biologia')
+				$this->_database->where("p.categoria", 'Biologia');
+			elseif($filtros['area'] == 'computacao')
+				$this->_database->where("p.categoria", 'Computação');
+			elseif($filtros['area'] == 'engenharia')
+				$this->_database->where("p.categoria", 'Engenharia');
+			elseif($filtros['area'] == 'psicologia')
+				$this->_database->where("p.categoria", 'Psicologia');
+
+		}
+		
 		if(isset($filtros['order']) && !empty($filtros['order'])) {
 
 			if($filtros['order'] == 'alfabetica')
@@ -93,6 +108,21 @@ class Projeto_Model extends MY_Model
 
 		if(isset($filtros['search']) && !empty($filtros['search']))
 			$this->_database->where("p.titulo like '%".$filtros['search']."%'");
+
+		if(isset($filtros['area']) && !empty($filtros['area'])) {
+
+			if($filtros['area'] == 'arquitetura')
+				$this->_database->where("p.categoria", 'Arquitetura');
+			elseif($filtros['area'] == 'biologia')
+				$this->_database->where("p.categoria", 'Biologia');
+			elseif($filtros['area'] == 'computacao')
+				$this->_database->where("p.categoria", 'Computação');
+			elseif($filtros['area'] == 'engenharia')
+				$this->_database->where("p.categoria", 'Engenharia');
+			elseif($filtros['area'] == 'psicologia')
+				$this->_database->where("p.categoria", 'Psicologia');
+
+		}
 
 		if(isset($filtros['limit']) && !empty($filtros['limit']))
 			$this->_database->limit($filtros['limit']);

@@ -14,6 +14,7 @@
 						<form class="form-inline" method="get" action="<?=site_url('/projeto')?>">
 						  <input class="form-control mr-3 w-75" name="search" type="text" value="<?=(isset($filtros['search']) ? $filtros['search'] : '')?>" placeholder="Pesquise por título, instituição ou área de conhecimento" aria-label="Procurar">
 						  <input type="hidden" name="order" value="<?=$this->input->get('order')?>">
+						  <input type="hidden" name="area" value="<?=$this->input->get('area')?>">
 						   <button class="btn btn-primary no-hover" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
 						</form>
 					</div>
@@ -56,16 +57,17 @@
 						   		<option <?=($this->input->get('order') == 'antigo' ? 'selected' : '' )?> value="antigo">Mais Antigo</option>
 						   </select>
 						  <input type="hidden" name="search" value="<?=$this->input->get('search')?>">
+						  <input type="hidden" name="area" value="<?=$this->input->get('area')?>">
 						   <button class="btn btn-primary no-hover" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
 						</form>
 						<h5 class="font-weight-bold text-primary mt-4">Área</h5>
 						<ul class="list-group list-group-flush">
-						  <li class="list-group-item"><span class="badge badge-primary mr-3">14</span><a href="">Cras justo odio</a></li>
-						  <li class="list-group-item"><span class="badge badge-primary mr-3">14</span><a href="">Dapibus ac facilisis in</a></li>
-						  <li class="list-group-item"><span class="badge badge-primary mr-3">14</span><a href="">Morbi leo risus</a></li>
-						  <li class="list-group-item"><span class="badge badge-primary mr-3">14</span><a href="">Porta ac consectetur ac</a></li>
-						  <li class="list-group-item"><span class="badge badge-primary mr-3">14</span><a href="">Vestibulum at eros</a></li>
-						  <li class="list-group-item active"><a href="" class="text-white">Ver todas</a></li>
+						  <li class="list-group-item <?=($this->input->get('area') == 'arquitetura' ? 'active': '' )?>"><a class="<?=($this->input->get('area') == 'arquitetura' ? 'text-white': '' )?>" href="<?=site_url('projeto?area=arquitetura')?>">Arquitetura</a></li>
+						  <li class="list-group-item <?=($this->input->get('area') == 'biologia' ? 'active': '' )?>"><a class="<?=($this->input->get('area') == 'biologia' ? 'text-white': '' )?>" href="<?=site_url('projeto?area=biologia')?>">Biologia</a></li>
+						  <li class="list-group-item <?=($this->input->get('area') == 'computacao' ? 'active': '' )?>"><a class="<?=($this->input->get('area') == 'computacao' ? 'text-white': '' )?>" href="<?=site_url('projeto?area=computacao')?>">Computação</a></li>
+						  <li class="list-group-item <?=($this->input->get('area') == 'engenharia' ? 'active': '' )?>"><a class="<?=($this->input->get('area') == 'engenharia' ? 'text-white': '' )?>" href="<?=site_url('projeto?area=engenharia')?>">Engenharia</a></li>
+						  <li class="list-group-item <?=($this->input->get('area') == 'psicologia' ? 'active': '' )?>"><a class="<?=($this->input->get('area') == 'psicologia' ? 'text-white': '' )?>" href="<?=site_url('projeto?area=psicologia')?>">Psicologia</a></li>
+						  <li class="list-group-item <?=($this->input->get('area') == '' ? 'active': '' )?>"><a href="<?=site_url('projeto')?>" class="<?=($this->input->get('area') == '' ? 'text-white': '' )?>">Ver todas</a></li>
 						</ul>
 					</div>
 				</div>

@@ -38,22 +38,22 @@
 					</div>
 					<div class="row mt-4">
 						<div class="col-md-2 mb-2">
-							<a href="" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Arquitetura</a>
+							<a href="<?=site_url('projeto?area=arquitetura')?>" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Arquitetura</a>
 						</div>
 						<div class="col-md-2 mb-2">
-							<a href="" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Biologia</a>
+							<a href="<?=site_url('projeto?area=biologia')?>" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Biologia</a>
 						</div>
 						<div class="col-md-2 mb-2">
-							<a href="" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Computação</a>
+							<a href="<?=site_url('projeto?area=computacao')?>" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Computação</a>
 						</div>
 						<div class="col-md-2 mb-2">
-							<a href="" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Engenharia</a>
+							<a href="<?=site_url('projeto?area=engenharia')?>" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Engenharia</a>
 						</div>
 						<div class="col-md-2 mb-2">
-							<a href="" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Psicologia</a>
+							<a href="<?=site_url('projeto?area=psicologia')?>" class="btn btn-warning btn-block" role="button" style="border-radius: 0px;">Psicologia</a>
 						</div>
 						<div class="col-md-2 mb-2">
-							<a href="" class="btn btn-primary btn-block" role="button" style="border-radius: 0px;">Ver todas</a>
+							<a href="<?=site_url('projeto')?>" class="btn btn-primary btn-block" role="button" style="border-radius: 0px;">Ver todas</a>
 						</div>
 					</div>
 					<div class="row mt-5 pt-5">
