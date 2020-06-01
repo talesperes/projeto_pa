@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql380.umbler.com',
-	'username' => 'devfho',
-	'password' => 'semsenha',
-	'database' => 'projetopa',
+	'hostname' => 'HOST',
+	'username' => 'USER',
+	'password' => 'PASSWORD',
+	'database' => 'DATABASE',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

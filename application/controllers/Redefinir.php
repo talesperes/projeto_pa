@@ -80,10 +80,10 @@ class Redefinir extends CI_Controller {
 	private function sendEmailPassword($email, $token)
 	{
 
-		$smtp['host'] = 'smtpout.secureserver.net';
-		$smtp['port'] = '465';
-		$smtp['user'] = 'admin@naluta.site';
-		$smtp['pass'] = 'Naluta@123!';
+		$smtp['host'] = 'HOST';
+		$smtp['port'] = 'PORTA';
+		$smtp['user'] = 'USER';
+		$smtp['pass'] = 'PASSWORD';
 		$smtp['crypto'] = 'ssl';
 
 		$link = site_url('redefinir/nova_senha/'.$token);
