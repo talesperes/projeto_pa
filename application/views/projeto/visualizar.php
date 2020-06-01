@@ -289,6 +289,9 @@
 
 			$('<div class="row mb-3"><div class="col-9 col-md-10 bg-light py-1 text-right"><small class="text-warning font-weight-bold">'+nome_usuario+'</small><p class="mb-0">'+msg.val()+'</p></div><div class="col-3 col-md-2"><div class="img-thumbnail"><div class="foto-pequena" style="background-image: url('+imagem+'); height: 60px"></div></div></div></div>').appendTo("#messages");
 
+			var messageBody = document.querySelector('#messages');
+				messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+
 			$.ajax({
 		    	type:"POST",
 		        cache:false,
