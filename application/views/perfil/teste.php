@@ -3,9 +3,15 @@
 <input type="text" id="msg"><button id="sendMsg">Enviar</button>
 <script type="text/javascript">
 
+	$('#msg').on('keypress', function (e) {
+         if(e.which === 13){
+            $("#sendMsg").click();
+         }
+   	});
+
 	function loadMessages() {
 		$.ajax({ 
-	        url: '<?=site_url('perfil/getMessages/12')?>', 
+	        url: '<?=site_url('chat/getMessages/12')?>', 
 	        success: function(data) { 
 				$("#messages").html('');
 	        	data = $.parseJSON(data);
@@ -23,7 +29,7 @@
 	}
 
 	loadMessages();
-	setInterval(loadMessages, 5000);
+	setInterval(loadMessages, 4000);
 
 	$("#sendMsg").click(function() {
 
@@ -34,10 +40,12 @@
 			var sendData = {};
 			sendData.msg = msg.val();
 
+			$("<p style='text-align: right'>"+msg.val()+"</p>").appendTo("#messages");
+
 			$.ajax({
 		    	type:"POST",
 		        cache:false,
-		        url:"<?=site_url('perfil/insertMessage/12')?>",
+		        url:"<?=site_url('chat/insertMessage/12')?>",
 		        data: sendData,
 		        success: function () {
 		        	loadMessages();
@@ -46,9 +54,7 @@
 		        	console.log(error);
 			    }
 		   	});
-
 			msg.val('');
-
 		}
 
 	})
