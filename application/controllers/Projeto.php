@@ -72,6 +72,11 @@ class Projeto extends MY_Controller {
 		$dados['projetoPart'] = $this->UsuarioProjeto_Model->where('fk_up_projeto', $id)->where('fk_up_usuario', $this->session->userdata('id'))->get();
 
 		$dados['participantes'] = $participantes = $this->UsuarioProjeto_Model->getQtdParticipantesProjeto($id);
+		$idParticipantes = $this->UsuarioProjeto_Model->getIdParticipantes($id);
+
+		foreach ($idParticipantes as $ip) {
+			$dados['idParticipantes'][] = $ip['fk_up_usuario'];
+		}
 
 		if($participantes['qtd'] == $projeto['num_pessoas'] && $projeto['status'] == 'Aberto') {
 			$update = $this->Projeto_Model->update(array('status' => 'Executando'), $id);

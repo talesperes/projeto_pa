@@ -51,10 +51,18 @@
 				<div class="row mt-3">
 					<div class="col-12 text-right">
 						<h5>
-							<a href="" target="_blank" class="px-2"><i class="fab fa-instagram fa-lg"></i></a>
-							<a href="" target="_blank" class="px-2"><i class="fab fa-twitter fa-lg"></i></a>
-							<a href="" target="_blank" class="px-2"><i class="fab fa-facebook-f fa-lg"></i></a>
-							<a href="" target="_blank" class="px-2"><i class="fab fa-youtube fa-lg"></i></a>
+							<?php if(!empty($usuario['instagram'])):?>
+								<a href="https://www.instagram.com/<?=$usuario['instagram']?>" target="_blank" class="px-2"><i class="fab fa-instagram fa-lg"></i></a>
+							<?php endif;?>
+							<?php if(!empty($usuario['twitter'])):?>
+								<a href="https://twitter.com/<?=$usuario['twitter']?>" target="_blank" class="px-2"><i class="fab fa-twitter fa-lg"></i></a>
+							<?php endif;?>
+							<?php if(!empty($usuario['facebook'])):?>
+								<a href="https://www.facebook.com/<?=$usuario['facebook']?>" target="_blank" class="px-2"><i class="fab fa-facebook-f fa-lg"></i></a>
+							<?php endif;?>
+							<?php if(!empty($usuario['github'])):?>
+								<a href="https://github.com/<?=$usuario['github']?>" target="_blank" class="px-2"><i class="fab fa-github fa-lg"></i></a>
+							<?php endif;?>
 						</h5>
 					</div>
 				</div>

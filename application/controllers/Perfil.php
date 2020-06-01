@@ -40,20 +40,29 @@ class Perfil extends MY_Controller {
 	public function projetos()
 	{
 
+		$filtros = (!empty($this->input->get()) ? $this->input->get() : null);
 		$id_usuario = $this->session->userdata('id');
 
 		$this->load->model('Usuario_Model');
 		$dados['usuario'] = $this->Usuario_Model->fields(array('imagem', 'id_usuario'))->get($id_usuario);
 
 		$this->load->model('Projeto_Model');
-		$count = $this->Projeto_Model->countMeusProjetos($id_usuario);
+		$this->load->model('UsuarioProjeto_Model');
+
+		if($filtros['order'] == 'participa')
+			$count = $this->UsuarioProjeto_Model->countProjetosParticipa($id_usuario);
+		else
+			$count = $this->Projeto_Model->countMeusProjetos($id_usuario);
 
 		$perPage = $this->startPagination('perfil/projetos', $count, 4);
         $page    = ($this->uri->segment(4) ? $this->uri->segment(4) : 1);
         $offset  = ($page - 1) * $perPage;
 		$dados["links"]    = $this->pagination->create_links();
-
-		$dados['projetos'] = $projetos = $this->Projeto_Model->getMeusProjetos($id_usuario, $perPage, $offset);
+		
+		if($filtros['order'] == 'participa')
+			$dados['projetos'] = $projetos = $this->UsuarioProjeto_Model->getProjetosParticipa($id_usuario, $perPage, $offset);
+		else
+			$dados['projetos'] = $projetos = $this->Projeto_Model->getMeusProjetos($id_usuario, $perPage, $offset);
 
 		$dados['title'] = 'Meus Projetos';
 		$this->template->load("template/main", "perfil/projetos", $dados);

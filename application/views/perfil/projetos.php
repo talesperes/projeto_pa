@@ -21,13 +21,11 @@
 					</div>
 					<div class="col-md-9">
 						<h5 class="mb-2 text-right">Filtrar por:</h5>
-						<form class="form-inline justify-content-end" method="get" action="">
-						   <select class="form-control mr-3" name="">
-						   		<option value="">Todos os projetos</option>
-						   		<option value="">Criados por você</option>
-						   		<option value="">Projetos que você participa</option>
+						<form class="form-inline justify-content-end" method="get" action="<?=site_url('perfil/projetos')?>">
+						   <select class="form-control mr-3" name="order">
+						   		<option <?=($this->input->get('order') == 'criado' ? 'selected' : '')?> value="criado">Criados por você</option>
+						   		<option <?=($this->input->get('order') == 'participa' ? 'selected' : '')?> value="participa">Projetos que você participa</option>
 						   </select>
-						  <input type="hidden" name="search" value="">
 						   <button class="btn btn-primary no-hover" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
 						</form>
 					</div>

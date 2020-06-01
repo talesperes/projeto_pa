@@ -74,67 +74,69 @@
 							<div class="row">
 								<div class="col-md-6">
 									<?php if($this->session->userdata('id') != $projeto['id_usuario'] && $participantes['qtd'] != $projeto['num_pessoas'] && $this->session->userdata('logado')):?>
-										<?php if($projetoPart):?>
-											<a href="<?=site_url('projeto/cancelar/'.$projeto['id_projeto'])?>" class="btn btn-danger btn-block" role="button">Cancelar Solicitação</a>
+										<?php if($projetoPart):?> <a href="<?=site_url('projeto/cancelar/'.$projeto['id_projeto'])?>" class="btn btn-danger btn-block" role="button">Cancelar Solicitação</a>
 										<?php else:?>
 											<a href="<?=site_url('projeto/participar/'.$projeto['id_projeto'])?>" class="btn btn-primary btn-block" role="button">Solicitar Participação +</a>
 										<?php endif;?>
 									<?php endif;?>
 								</div>
-								<div class="col-lg-6">
-									<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#chat">
-									    Chat <i class="fas fa-comments mr-1"></i>
-									</button>
+								<?php if($projeto['status'] != 'Aberto' && $this->session->userdata('logado') && ($projeto['id_usuario'] == $this->session->userdata('id') || in_array($this->session->userdata('id'), $idParticipantes)) ):?>
+									<div class="col-lg-6">
+										<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#chat">
+										    Chat <i class="fas fa-comments mr-1"></i>
+										</button>
 
-									<!-- Chat Modal -->
-										<div class="modal fade" id="chat" tabindex="-1" role="dialog" aria-labelledby="chatModal" aria-hidden="true">
-										  <div class="modal-dialog modal-lg" role="document">
-										    <div class="modal-content pb-3" style="border-radius: 0.5rem;">
-										      <div class="modal-header">
-										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										          <span aria-hidden="true">&times;</span>
-										        </button>
-										      </div>
-										      <div class="modal-body pt-0">
-										        <h6 class="font-weight-bold text-center text-primary">Chat</h6>
-										        <div  style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px">
-										        	<div id="messages">
-										        	</div>
-										        	<!--
-										        	<div class="row mb-3">
-										        		<div class="col-12 bg-light py-1" style="border-radius: 5px;">
-										        			<small class="text-primary font-weight-bold">Woody</small>
-										        			<p class="mb-0">amigo ond esta?</p>
-										        		</div>
-										        	</div>
-										        	<div class="row mb-3">
-										        		<div class="col-12 bg-light py-1 text-right" style="border-radius: 5px;">
-										        			<small class="text-warning font-weight-bold">Buzz Lightyear</small>
-										        			<p class="mb-0">amigo esto aqui</p>
-										        		</div>
-										        	</div>
-										        	-->
+										<!-- Chat Modal -->
+											<div class="modal fade" id="chat" tabindex="-1" role="dialog" aria-labelledby="chatModal" aria-hidden="true">
+											  <div class="modal-dialog modal-lg" role="document">
+											    <div class="modal-content pb-3" style="border-radius: 0.5rem;">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true">&times;</span>
+											        </button>
+											      </div>
+											      <div class="modal-body pt-0">
+											        <h6 class="font-weight-bold text-center text-primary">Chat</h6>
+											        <div  style="border: 2px solid #e3e7f0; border-radius: 10px; padding: 30px">
+											        	<div id="messages">
+											        	</div>
+											        	<!--
+											        	<div class="row mb-3">
+											        		<div class="col-12 bg-light py-1" style="border-radius: 5px;">
+											        			<small class="text-primary font-weight-bold">Woody</small>
+											        			<p class="mb-0">amigo ond esta?</p>
+											        		</div>
+											        	</div>
+											        	<div class="row mb-3">
+											        		<div class="col-12 bg-light py-1 text-right" style="border-radius: 5px;">
+											        			<small class="text-warning font-weight-bold">Buzz Lightyear</small>
+											        			<p class="mb-0">amigo esto aqui</p>
+											        		</div>
+											        	</div>
+											        	-->
 
-										        </div>
-										        <div class="mt-4">
-												  <div class="form-row">
-												  	<div class="col-10">
-												    	<input type="text" class="form-control" id="msg" placeholder="Digite sua mensagem...">
-												    </div>
-												    <div class="col-2">
-													    <button id="sendMsg" class="btn btn-primary btn-block">
-												          <i class="fas fa-paper-plane"></i>
-												        </button>
-												    </div>
-												  </div>
-												</div>
-										      </div>
-										    </div>
-										  </div>
-										</div>
-									<!-- /Chat Modal -->
+											        </div>
+											        <div class="mt-4">
+													  <div class="form-row">
+													  	<div class="col-10">
+													    	<input type="text" class="form-control" id="msg" placeholder="Digite sua mensagem...">
+													    </div>
+													    <div class="col-2">
+														    <button id="sendMsg" class="btn btn-primary btn-block">
+													          <i class="fas fa-paper-plane"></i>
+													        </button>
+													    </div>
+													  </div>
+													</div>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+										<!-- /Chat Modal -->
+									</div>
+								<?php endif;?>
+
 								</div>
-							</div>
 
 						</div>
 					</div>

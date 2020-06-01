@@ -124,4 +124,55 @@ class UsuarioProjeto_Model extends MY_Model
 			return 0;
 	}
 
+	public function getProjetosParticipa($id_usuario, $limit = null, $start = null)
+	{	
+		$this->_database->select("p.*");
+		$this->_database->select("up.fk_up_usuario");
+		$this->_database->from("usuario_projeto up");
+		$this->_database->join("projeto p", "p.id_projeto = up.fk_up_projeto");
+		$this->_database->where("up.fk_up_usuario", $id_usuario);
+
+		if($limit !== null && $start !== null)
+			$this->_database->limit($limit, $start);
+
+		$query = $this->_database->get();
+
+		if($query->num_rows() > 0)
+			return $query->result_array();
+		else
+			return null;
+
+	}
+
+	public function countProjetosParticipa($id_usuario)
+	{	
+		$this->_database->from("usuario_projeto up");
+		$this->_database->where("up.fk_up_usuario", $id_usuario);
+		$this->_database->where("up.status", "Participando");
+		
+		$query = $this->_database->get();
+
+		if($query->num_rows() > 0)
+			return $query->num_rows();
+		else
+			return null;
+
+	}
+
+	public function getIdParticipantes($id_projeto)
+	{
+		$this->_database->select('up.fk_up_usuario');
+		$this->_database->from("usuario_projeto up");
+		$this->_database->where("up.fk_up_projeto", $id_projeto);
+		$this->_database->where("up.status", "Participando");
+
+		$query = $this->_database->get();
+
+		if($query->num_rows() > 0)
+			return $query->result_array();
+		else
+			return null;
+
+	}
+
 }

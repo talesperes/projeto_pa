@@ -26,6 +26,10 @@ class Usuario_Model extends MY_Model
 		$this->_database->select('imagem');
 		$this->_database->select('biografia');
 		$this->_database->select('pontuacao');
+		$this->_database->select('instagram');
+		$this->_database->select('twitter');
+		$this->_database->select('facebook');
+		$this->_database->select('github');
 		$this->_database->select('(SELECT COUNT(*)+1 FROM usuario where pontuacao > (SELECT pontuacao from usuario WHERE id_usuario = '.$id_usuario.')) posicao_rank');
 		$this->_database->select('TIMESTAMPDIFF(YEAR, nascimento, CURDATE()) as idade');
 
