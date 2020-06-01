@@ -3,6 +3,7 @@
 ## Qual o objetivo do Naluta?
 
 Com várias pessoas passando a desenvolver seus próprios projetos a partir de suas ideias, acaba sendo necessária a contribuição de outras pessoas para torná-los realidade. Com esse sistema é possível unir pessoas para trabalharem juntas, visando a realização de seus projetos.
+
 O Sistema tem como objetivo reunir pessoas de diversos lugares, com diferentes habilidades para trabalharem em conjunto, afim de ajudar no desenvolvimento de um projeto, onde uma pessoa ao criá-lo passa a ser o líder do mesmo, podendo aplicar definições como bem quiser e permitir com que pessoas interessadas no projeto possam participar, tendo antes a permissão do líder.
 
 ### Requisitos do Sistema
